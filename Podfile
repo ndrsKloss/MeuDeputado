@@ -7,6 +7,7 @@ target 'MeuDeputado' do
 
   # Pods for MeuDeputado
   pod 'RxSwift'
+  pod 'Parse'
 
   target 'MeuDeputadoTests' do
     inherit! :search_paths
