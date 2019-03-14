@@ -4,23 +4,28 @@ PODS:
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
+  - RxCocoa (4.4.1):
+    - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
 
 DEPENDENCIES:
   - Parse
-  - RxSwift
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
     - Parse
+    - RxCocoa
     - RxSwift
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: 2e7faf6270dbe2a334db8fe953c2a58ce5a54ec1
+PODFILE CHECKSUM: 9f9fb7bdfa935be6f5beaf10b91e56dfb6285d2a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
