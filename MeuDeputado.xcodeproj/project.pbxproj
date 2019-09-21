@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,9 @@
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
 		526A0E4220C340EE002FDC83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E4020C340EE002FDC83 /* LaunchScreen.storyboard */; };
 		526A0E4D20C340EE002FDC83 /* MeuDeputadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E4C20C340EE002FDC83 /* MeuDeputadoTests.swift */; };
-		52A3EB8220C6050400A7F16F /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A3EB8120C6050400A7F16F /* ViewController.xib */; };
+		527EE65D23365F7300847061 /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE65C23365F7300847061 /* AppCordinator.swift */; };
+		527EE664233668BD00847061 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE663233668BD00847061 /* Stylable.swift */; };
+		527EE6662336B92200847061 /* UINavigationBarStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE6652336B92200847061 /* UINavigationBarStylable.swift */; };
 		639293E0DFB6E97CA1972B98 /* Pods_MeuDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +42,9 @@
 		526A0E4820C340EE002FDC83 /* MeuDeputadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeuDeputadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E4C20C340EE002FDC83 /* MeuDeputadoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeuDeputadoTests.swift; sourceTree = "<group>"; };
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52A3EB8120C6050400A7F16F /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		527EE65C23365F7300847061 /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
+		527EE663233668BD00847061 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
+		527EE6652336B92200847061 /* UINavigationBarStylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarStylable.swift; sourceTree = "<group>"; };
 		7071503535EDAE58E1E8B6FA /* Pods-MeuDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.release.xcconfig"; sourceTree = "<group>"; };
 		A00A81DEA6011DC38382DE14 /* Pods_MeuDeputadoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputadoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A592047ED9EB9DA9C378BE /* Pods-MeuDeputadoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputadoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				526A0E3620C340EC002FDC83 /* MeuDeputado */,
+				527EE65E2336646D00847061 /* Kit */,
 				526A0E4B20C340EE002FDC83 /* MeuDeputadoTests */,
 				526A0E3520C340EC002FDC83 /* Products */,
 				5B079D3CD22FEFB63758912F /* Pods */,
@@ -90,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				526A0E3720C340EC002FDC83 /* AppDelegate.swift */,
+				527EE65C23365F7300847061 /* AppCordinator.swift */,
 				52A3EB7F20C604B300A7F16F /* Scenes */,
 				52A3EB8020C604C100A7F16F /* Resources */,
 				526A0E4320C340EE002FDC83 /* Info.plist */,
@@ -106,11 +112,19 @@
 			path = MeuDeputadoTests;
 			sourceTree = "<group>";
 		};
+		527EE65E2336646D00847061 /* Kit */ = {
+			isa = PBXGroup;
+			children = (
+				527EE663233668BD00847061 /* Stylable.swift */,
+				527EE6652336B92200847061 /* UINavigationBarStylable.swift */,
+			);
+			path = Kit;
+			sourceTree = "<group>";
+		};
 		52A3EB7F20C604B300A7F16F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				526A0E3920C340EC002FDC83 /* ViewController.swift */,
-				52A3EB8120C6050400A7F16F /* ViewController.xib */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -197,9 +211,11 @@
 				TargetAttributes = {
 					526A0E3320C340EC002FDC83 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1030;
 					};
 					526A0E4720C340EE002FDC83 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1030;
 						TestTargetID = 526A0E3320C340EC002FDC83;
 					};
 				};
@@ -229,7 +245,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				526A0E4220C340EE002FDC83 /* LaunchScreen.storyboard in Resources */,
-				52A3EB8220C6050400A7F16F /* ViewController.xib in Resources */,
 				526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +319,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527EE6662336B92200847061 /* UINavigationBarStylable.swift in Sources */,
+				527EE65D23365F7300847061 /* AppCordinator.swift in Sources */,
+				527EE664233668BD00847061 /* Stylable.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* ViewController.swift in Sources */,
 				526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */,
 			);
@@ -390,7 +408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -444,7 +462,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -461,14 +479,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ESBBYHNATR;
 				INFOPLIST_FILE = MeuDeputado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MeuDeputado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -480,14 +499,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ESBBYHNATR;
 				INFOPLIST_FILE = MeuDeputado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MeuDeputado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -507,7 +527,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MeuDeputadoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeuDeputado.app/MeuDeputado";
 			};
@@ -529,7 +549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MeuDeputadoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeuDeputado.app/MeuDeputado";
 			};

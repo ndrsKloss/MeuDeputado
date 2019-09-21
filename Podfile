@@ -6,8 +6,8 @@ target 'MeuDeputado' do
   use_frameworks!
 
   # Pods for MeuDeputado
-  pod 'RxSwift', '~> 4.0'
-  pod 'RxCocoa', '~> 4.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'MeuDeputadoTests' do
     inherit! :search_paths
