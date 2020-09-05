@@ -15,7 +15,6 @@
 		526A0E4D20C340EE002FDC83 /* MeuDeputadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E4C20C340EE002FDC83 /* MeuDeputadoTests.swift */; };
 		527EE65D23365F7300847061 /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE65C23365F7300847061 /* AppCordinator.swift */; };
 		527EE664233668BD00847061 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE663233668BD00847061 /* Stylable.swift */; };
-		527EE6662336B92200847061 /* UINavigationBarStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE6652336B92200847061 /* UINavigationBarStylable.swift */; };
 		639293E0DFB6E97CA1972B98 /* Pods_MeuDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527EE65C23365F7300847061 /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
 		527EE663233668BD00847061 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
-		527EE6652336B92200847061 /* UINavigationBarStylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarStylable.swift; sourceTree = "<group>"; };
 		7071503535EDAE58E1E8B6FA /* Pods-MeuDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.release.xcconfig"; sourceTree = "<group>"; };
 		A00A81DEA6011DC38382DE14 /* Pods_MeuDeputadoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputadoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A592047ED9EB9DA9C378BE /* Pods-MeuDeputadoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputadoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				527EE663233668BD00847061 /* Stylable.swift */,
-				527EE6652336B92200847061 /* UINavigationBarStylable.swift */,
 			);
 			path = Kit;
 			sourceTree = "<group>";
@@ -319,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				527EE6662336B92200847061 /* UINavigationBarStylable.swift in Sources */,
 				527EE65D23365F7300847061 /* AppCordinator.swift in Sources */,
 				527EE664233668BD00847061 /* Stylable.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* ViewController.swift in Sources */,
