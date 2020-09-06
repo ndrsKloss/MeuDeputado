@@ -1,26 +1,54 @@
 PODS:
+  - Bolts/Tasks (1.9.1)
+  - Keys (1.0.1)
+  - Parse (1.18.0):
+    - Parse/Core (= 1.18.0)
+  - Parse/Core (1.18.0):
+    - Bolts/Tasks (= 1.9.1)
+  - RxBlocking (5.1.1):
+    - RxSwift (~> 5)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
+  - RxTest (5.1.1):
+    - RxSwift (~> 5)
 
 DEPENDENCIES:
+  - Keys (from `Pods/CocoaPodsKeys`)
+  - Parse (~> 1)
+  - RxBlocking (~> 5)
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
+  - RxTest (~> 5)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - RxCocoa
     - RxRelay
     - RxSwift
+  trunk:
+    - Bolts
+    - Parse
+    - RxBlocking
+    - RxTest
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
+  Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
+  Parse: 79bdda34fdb7eb2a707a43a951c8aae236cb3e34
+  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
 
-PODFILE CHECKSUM: a11306dcb499a462d90ecb711348eeeed02ee8d5
+PODFILE CHECKSUM: 8a26cd7e2c2f96816a78d4806ce6beee3f994f17
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1
