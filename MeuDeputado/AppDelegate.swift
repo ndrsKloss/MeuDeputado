@@ -3,36 +3,30 @@ import UIKit
 import Keys
 import Parse
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
   
-  private let thirdPartyServices = [
-    ParseAppDelegate()
+  private let thirdPartyServices: [UIApplicationDelegate] = [
+    ParseAppDelegate(),
+    CoordinatorAppDelegate()
    ]
   
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    defer { window?.makeKeyAndVisible() }
     
     for services in thirdPartyServices {
-      _ = services.application(
+      _ = services.application?(
         application,
         didFinishLaunchingWithOptions: launchOptions
       )
     }
-
-    self.window = UIWindow(frame: UIScreen.main.bounds)
-    let viewController = ViewController()
-    window?.rootViewController = viewController
     
     return true
   }
 }
 
-private final class ParseAppDelegate: NSObject, UIApplicationDelegate {
+final class ParseAppDelegate: NSObject, UIApplicationDelegate {
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -46,6 +40,23 @@ private final class ParseAppDelegate: NSObject, UIApplicationDelegate {
     }
     
     Parse.initialize(with: clientConfiguration)
+    
+    return true
+  }
+}
+
+final class CoordinatorAppDelegate: NSObject, UIApplicationDelegate {
+  var window: UIWindow?
+  
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    defer { window?.makeKeyAndVisible() }
+    
+    self.window = UIWindow(frame: UIScreen.main.bounds)
+    let viewController = ViewController()
+    window?.rootViewController = viewController
     
     return true
   }
