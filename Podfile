@@ -3,7 +3,8 @@ platform :ios, '13.0'
 plugin 'cocoapods-keys', {
   :project => "MeuDeputado",
   :keys => [
-    "MeuDeputadoAPIClientKey"
+    "MeuDeputadoAPIClientKey",
+    "MeuDeputadoId"
 ]}
 
 target 'MeuDeputado' do
