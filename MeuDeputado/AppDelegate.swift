@@ -7,12 +7,36 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
+  private let thirdPartyServices = [
+    ParseAppDelegate()
+   ]
+  
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     defer { window?.makeKeyAndVisible() }
     
+    for services in thirdPartyServices {
+      _ = services.application(
+        application,
+        didFinishLaunchingWithOptions: launchOptions
+      )
+    }
+
+    self.window = UIWindow(frame: UIScreen.main.bounds)
+    let viewController = ViewController()
+    window?.rootViewController = viewController
+    
+    return true
+  }
+}
+
+private final class ParseAppDelegate: NSObject, UIApplicationDelegate {
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
     let keys = MeuDeputadoKeys()
     
     let clientConfiguration = ParseClientConfiguration {
@@ -23,11 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     Parse.initialize(with: clientConfiguration)
     
-    self.window = UIWindow(frame: UIScreen.main.bounds)
-    let viewController = ViewController()
-    window?.rootViewController = viewController
-    
     return true
   }
 }
-
