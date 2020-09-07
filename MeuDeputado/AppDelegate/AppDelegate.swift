@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 import Keys
 import Parse
@@ -7,19 +6,20 @@ final class AppDelegate:
 UIResponder,
 UIApplicationDelegate {
   
-  var services: [UIApplicationDelegate]?
+  private let services: [UIApplicationDelegate]
+  
+  init(
+    services: [UIApplicationDelegate] = [ParseAppDelegate()]
+  ) {
+    self.services = services
+  }
   
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     
-    let thirdPartyServices: [UIApplicationDelegate] = [
-      ParseAppDelegate(),
-      CoordinatorAppDelegate()
-    ]
-    
-    for service in services ?? thirdPartyServices {
+    for service in services {
       _ = service.application?(
         application,
         didFinishLaunchingWithOptions: launchOptions

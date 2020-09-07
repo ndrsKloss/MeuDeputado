@@ -46,18 +46,20 @@ extension ParseAppDelegateTest {
     }
   }
   
-  func makeSut() -> (sut: Sut, fields: Fields) {
-
-    let configSpy = ConfigSpy()
-   
-    let meuDeputadoKeyMock = MeuDeputadoKeysMock()
-    
-    let sut = Sut(
-      parserInitialize: configSpy.parserInitialize,
-      keys: meuDeputadoKeyMock,
-      server: "server"
-    )
-    
-    return (sut, (configSpy, meuDeputadoKeyMock))
+  func makeSut() -> (
+    sut: Sut,
+    fields: Fields
+    ) {
+      let configSpy = ConfigSpy()
+      
+      let meuDeputadoKeyMock = MeuDeputadoKeysMock()
+      
+      let sut = Sut(
+        parserInitialize: configSpy.parserInitialize,
+        keys: meuDeputadoKeyMock,
+        server: "server"
+      )
+      
+      return (sut, (configSpy, meuDeputadoKeyMock))
   }
 }
