@@ -6,14 +6,20 @@ final class AppDelegate:
 UIResponder,
 UIApplicationDelegate {
   
-  private let services: [UIApplicationDelegate]
+  private var services: [UIApplicationDelegate]
   
-  init(
-    services: [UIApplicationDelegate] = [ParseAppDelegate()]
-  ) {
-    self.services = services
+  override init() {
+    self.services = [ParseAppDelegate()]
+    super.init()
   }
   
+  convenience init(
+    services: [UIApplicationDelegate]
+  ) {
+    self.init()
+    self.services = services
+  }
+
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
