@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		524EEF32250521260012CC5E /* AppDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EEF31250521260012CC5E /* AppDelegateTest.swift */; };
 		524EEF342505236C0012CC5E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EEF332505236C0012CC5E /* main.swift */; };
 		524EEF37250523F70012CC5E /* TestShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EEF35250523A00012CC5E /* TestShortcut.swift */; };
+		524EEF39250582900012CC5E /* ParseAppDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EEF38250582900012CC5E /* ParseAppDelegateTest.swift */; };
 		526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3720C340EC002FDC83 /* AppDelegate.swift */; };
 		526A0E3A20C340EC002FDC83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* ViewController.swift */; };
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
@@ -33,9 +33,9 @@
 		151FD45A5030B5B86993BFF0 /* Pods-MeuDeputado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.debug.xcconfig"; sourceTree = "<group>"; };
 		24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputado.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		428691E49554BFB27B8C90BB /* Pods-MeuDeputadoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputadoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		524EEF31250521260012CC5E /* AppDelegateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTest.swift; sourceTree = "<group>"; };
 		524EEF332505236C0012CC5E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		524EEF35250523A00012CC5E /* TestShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShortcut.swift; sourceTree = "<group>"; };
+		524EEF38250582900012CC5E /* ParseAppDelegateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAppDelegateTest.swift; sourceTree = "<group>"; };
 		526A0E3420C340EC002FDC83 /* MeuDeputado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuDeputado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E3720C340EC002FDC83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		526A0E3920C340EC002FDC83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524EEF3A250589A00012CC5E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				524EEF332505236C0012CC5E /* main.swift */,
+				526A0E3720C340EC002FDC83 /* AppDelegate.swift */,
+				524EEF38250582900012CC5E /* ParseAppDelegateTest.swift */,
+				524EEF35250523A00012CC5E /* TestShortcut.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
 		526A0E2B20C340EC002FDC83 = {
 			isa = PBXGroup;
 			children = (
@@ -96,10 +107,7 @@
 		526A0E3620C340EC002FDC83 /* MeuDeputado */ = {
 			isa = PBXGroup;
 			children = (
-				524EEF332505236C0012CC5E /* main.swift */,
-				526A0E3720C340EC002FDC83 /* AppDelegate.swift */,
-				524EEF31250521260012CC5E /* AppDelegateTest.swift */,
-				524EEF35250523A00012CC5E /* TestShortcut.swift */,
+				524EEF3A250589A00012CC5E /* AppDelegate */,
 				52A3EB7F20C604B300A7F16F /* Features */,
 				52A3EB8020C604C100A7F16F /* Resources */,
 			);
@@ -352,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524EEF32250521260012CC5E /* AppDelegateTest.swift in Sources */,
+				524EEF39250582900012CC5E /* ParseAppDelegateTest.swift in Sources */,
 				524EEF37250523F70012CC5E /* TestShortcut.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
