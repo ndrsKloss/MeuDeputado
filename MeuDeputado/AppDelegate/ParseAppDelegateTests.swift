@@ -29,7 +29,7 @@ extension ParseAppDelegateTest {
     keys: MeuDeputadoKeysMock
   )
 
-  class ConfigSpy {
+  final class ConfigSpy {
     var spy: ParseClientConfiguration?
     
     lazy var parserInitialize: (ParseClientConfiguration) -> Void = { [weak self] parseClientConfiguration in
@@ -37,7 +37,7 @@ extension ParseAppDelegateTest {
     }
   }
   
-  class MeuDeputadoKeysMock: MeuDeputadoKeys {
+  final class MeuDeputadoKeysMock: MeuDeputadoKeys {
     override var meuDeputadoId: String {
       "applicationId"
     }

@@ -21,7 +21,7 @@ extension AppDelegateTest {
   typealias Sut = AppDelegate
   typealias Fields = [AppDelegateSpy]
   
-  class AppDelegateSpy:
+  final class AppDelegateSpy:
   NSObject,
   UIApplicationDelegate {
     var called = false

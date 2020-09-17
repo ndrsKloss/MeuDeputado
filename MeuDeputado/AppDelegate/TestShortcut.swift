@@ -1,6 +1,5 @@
 import UIKit
+import Parse
 
 @objc(TestShortcut)
-class TestShortcut: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
-}
+class TestShortcut: UIResponder, UIApplicationDelegate { }
