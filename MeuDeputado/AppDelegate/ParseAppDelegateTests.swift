@@ -53,7 +53,7 @@ extension ParseAppDelegateTest {
       let configSpy = ConfigSpy()
       
       let meuDeputadoKeyMock = MeuDeputadoKeysMock()
-      
+			
       let sut = Sut(
         parserInitialize: configSpy.parserInitialize,
         keys: meuDeputadoKeyMock,

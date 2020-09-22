@@ -39,7 +39,7 @@ UIApplicationDelegate {
 final class ParseAppDelegate:
 NSObject,
 UIApplicationDelegate {
-  
+	
   private let applicationId: String
   private let clientKey: String
   private let server: String
