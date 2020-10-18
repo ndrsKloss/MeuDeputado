@@ -9,7 +9,10 @@ UIApplicationDelegate {
 	private var services: [UIApplicationDelegate]
 	
 	override init() {
-		self.services = [ParseAppDelegate()]
+		self.services = [
+			ParseAppDelegate(),
+			CoordinatorAppDelegate()
+		]
 		super.init()
 	}
 	
@@ -91,6 +94,14 @@ UIApplicationDelegate {
 final class CoordinatorAppDelegate: NSObject, UIApplicationDelegate {
 	var window: UIWindow?
 	
+	private let coordinator: Coordinatable
+	
+	init(
+		coordinator: Coordinatable = MainCoordinator()
+	) {
+		self.coordinator = coordinator
+	}
+	
 	func application(
 		_ application: UIApplication,
 		didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -98,8 +109,10 @@ final class CoordinatorAppDelegate: NSObject, UIApplicationDelegate {
 		defer { window?.makeKeyAndVisible() }
 		
 		self.window = UIWindow(frame: UIScreen.main.bounds)
-		let viewController = ViewController()
-		window?.rootViewController = viewController
+		
+		coordinator.start()
+		
+		window?.rootViewController = coordinator.navigationController
 		
 		return true
 	}
