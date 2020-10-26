@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24A393E9C97BAE7020EF4CE5 /* Pods_MeuDeputado_MeuDeputadoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C21DBB94654AA45619C6E65 /* Pods_MeuDeputado_MeuDeputadoTests.framework */; };
 		52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */; };
 		5236611E253CABB100BAF427 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5236611C253CABB100BAF427 /* Localizable.strings */; };
 		52366124253CF7F400BAF427 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52366122253CF7F400BAF427 /* LaunchScreen.storyboard */; };
@@ -21,18 +22,18 @@
 		525A996A2506CF71003AA67C /* DeputyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A99692506CF71003AA67C /* DeputyTests.swift */; };
 		525CBFEE25294370006939D6 /* TwoOptionsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CBFED25294370006939D6 /* TwoOptionsContainerView.swift */; };
 		525CBFF3252A8CB3006939D6 /* MeuDeputado+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CBFF2252A8CB3006939D6 /* MeuDeputado+UIButton.swift */; };
-		5269BF47252112A200E5119F /* MeuDeputado+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269BF46252112A200E5119F /* MeuDeputado+CGFloat.swift */; };
+		5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */; };
+		5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269BF46252112A200E5119F /* MeuDeputado+Tokens.swift */; };
 		526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3720C340EC002FDC83 /* AppDelegate.swift */; };
 		526A0E3A20C340EC002FDC83 /* TwoOptionsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* TwoOptionsContainerViewController.swift */; };
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
 		527EE664233668BD00847061 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE663233668BD00847061 /* Stylable.swift */; };
-		529CDD3A252AA3BB00D2DC04 /* MeuDeputado+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CDD39252AA3BB00D2DC04 /* MeuDeputado+UIFont.swift */; };
+		5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */; };
 		52D2DC3E252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift */; };
 		52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */; };
 		52D3E4CC2514116B00B637CD /* MeuDeputado+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3E4CB2514116B00B637CD /* MeuDeputado+UIColor.swift */; };
 		52FD7DCE252BF74100056852 /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525704642520F4A900FF61A1 /* MainCoordinatorTests.swift */; };
 		639293E0DFB6E97CA1972B98 /* Pods_MeuDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */; };
-		D1E25EDBA80F0B0DDE9381B0 /* Pods_MeuDeputadoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE5DD502BBDE8CBD0CE430A /* Pods_MeuDeputadoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		151FD45A5030B5B86993BFF0 /* Pods-MeuDeputado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.debug.xcconfig"; sourceTree = "<group>"; };
 		24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputado.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		428691E49554BFB27B8C90BB /* Pods-MeuDeputadoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputadoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4C21DBB94654AA45619C6E65 /* Pods_MeuDeputado_MeuDeputadoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputado_MeuDeputadoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIView.swift"; sourceTree = "<group>"; };
 		5236611D253CABB100BAF427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		52366123253CF7F400BAF427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,7 +66,8 @@
 		525A99692506CF71003AA67C /* DeputyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeputyTests.swift; sourceTree = "<group>"; };
 		525CBFED25294370006939D6 /* TwoOptionsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoOptionsContainerView.swift; sourceTree = "<group>"; };
 		525CBFF2252A8CB3006939D6 /* MeuDeputado+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIButton.swift"; sourceTree = "<group>"; };
-		5269BF46252112A200E5119F /* MeuDeputado+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+CGFloat.swift"; sourceTree = "<group>"; };
+		5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchOptionViewModel.swift; sourceTree = "<group>"; };
+		5269BF46252112A200E5119F /* MeuDeputado+Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+Tokens.swift"; sourceTree = "<group>"; };
 		526A0E3420C340EC002FDC83 /* MeuDeputado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuDeputado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E3720C340EC002FDC83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		526A0E3920C340EC002FDC83 /* TwoOptionsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoOptionsContainerViewController.swift; sourceTree = "<group>"; };
@@ -73,13 +76,12 @@
 		526A0E4820C340EE002FDC83 /* MeuDeputadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeuDeputadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527EE663233668BD00847061 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
-		529CDD39252AA3BB00D2DC04 /* MeuDeputado+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIFont.swift"; sourceTree = "<group>"; };
+		5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UILabel.swift"; sourceTree = "<group>"; };
 		52D2DC3D252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoOptionsContainerViewModel.swift; sourceTree = "<group>"; };
 		52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		52D3E4CB2514116B00B637CD /* MeuDeputado+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIColor.swift"; sourceTree = "<group>"; };
 		7071503535EDAE58E1E8B6FA /* Pods-MeuDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.release.xcconfig"; sourceTree = "<group>"; };
 		76B25A478D5A6605A7990DE6 /* Pods-MeuDeputado-MeuDeputadoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado-MeuDeputadoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado-MeuDeputadoTests/Pods-MeuDeputado-MeuDeputadoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8EE5DD502BBDE8CBD0CE430A /* Pods_MeuDeputadoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputadoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B28A11165A5E8B46F4EA366E /* Pods-MeuDeputado-MeuDeputadoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado-MeuDeputadoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado-MeuDeputadoTests/Pods-MeuDeputado-MeuDeputadoTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6A592047ED9EB9DA9C378BE /* Pods-MeuDeputadoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputadoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1E25EDBA80F0B0DDE9381B0 /* Pods_MeuDeputadoTests.framework in Frameworks */,
+				24A393E9C97BAE7020EF4CE5 /* Pods_MeuDeputado_MeuDeputadoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				5257046A25210B4E00FF61A1 /* SwitchOptionView.swift */,
+				5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */,
 				525CBFED25294370006939D6 /* TwoOptionsContainerView.swift */,
 			);
 			path = Views;
@@ -148,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				526A0E3620C340EC002FDC83 /* MeuDeputado */,
-				527EE65E2336646D00847061 /* Extensions */,
 				526A0E4B20C340EE002FDC83 /* MeuDeputadoTests */,
 				526A0E3520C340EC002FDC83 /* Products */,
 				5B079D3CD22FEFB63758912F /* Pods */,
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				524EEF3A250589A00012CC5E /* AppDelegate */,
+				527EE65E2336646D00847061 /* Extensions */,
 				520C5642251AC56400AE37DB /* Protocols */,
 				52D2DC41252BF68300E51A4F /* Scenes */,
 				5257046C25210B9400FF61A1 /* Views */,
@@ -189,11 +192,11 @@
 		527EE65E2336646D00847061 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5269BF46252112A200E5119F /* MeuDeputado+CGFloat.swift */,
+				5269BF46252112A200E5119F /* MeuDeputado+Tokens.swift */,
 				525CBFF2252A8CB3006939D6 /* MeuDeputado+UIButton.swift */,
 				52D3E4CB2514116B00B637CD /* MeuDeputado+UIColor.swift */,
-				529CDD39252AA3BB00D2DC04 /* MeuDeputado+UIFont.swift */,
 				52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */,
+				5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */,
-				8EE5DD502BBDE8CBD0CE430A /* Pods_MeuDeputadoTests.framework */,
+				4C21DBB94654AA45619C6E65 /* Pods_MeuDeputado_MeuDeputadoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -364,7 +367,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MeuDeputadoTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MeuDeputado-MeuDeputadoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -395,15 +398,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MeuDeputado-MeuDeputadoTests/Pods-MeuDeputado-MeuDeputadoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MeuDeputado-MeuDeputadoTests/Pods-MeuDeputado-MeuDeputadoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeuDeputado-MeuDeputadoTests/Pods-MeuDeputado-MeuDeputadoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDF383EC08B8B8EE398781D4 /* [CP] Embed Pods Frameworks */ = {
@@ -432,20 +435,21 @@
 			files = (
 				525CBFF3252A8CB3006939D6 /* MeuDeputado+UIButton.swift in Sources */,
 				525704602520F3FD00FF61A1 /* Coordinatable.swift in Sources */,
+				5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */,
 				52D2DC3E252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift in Sources */,
 				525704632520F47900FF61A1 /* MainCoordinator.swift in Sources */,
 				52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */,
 				525CBFEE25294370006939D6 /* TwoOptionsContainerView.swift in Sources */,
-				5269BF47252112A200E5119F /* MeuDeputado+CGFloat.swift in Sources */,
+				5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */,
 				527EE664233668BD00847061 /* Stylable.swift in Sources */,
 				5257046B25210B4E00FF61A1 /* SwitchOptionView.swift in Sources */,
 				52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* TwoOptionsContainerViewController.swift in Sources */,
 				524EEF342505236C0012CC5E /* main.swift in Sources */,
+				5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */,
 				526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */,
 				525A996825065B59003AA67C /* Deputy.swift in Sources */,
 				52D3E4CC2514116B00B637CD /* MeuDeputado+UIColor.swift in Sources */,
-				529CDD3A252AA3BB00D2DC04 /* MeuDeputado+UIFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +653,7 @@
 		};
 		526A0E5520C340EE002FDC83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 428691E49554BFB27B8C90BB /* Pods-MeuDeputadoTests.debug.xcconfig */;
+			baseConfigurationReference = 76B25A478D5A6605A7990DE6 /* Pods-MeuDeputado-MeuDeputadoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -675,7 +679,7 @@
 		};
 		526A0E5620C340EE002FDC83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6A592047ED9EB9DA9C378BE /* Pods-MeuDeputadoTests.release.xcconfig */;
+			baseConfigurationReference = B28A11165A5E8B46F4EA366E /* Pods-MeuDeputado-MeuDeputadoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;

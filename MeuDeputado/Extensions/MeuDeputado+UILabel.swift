@@ -1,5 +1,16 @@
 import UIKit
 
+extension UILabel: Styleable {
+	public struct UILabelStyle {
+		let font: UIFont
+	}
+	
+	public func apply(style: UILabelStyle) {
+		self.font = style.font
+	}
+}
+
+/*
 extension UIButton: Styleable {
 	public func apply(style: UIButtonStyle) {
 		titleLabel?.numberOfLines = 0
@@ -22,3 +33,5 @@ extension UIButton: Styleable {
 		)
 	}
 }
+
+*/

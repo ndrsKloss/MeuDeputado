@@ -1,7 +1,6 @@
 import UIKit
 
-final class MainCoordinator:
-Coordinatable {
+final class MainCoordinator: Coordinatable {
 	
 	let navigationController: UINavigationController
 	

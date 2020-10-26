@@ -13,26 +13,25 @@ extension UIColor {
 		UIColor(hex: 0xE39B95)
 	}
 	
-	static var neutral: UIColor {
+	static var neutralDarker: UIColor {
 		UIColor(hex: 0x504567)
 	}
 	
-	static var neutralLight: UIColor {
+	static var neutralDark: UIColor {
 		UIColor(hex: 0x9B92AE)
 	}
 	
-	static var neutralLighter: UIColor {
+	static var neutralBase: UIColor {
 		UIColor(hex: 0xD3CCE2)
 	}
 	
-	static var neutralLightest: UIColor {
+	static var neutralLight: UIColor {
 		UIColor(hex: 0xF2EFF9)
 	}
 	
-	static var lightest: UIColor {
+	static var neutralLighter: UIColor {
 		UIColor(hex: 0xFFFFFF)
 	}
-	
 }
 
 private extension UIColor {

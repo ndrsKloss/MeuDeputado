@@ -21,7 +21,7 @@ final class TwoOptionsContainerView: UIView {
 	}
 	
 	private func configureSelf() {
-		backgroundColor = .lightest
+		backgroundColor = .neutralLighter
 	}
 	
 	private func configureSwitchOptionView() {
@@ -30,8 +30,8 @@ final class TwoOptionsContainerView: UIView {
 		NSLayoutConstraint.activate([
 			switchOptionView.centerXAnchor.constraint(equalTo: centerXAnchor),
 			switchOptionView.topAnchor.constraint(equalTo: topAnchor),
-			switchOptionView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
-			trailingAnchor.constraint(greaterThanOrEqualTo: switchOptionView.trailingAnchor)
+            switchOptionView.leadingAnchor.constraint(lessThanOrEqualTo: leadingAnchor),
+			trailingAnchor.constraint(lessThanOrEqualTo: switchOptionView.trailingAnchor)
 		])
 	}
 }

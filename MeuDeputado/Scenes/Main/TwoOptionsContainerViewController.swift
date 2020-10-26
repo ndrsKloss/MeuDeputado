@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 final class TwoOptionsContainerViewController: UIViewController {
 	
@@ -26,7 +27,7 @@ final class TwoOptionsContainerViewController: UIViewController {
 	}
 	
 	private func configureSelf() {
-		view.backgroundColor = .lightest
+		view.backgroundColor = .neutralLighter
 	}
 	
 	private func configureContainerView() {
@@ -45,15 +46,5 @@ final class TwoOptionsContainerViewController: UIViewController {
 	
 	private func configureConstans() {
 		title = TwoOptionsContainerViewModel.Constants.appName
-		
-		containerView.switchOptionView.leftButton.setTitle(
-			TwoOptionsContainerViewModel.Constants.leftButtonTitle,
-			for: .normal
-		)
-		
-		containerView.switchOptionView.rightButton.setTitle(
-			TwoOptionsContainerViewModel.Constants.rightButtonTitle,
-			for: .normal
-		)
 	}
 }
