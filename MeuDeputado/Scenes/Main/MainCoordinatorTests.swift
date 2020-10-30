@@ -9,7 +9,7 @@ final class MainCoordinatorTests: XCTestCase {
 		sut.start()
 		
 		XCTAssertNotNil(fields.viewControllers.last)
-		XCTAssert(fields.viewControllers.last is TwoOptionsContainerViewController)
+		XCTAssert(fields.viewControllers.last is MainContainerViewController)
 	}
 }
 
