@@ -10,11 +10,29 @@ struct Thickness {
 	static let small: CGFloat = 1.0
 }
 
-struct Radius {
-	static let none: CGFloat = 0.0
-	static let small: CGFloat = 8.0
+struct Spacing {
+	/// Value of 4.0.
+	static let xxsmal: CGFloat = 4.0
+	/// Value of 8.0.
+	static let xsmal: CGFloat = 8.0
+	/// Value of 12.0.
+	static let smal: CGFloat = 12.0
+	/// Value of 16.0.
 	static let medium: CGFloat = 16.0
-	
+	/// Value of 24.0.
+	static let large: CGFloat = 24.0
+	/// Value of 32.0.
+	static let xlarge: CGFloat = 32.0
+}
+
+struct Radius {
+	/// Value of 0.0.
+	static let none: CGFloat = 0.0
+	/// Value of 8.0.
+	static let small: CGFloat = 8.0
+	/// Value of 16.0.
+	static let medium: CGFloat = 16.0
+	/// Value of the lowest value between width and height divided by 2.
 	static func circular(_ frame: CGRect) -> CGFloat {
 		min(frame.width, frame.height) / 2
 	}
