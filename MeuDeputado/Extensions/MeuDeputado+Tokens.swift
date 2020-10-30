@@ -10,6 +10,16 @@ struct Thickness {
 	static let small: CGFloat = 1.0
 }
 
+struct Radius {
+	static let none: CGFloat = 0.0
+	static let small: CGFloat = 8.0
+	static let medium: CGFloat = 16.0
+	
+	static func circular(_ frame: CGRect) -> CGFloat {
+		min(frame.width, frame.height) / 2
+	}
+}
+
 struct Shadow {
 	struct Large {
 		static let shadowOpacity: Float = 0.25
