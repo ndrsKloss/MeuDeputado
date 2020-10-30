@@ -1,11 +1,11 @@
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class SwitchOptionView: UIView {
 	
 	typealias Constants = SwitchOptionViewModel.Constants
 	typealias Input = SwitchOptionViewModel.Input
-	typealias Output = SwitchOptionViewModel.Output
 	
 	private let viewModel: SwitchOptionViewModel
 	
@@ -26,9 +26,9 @@ final class SwitchOptionView: UIView {
 		return $0
 	}(UIView())
 
-	private let leftButton = SwitchOptionButton()
+	fileprivate let leftButton = SwitchOptionButton()
 	
-	private let rightButton = SwitchOptionButton()
+	fileprivate let rightButton = SwitchOptionButton()
 	
 	private lazy var leadingSelectViewConstraint = selectView.leadingAnchor.constraint(
 		equalTo: leadingAnchor,
@@ -129,14 +129,12 @@ final class SwitchOptionView: UIView {
 		leadingSelectViewConstraint.isActive = true
 		leftButton.apply(style: .selected)
 		rightButton.apply(style: .unselected)
-		
 	}
 	
 	private func selectRight() {
 		leadingSelectViewConstraint.isActive = false
 		rightButton.apply(style: .selected)
 		leftButton.apply(style: .unselected)
-		
 	}
 }
 
@@ -148,19 +146,32 @@ extension SwitchOptionButton: Styleable {
 		let color: UIColor
 		
 		static let selected = UIButtonStyle(
-			font: UIFont.preferredFont(forTextStyle: .title1),
+			font: UIFont.preferredFont(forTextStyle: .headline),
 			color: .neutralLighter
 		)
 		
 		static let unselected = UIButtonStyle(
-			font: UIFont.preferredFont(forTextStyle: .title1),
+			font: UIFont.preferredFont(forTextStyle: .headline),
 			color: .neutralDark
 		)
 	}
 	
 	func apply(style: UIButtonStyle) {
+		contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 0.0, bottom: 10.0, right: 0.0)
+		titleLabel?.lineBreakMode = .byCharWrapping
 		titleLabel?.numberOfLines = 0
 		titleLabel?.font = style.font
+		titleLabel?.adjustsFontForContentSizeCategory = true
 		setTitleColor(style.color, for: .normal)
+	}
+}
+
+extension Reactive where Base: SwitchOptionView {
+	var leftTap: ControlEvent<Void> {
+		base.leftButton.rx.tap
+	}
+	
+	var rightTap: ControlEvent<Void> {
+		base.leftButton.rx.tap
 	}
 }

@@ -1,5 +1,6 @@
 // @sergdort
 protocol ViewModelType {
+	associatedtype Constants
     associatedtype Input
     associatedtype Output
 	

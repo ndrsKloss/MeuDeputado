@@ -2,7 +2,7 @@ import Parse
 
 final public class Deputy:
 	PFObject,
-PFSubclassing {
+	PFSubclassing {
 	
 	@NSManaged internal var deputyId: NSNumber
 	@NSManaged internal var name: String

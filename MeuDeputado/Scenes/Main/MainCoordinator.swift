@@ -17,7 +17,7 @@ final class MainCoordinator: Coordinatable {
 	
 	func start() {
 		navigationController.pushViewController(
-			TwoOptionsContainerViewController(),
+			MainContainerViewController(),
 			animated: true
 		)
 	}

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		24A393E9C97BAE7020EF4CE5 /* Pods_MeuDeputado_MeuDeputadoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C21DBB94654AA45619C6E65 /* Pods_MeuDeputado_MeuDeputadoTests.framework */; };
+		52316E0B254B5AC20098514C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E0A254B5AC20098514C /* ActivityIndicator.swift */; };
+		52316E10254C73A20098514C /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E0F254C73A20098514C /* MainContentViewController.swift */; };
+		52316E12254C73B30098514C /* MainContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E11254C73B30098514C /* MainContentViewModel.swift */; };
+		52316E14254C78030098514C /* MainContentRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E13254C78030098514C /* MainContentRepresentable.swift */; };
+		52316E17254C79F40098514C /* MainContentRepresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E16254C79F40098514C /* MainContentRepresenter.swift */; };
+		52316E19254C84870098514C /* MeuDeputado+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E18254C84870098514C /* MeuDeputado+ObservableType.swift */; };
+		52316E1B254C9CB70098514C /* MeuDeputado+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */; };
 		52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */; };
 		5236611E253CABB100BAF427 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5236611C253CABB100BAF427 /* Localizable.strings */; };
 		52366124253CF7F400BAF427 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52366122253CF7F400BAF427 /* LaunchScreen.storyboard */; };
@@ -20,18 +27,18 @@
 		525A99652505BB03003AA67C /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A99632505BACE003AA67C /* AppDelegateTests.swift */; };
 		525A996825065B59003AA67C /* Deputy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A996725065B59003AA67C /* Deputy.swift */; };
 		525A996A2506CF71003AA67C /* DeputyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A99692506CF71003AA67C /* DeputyTests.swift */; };
-		525CBFEE25294370006939D6 /* TwoOptionsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CBFED25294370006939D6 /* TwoOptionsContainerView.swift */; };
-		525CBFF3252A8CB3006939D6 /* MeuDeputado+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CBFF2252A8CB3006939D6 /* MeuDeputado+UIButton.swift */; };
 		5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */; };
+		5266F68A2547B2CD00DE46C1 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F6892547B2CD00DE46C1 /* Fetchable.swift */; };
+		5266F691254843CA00DE46C1 /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F690254843CA00DE46C1 /* Finder.swift */; };
+		5266F6A5254A0D8F00DE46C1 /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F6A4254A0D8F00DE46C1 /* Queries.swift */; };
 		5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269BF46252112A200E5119F /* MeuDeputado+Tokens.swift */; };
 		526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3720C340EC002FDC83 /* AppDelegate.swift */; };
-		526A0E3A20C340EC002FDC83 /* TwoOptionsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* TwoOptionsContainerViewController.swift */; };
+		526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */; };
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
 		527EE664233668BD00847061 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE663233668BD00847061 /* Stylable.swift */; };
 		5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */; };
-		52D2DC3E252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift */; };
+		52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */; };
 		52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */; };
-		52D3E4CC2514116B00B637CD /* MeuDeputado+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3E4CB2514116B00B637CD /* MeuDeputado+UIColor.swift */; };
 		52FD7DCE252BF74100056852 /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525704642520F4A900FF61A1 /* MainCoordinatorTests.swift */; };
 		639293E0DFB6E97CA1972B98 /* Pods_MeuDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +58,13 @@
 		24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputado.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		428691E49554BFB27B8C90BB /* Pods-MeuDeputadoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputadoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputadoTests/Pods-MeuDeputadoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C21DBB94654AA45619C6E65 /* Pods_MeuDeputado_MeuDeputadoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuDeputado_MeuDeputadoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52316E0A254B5AC20098514C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		52316E0F254C73A20098514C /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
+		52316E11254C73B30098514C /* MainContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewModel.swift; sourceTree = "<group>"; };
+		52316E13254C78030098514C /* MainContentRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentRepresentable.swift; sourceTree = "<group>"; };
+		52316E16254C79F40098514C /* MainContentRepresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentRepresenter.swift; sourceTree = "<group>"; };
+		52316E18254C84870098514C /* MeuDeputado+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+ObservableType.swift"; sourceTree = "<group>"; };
+		52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIViewController.swift"; sourceTree = "<group>"; };
 		52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIView.swift"; sourceTree = "<group>"; };
 		5236611D253CABB100BAF427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		52366123253CF7F400BAF427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,22 +78,22 @@
 		525A99632505BACE003AA67C /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		525A996725065B59003AA67C /* Deputy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deputy.swift; sourceTree = "<group>"; };
 		525A99692506CF71003AA67C /* DeputyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeputyTests.swift; sourceTree = "<group>"; };
-		525CBFED25294370006939D6 /* TwoOptionsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoOptionsContainerView.swift; sourceTree = "<group>"; };
-		525CBFF2252A8CB3006939D6 /* MeuDeputado+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIButton.swift"; sourceTree = "<group>"; };
 		5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchOptionViewModel.swift; sourceTree = "<group>"; };
+		5266F6892547B2CD00DE46C1 /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
+		5266F690254843CA00DE46C1 /* Finder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finder.swift; sourceTree = "<group>"; };
+		5266F6A4254A0D8F00DE46C1 /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		5269BF46252112A200E5119F /* MeuDeputado+Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+Tokens.swift"; sourceTree = "<group>"; };
 		526A0E3420C340EC002FDC83 /* MeuDeputado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuDeputado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E3720C340EC002FDC83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		526A0E3920C340EC002FDC83 /* TwoOptionsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoOptionsContainerViewController.swift; sourceTree = "<group>"; };
+		526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
 		526A0E3E20C340EE002FDC83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		526A0E4320C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526A0E4820C340EE002FDC83 /* MeuDeputadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeuDeputadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527EE663233668BD00847061 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UILabel.swift"; sourceTree = "<group>"; };
-		52D2DC3D252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoOptionsContainerViewModel.swift; sourceTree = "<group>"; };
+		52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
-		52D3E4CB2514116B00B637CD /* MeuDeputado+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIColor.swift"; sourceTree = "<group>"; };
 		7071503535EDAE58E1E8B6FA /* Pods-MeuDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.release.xcconfig"; sourceTree = "<group>"; };
 		76B25A478D5A6605A7990DE6 /* Pods-MeuDeputado-MeuDeputadoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado-MeuDeputadoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado-MeuDeputadoTests/Pods-MeuDeputado-MeuDeputadoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B28A11165A5E8B46F4EA366E /* Pods-MeuDeputado-MeuDeputadoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado-MeuDeputadoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado-MeuDeputadoTests/Pods-MeuDeputado-MeuDeputadoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,10 +124,28 @@
 			isa = PBXGroup;
 			children = (
 				5257045F2520F3FD00FF61A1 /* Coordinatable.swift */,
+				5266F6892547B2CD00DE46C1 /* Fetchable.swift */,
 				527EE663233668BD00847061 /* Stylable.swift */,
 				52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */,
+				52316E13254C78030098514C /* MainContentRepresentable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		52316E09254B5A9F0098514C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				52316E0A254B5AC20098514C /* ActivityIndicator.swift */,
+				52316E16254C79F40098514C /* MainContentRepresenter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		52316E0C254C53FF0098514C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		524EEF3A250589A00012CC5E /* AppDelegate */ = {
@@ -133,18 +165,26 @@
 			children = (
 				5257046A25210B4E00FF61A1 /* SwitchOptionView.swift */,
 				5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */,
-				525CBFED25294370006939D6 /* TwoOptionsContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		525A996625065B22003AA67C /* Models */ = {
+		525A996625065B22003AA67C /* ParseModels */ = {
 			isa = PBXGroup;
 			children = (
 				525A996725065B59003AA67C /* Deputy.swift */,
 				525A99692506CF71003AA67C /* DeputyTests.swift */,
 			);
-			path = Models;
+			path = ParseModels;
+			sourceTree = "<group>";
+		};
+		5266F68F254842D700DE46C1 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				5266F6A4254A0D8F00DE46C1 /* Queries.swift */,
+				5266F690254843CA00DE46C1 /* Finder.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		526A0E2B20C340EC002FDC83 = {
@@ -172,10 +212,13 @@
 			children = (
 				524EEF3A250589A00012CC5E /* AppDelegate */,
 				527EE65E2336646D00847061 /* Extensions */,
+				5266F68F254842D700DE46C1 /* Repository */,
 				520C5642251AC56400AE37DB /* Protocols */,
 				52D2DC41252BF68300E51A4F /* Scenes */,
 				5257046C25210B9400FF61A1 /* Views */,
-				525A996625065B22003AA67C /* Models */,
+				52316E0C254C53FF0098514C /* Models */,
+				525A996625065B22003AA67C /* ParseModels */,
+				52316E09254B5A9F0098514C /* Utils */,
 				52A3EB8020C604C100A7F16F /* Resources */,
 			);
 			path = MeuDeputado;
@@ -193,10 +236,10 @@
 			isa = PBXGroup;
 			children = (
 				5269BF46252112A200E5119F /* MeuDeputado+Tokens.swift */,
-				525CBFF2252A8CB3006939D6 /* MeuDeputado+UIButton.swift */,
-				52D3E4CB2514116B00B637CD /* MeuDeputado+UIColor.swift */,
+				52316E18254C84870098514C /* MeuDeputado+ObservableType.swift */,
 				52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */,
 				5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */,
+				52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,8 +268,10 @@
 			children = (
 				525704622520F47900FF61A1 /* MainCoordinator.swift */,
 				525704642520F4A900FF61A1 /* MainCoordinatorTests.swift */,
-				526A0E3920C340EC002FDC83 /* TwoOptionsContainerViewController.swift */,
-				52D2DC3D252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift */,
+				526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */,
+				52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */,
+				52316E0F254C73A20098514C /* MainContentViewController.swift */,
+				52316E11254C73B30098514C /* MainContentViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -433,23 +478,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				525CBFF3252A8CB3006939D6 /* MeuDeputado+UIButton.swift in Sources */,
+				52316E17254C79F40098514C /* MainContentRepresenter.swift in Sources */,
+				5266F6A5254A0D8F00DE46C1 /* Queries.swift in Sources */,
 				525704602520F3FD00FF61A1 /* Coordinatable.swift in Sources */,
+				5266F68A2547B2CD00DE46C1 /* Fetchable.swift in Sources */,
 				5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */,
-				52D2DC3E252BF03D00E51A4F /* TwoOptionsContainerViewModel.swift in Sources */,
+				52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */,
 				525704632520F47900FF61A1 /* MainCoordinator.swift in Sources */,
+				52316E1B254C9CB70098514C /* MeuDeputado+UIViewController.swift in Sources */,
+				5266F691254843CA00DE46C1 /* Finder.swift in Sources */,
 				52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */,
-				525CBFEE25294370006939D6 /* TwoOptionsContainerView.swift in Sources */,
 				5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */,
 				527EE664233668BD00847061 /* Stylable.swift in Sources */,
+				52316E19254C84870098514C /* MeuDeputado+ObservableType.swift in Sources */,
 				5257046B25210B4E00FF61A1 /* SwitchOptionView.swift in Sources */,
 				52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */,
-				526A0E3A20C340EC002FDC83 /* TwoOptionsContainerViewController.swift in Sources */,
+				52316E10254C73A20098514C /* MainContentViewController.swift in Sources */,
+				526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */,
 				524EEF342505236C0012CC5E /* main.swift in Sources */,
+				52316E14254C78030098514C /* MainContentRepresentable.swift in Sources */,
 				5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */,
+				52316E0B254B5AC20098514C /* ActivityIndicator.swift in Sources */,
+				52316E12254C73B30098514C /* MainContentViewModel.swift in Sources */,
 				526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */,
 				525A996825065B59003AA67C /* Deputy.swift in Sources */,
-				52D3E4CC2514116B00B637CD /* MeuDeputado+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
