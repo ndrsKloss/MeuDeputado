@@ -12,11 +12,11 @@ struct Thickness {
 
 struct Spacing {
 	/// Value of 4.0.
-	static let xxsmal: CGFloat = 4.0
+	static let xxsmall: CGFloat = 4.0
 	/// Value of 8.0.
-	static let xsmal: CGFloat = 8.0
+	static let xsmall: CGFloat = 8.0
 	/// Value of 12.0.
-	static let smal: CGFloat = 12.0
+	static let small: CGFloat = 12.0
 	/// Value of 16.0.
 	static let medium: CGFloat = 16.0
 	/// Value of 24.0.

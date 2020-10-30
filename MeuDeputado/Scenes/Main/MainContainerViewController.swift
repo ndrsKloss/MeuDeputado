@@ -61,10 +61,6 @@ final class MainContainerViewController: UIViewController {
 	
 	private func configureMainContent(_ viewModels: [MainContentViewModel]) {
 		assert(viewModels.count == 2)
-		viewModels.forEach(configureEachMainContent)
-	}
-	
-	private func configureEachMainContent(viewModel: MainContentViewModel) {
 		var viewControllers = [UIViewController]()
 		
 		func configure(_ viewModel: MainContentViewModel) {
@@ -80,8 +76,9 @@ final class MainContainerViewController: UIViewController {
 				guide.bottomAnchor.constraint(equalToSystemSpacingBelow: viewController.view.bottomAnchor, multiplier: 1.0)
 			])
 		}
-		
+		viewModels.forEach(configure)
 		self.visualization = Visualization(left: viewControllers[0], right: viewControllers[1])
+		
 	}
 	
 	private func transform() {
