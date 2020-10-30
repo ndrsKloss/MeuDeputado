@@ -157,7 +157,7 @@ extension SwitchOptionButton: Styleable {
 	}
 	
 	func apply(style: UIButtonStyle) {
-		contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 0.0, bottom: 10.0, right: 0.0)
+		contentEdgeInsets = UIEdgeInsets(top: Spacing.small, left: 0.0, bottom: Spacing.small, right: 0.0)
 		titleLabel?.lineBreakMode = .byCharWrapping
 		titleLabel?.numberOfLines = 0
 		titleLabel?.font = style.font
