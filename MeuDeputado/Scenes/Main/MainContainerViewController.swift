@@ -15,6 +15,10 @@ final class MainContainerViewController:
 	
 	private let switchOptionView = SwitchOptionView()
 	
+	private var loaderView: LoaderView?
+	
+	private var errorView: ErrorView?
+	
 	init(
 		viewModel: MainContainerViewModel = MainContainerViewModel(finder: Finder())
 	) {
@@ -33,8 +37,8 @@ final class MainContainerViewController:
 		super.viewDidLoad()
 		configureSelf()
 		configureSwitchOptionView()
-		configureLoaderView()
-		configureErrorView()
+		loaderView = configureLoaderView()
+		errorView = configureErrorView()
 		transform()
 	}
 	
@@ -73,22 +77,46 @@ final class MainContainerViewController:
 		visualization.viewControllers.append(viewController)
 	}
 	
+	
+	private func configureState(_ status: MainContainerViewModel.Status) {
+		switch status {
+			case .success: configureSuccess()
+			case .loading: configureLoading()
+			case .error: configureError()
+		}
+	}
+	
 	private func configureSuccess() {
+		loaderView?.stopAnimating()
+		errorView?.isHidden = true
+		visualization.rightView?.isHidden = true
 		
+		switchOptionView.isHidden = false
+		visualization.leftView?.isHidden = false
 	}
 	
 	private func configureLoading() {
+		switchOptionView.isHidden = true
+		visualization.leftView?.isHidden = true
+		visualization.rightView?.isHidden = true
+		errorView?.isHidden = true
 		
+		loaderView?.startAnimating()
 	}
 	
 	private func configureError() {
+		loaderView?.stopAnimating()
+		switchOptionView.isHidden = true
+		visualization.leftView?.isHidden = true
+		visualization.rightView?.isHidden = true
 		
+		errorView?.isHidden = false
 	}
 	
 	private func transform() {
 		let input = Input(
 			viewWillAppear: rx.viewWillAppear,
-			retryTap: errorView.rx.tap,
+			retryTap: errorView?.rx.tap ?? .init(events: Observable<Void>.empty()),
 			leftTap: switchOptionView.rx.leftTap,
 			rightTap: switchOptionView.rx.rightTap
 		)
@@ -103,28 +131,26 @@ final class MainContainerViewController:
 			.drive(onNext: configureMainContent)
 			.disposed(by: disposeBag)
 		
-		output.state
-			.filter { $0 == .success }
-		
-		output.state
-			.filter { $0 == .error }
-
-		output.state
-			.filter { $0 == .loading }
+		output.status
+			.drive(onNext: configureState)
+			.disposed(by: disposeBag)
 	}
 }
 
 extension MainContainerViewController {
 	private struct Visualization {
-		enum Side { case left, right }
-		
-		var viewControllers = [UIViewController]()
-		
-		func contentOf(side: Side) -> UIViewController? {
-			switch side {
-				case .left: return viewControllers.first
-				case .right: return viewControllers.last
+		var viewControllers = [UIViewController]() {
+			didSet {
+				assert(viewControllers.count <= 2)
 			}
+		}
+		
+		var leftView: UIView? {
+			viewControllers.first?.view
+		}
+		
+		var rightView: UIView? {
+			viewControllers.last?.view
 		}
 	}
 }

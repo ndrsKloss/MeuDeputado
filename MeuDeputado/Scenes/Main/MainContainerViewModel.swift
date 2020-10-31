@@ -21,10 +21,10 @@ final class MainContainerViewModel: ViewModelType {
 	struct Output {
 		let deputyContent: Driver<MainContentViewModel>
 		let partyContent: Driver<MainContentViewModel>
-		let state: Driver<State>
+		let status: Driver<Status>
 	}
 	
-	enum State {
+	enum Status {
 		case loading, success, error
 	}
 	
@@ -74,24 +74,24 @@ final class MainContainerViewModel: ViewModelType {
 			.map(MainContentViewModel.init)
 		
 		let success = Observable.combineLatest(deputyContent, partyContent)
-			.map { _ in State.success }
+			.map { _ in Status.success }
 		
 		let error = errorTracker
 			.asObservable()
-			.map { _ in State.error }
+			.map { _ in Status.error }
 		
 		let loading = activityIndicator
 			.asObservable()
 			.filter { $0 }
-			.map { _ in State.loading }
+			.map { _ in Status.loading }
 		
-		let state = Observable.merge(success, error, loading)
+		let status = Observable.merge(success, error, loading)
 			.asDriverOnErrorJustComplete()
 			
 		return Output(
 			deputyContent: deputyContent.asDriverOnErrorJustComplete(),
 			partyContent: partyContent.asDriverOnErrorJustComplete(),
-			state: state
+			status: status
 		)
 	}
 	

@@ -21,41 +21,41 @@ extension Reactive where Base: UIViewController {
 }
 
 extension LoaderAndErrorPresentable where Self: UIViewController {
-	var loaderView: LoaderView {
-		LoaderView()
-	}
-
-	func configureLoaderView() {
-		self.view.addSubview(loaderView, withConstraints: true)
+	func configureLoaderView() -> LoaderView {
+		let loaderView = LoaderView()
+		
+		view.addSubview(loaderView, withConstraints: true)
 		
 		NSLayoutConstraint.activate([
 			loaderView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
 			loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			
-			loaderView.topAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
-			loaderView.leadingAnchor.constraint(lessThanOrEqualTo: margins.leadingAnchor),
-			margins.trailingAnchor.constraint(lessThanOrEqualTo: loaderView.trailingAnchor),
-			guide.bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: loaderView.bottomAnchor, multiplier: 1.0)
+			loaderView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+			loaderView.leadingAnchor.constraint(greaterThanOrEqualTo: margins.leadingAnchor),
+			margins.trailingAnchor.constraint(greaterThanOrEqualTo: loaderView.trailingAnchor),
+			guide.bottomAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: loaderView.bottomAnchor, multiplier: 1.0)
 		])
+		
+		return loaderView
 	}
 }
 
 extension LoaderAndErrorPresentable where Self: UIViewController {
-	var errorView: ErrorView {
-		ErrorView()
-	}
-	
-	func configureErrorView() {
+	func configureErrorView() -> ErrorView {
+		let errorView = ErrorView()
+		
 		view.addSubview(errorView, withConstraints: true)
 		
 		NSLayoutConstraint.activate([
 			errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
 			errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			
-			errorView.topAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
-			errorView.leadingAnchor.constraint(lessThanOrEqualTo: margins.leadingAnchor),
-			margins.trailingAnchor.constraint(lessThanOrEqualTo: errorView.trailingAnchor),
-			guide.bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: errorView.bottomAnchor, multiplier: 1.0)
+			errorView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+			errorView.leadingAnchor.constraint(greaterThanOrEqualTo: margins.leadingAnchor),
+			margins.trailingAnchor.constraint(greaterThanOrEqualTo: errorView.trailingAnchor),
+			guide.bottomAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: errorView.bottomAnchor, multiplier: 1.0)
 		])
+		
+		return errorView
 	}
 }

@@ -1,15 +1,11 @@
 import UIKit
 
 protocol LoadPresentable {
-	var loaderView: LoaderView { get }
-	
-	func configureLoaderView()
+	func configureLoaderView() -> LoaderView
 }
 
 protocol ErrorPresentable {
-	var errorView: ErrorView { get }
-	
-	func configureErrorView()
+	func configureErrorView() -> ErrorView
 }
 
 protocol LoaderAndErrorPresentable: LoadPresentable, ErrorPresentable { }

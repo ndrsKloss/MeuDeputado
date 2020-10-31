@@ -3,9 +3,14 @@ import UIKit
 final class LoaderView: UIView {
 	
 	private let activitiIndicatorView: UIActivityIndicatorView = {
+		if #available(iOS 13, *) {
+			$0.style = .large
+		} else {
+			$0.style = .gray
+		}
 		$0.hidesWhenStopped = true
 		return $0
-	}(UIActivityIndicatorView(style: .gray))
+	}(UIActivityIndicatorView())
 	
 	init() {
 		super.init(frame: .zero)
@@ -30,18 +35,20 @@ final class LoaderView: UIView {
 		addSubview(activitiIndicatorView, withConstraints: true)
 		
 		NSLayoutConstraint.activate([
-			activitiIndicatorView.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.small),
-			activitiIndicatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.small),
-			trailingAnchor.constraint(equalTo: activitiIndicatorView.trailingAnchor, constant: Spacing.small),
-			bottomAnchor.constraint(equalTo: activitiIndicatorView.bottomAnchor, constant: Spacing.small)
+			activitiIndicatorView.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.large),
+			activitiIndicatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.large),
+			trailingAnchor.constraint(equalTo: activitiIndicatorView.trailingAnchor, constant: Spacing.large),
+			bottomAnchor.constraint(equalTo: activitiIndicatorView.bottomAnchor, constant: Spacing.large)
 		])
 	}
 	
 	func startAnimating() {
+		isHidden = false
 		activitiIndicatorView.startAnimating()
 	}
 	
 	func stopAnimating() {
+		isHidden = true
 		activitiIndicatorView.stopAnimating()
 	}
 }
