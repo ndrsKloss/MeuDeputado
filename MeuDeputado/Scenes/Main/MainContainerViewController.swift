@@ -113,6 +113,17 @@ final class MainContainerViewController:
 		errorView?.isHidden = false
 	}
 	
+	private func changeToLeftVisualization() {
+		visualization.rightView?.isHidden = true
+		visualization.leftView?.isHidden = false
+		
+	}
+	
+	private func changeToRightVisualization() {
+		visualization.leftView?.isHidden = true
+		visualization.rightView?.isHidden = false
+	}
+	
 	private func transform() {
 		let input = Input(
 			viewWillAppear: rx.viewWillAppear,
@@ -133,6 +144,14 @@ final class MainContainerViewController:
 		
 		output.status
 			.drive(onNext: configureState)
+			.disposed(by: disposeBag)
+		
+		switchOptionView.rx.leftTap
+			.subscribe(onNext: changeToLeftVisualization)
+			.disposed(by: disposeBag)
+		
+		switchOptionView.rx.rightTap
+			.subscribe(onNext: changeToRightVisualization)
 			.disposed(by: disposeBag)
 	}
 }

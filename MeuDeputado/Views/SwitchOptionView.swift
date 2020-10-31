@@ -172,6 +172,6 @@ extension Reactive where Base: SwitchOptionView {
 	}
 	
 	var rightTap: ControlEvent<Void> {
-		base.leftButton.rx.tap
+		base.rightButton.rx.tap
 	}
 }
