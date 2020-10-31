@@ -6,15 +6,10 @@ final class MainContentViewModel: ViewModelType {
 	
 	struct Output { }
 	
-	private let deputies: [Deputy]
-	private let preparer: MainContentRepresentable
+	private let content: [MainContent]
 	
-	init(
-		deputies: [Deputy],
-		preparer: MainContentRepresentable
-	) {
-		self.deputies = deputies
-		self.preparer = preparer
+	init(content: [MainContent]) {
+		self.content = content
 	}
 	
 	func transform(input: Input) -> Output {
@@ -22,3 +17,20 @@ final class MainContentViewModel: ViewModelType {
 	}
 }
 
+extension MainContentViewModel {
+	struct MainContent {
+		let title: String
+		let information: String
+		let imageId: String?
+		
+		init(
+			title: String,
+			information: String,
+			imageId: String? = nil
+		) {
+			self.title = title
+			self.information = information
+			self.imageId = imageId
+		}
+	}
+}

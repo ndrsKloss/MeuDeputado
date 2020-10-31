@@ -11,8 +11,6 @@
 		52316E0B254B5AC20098514C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E0A254B5AC20098514C /* ActivityIndicator.swift */; };
 		52316E10254C73A20098514C /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E0F254C73A20098514C /* MainContentViewController.swift */; };
 		52316E12254C73B30098514C /* MainContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E11254C73B30098514C /* MainContentViewModel.swift */; };
-		52316E14254C78030098514C /* MainContentRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E13254C78030098514C /* MainContentRepresentable.swift */; };
-		52316E17254C79F40098514C /* MainContentRepresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E16254C79F40098514C /* MainContentRepresenter.swift */; };
 		52316E19254C84870098514C /* MeuDeputado+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E18254C84870098514C /* MeuDeputado+ObservableType.swift */; };
 		52316E1B254C9CB70098514C /* MeuDeputado+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */; };
 		52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */; };
@@ -38,6 +36,9 @@
 		527EE664233668BD00847061 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE663233668BD00847061 /* Stylable.swift */; };
 		52865D10254CA830006BD243 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D0F254CA830006BD243 /* Party.swift */; };
 		52865D12254CACAD006BD243 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D11254CACAD006BD243 /* LoaderView.swift */; };
+		52865D1A254CF90A006BD243 /* ViewsPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D19254CF90A006BD243 /* ViewsPresentable.swift */; };
+		52865D1C254CFA7F006BD243 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D1B254CFA7F006BD243 /* ErrorView.swift */; };
+		52865D1E254D15D6006BD243 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D1D254D15D6006BD243 /* ErrorTracker.swift */; };
 		5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */; };
 		52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */; };
 		52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */; };
@@ -63,8 +64,6 @@
 		52316E0A254B5AC20098514C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		52316E0F254C73A20098514C /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
 		52316E11254C73B30098514C /* MainContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewModel.swift; sourceTree = "<group>"; };
-		52316E13254C78030098514C /* MainContentRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentRepresentable.swift; sourceTree = "<group>"; };
-		52316E16254C79F40098514C /* MainContentRepresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentRepresenter.swift; sourceTree = "<group>"; };
 		52316E18254C84870098514C /* MeuDeputado+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+ObservableType.swift"; sourceTree = "<group>"; };
 		52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIViewController.swift"; sourceTree = "<group>"; };
 		52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIView.swift"; sourceTree = "<group>"; };
@@ -95,6 +94,9 @@
 		527EE663233668BD00847061 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		52865D0F254CA830006BD243 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		52865D11254CACAD006BD243 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		52865D19254CF90A006BD243 /* ViewsPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsPresentable.swift; sourceTree = "<group>"; };
+		52865D1B254CFA7F006BD243 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		52865D1D254D15D6006BD243 /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UILabel.swift"; sourceTree = "<group>"; };
 		52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 				5266F6892547B2CD00DE46C1 /* Fetchable.swift */,
 				527EE663233668BD00847061 /* Stylable.swift */,
 				52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */,
-				52316E13254C78030098514C /* MainContentRepresentable.swift */,
+				52865D19254CF90A006BD243 /* ViewsPresentable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -140,16 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				52316E0A254B5AC20098514C /* ActivityIndicator.swift */,
-				52316E16254C79F40098514C /* MainContentRepresenter.swift */,
+				52865D1D254D15D6006BD243 /* ErrorTracker.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		52316E0C254C53FF0098514C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		524EEF3A250589A00012CC5E /* AppDelegate */ = {
@@ -170,6 +165,7 @@
 				5257046A25210B4E00FF61A1 /* SwitchOptionView.swift */,
 				5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */,
 				52865D11254CACAD006BD243 /* LoaderView.swift */,
+				52865D1B254CFA7F006BD243 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,7 +218,6 @@
 				520C5642251AC56400AE37DB /* Protocols */,
 				52D2DC41252BF68300E51A4F /* Scenes */,
 				5257046C25210B9400FF61A1 /* Views */,
-				52316E0C254C53FF0098514C /* Models */,
 				525A996625065B22003AA67C /* ParseModels */,
 				52316E09254B5A9F0098514C /* Utils */,
 				52A3EB8020C604C100A7F16F /* Resources */,
@@ -484,7 +479,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52316E17254C79F40098514C /* MainContentRepresenter.swift in Sources */,
 				52865D10254CA830006BD243 /* Party.swift in Sources */,
 				5266F6A5254A0D8F00DE46C1 /* Queries.swift in Sources */,
 				52865D12254CACAD006BD243 /* LoaderView.swift in Sources */,
@@ -494,6 +488,8 @@
 				52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */,
 				525704632520F47900FF61A1 /* MainCoordinator.swift in Sources */,
 				52316E1B254C9CB70098514C /* MeuDeputado+UIViewController.swift in Sources */,
+				52865D1A254CF90A006BD243 /* ViewsPresentable.swift in Sources */,
+				52865D1C254CFA7F006BD243 /* ErrorView.swift in Sources */,
 				5266F691254843CA00DE46C1 /* Finder.swift in Sources */,
 				52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */,
 				5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */,
@@ -504,8 +500,8 @@
 				52316E10254C73A20098514C /* MainContentViewController.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */,
 				524EEF342505236C0012CC5E /* main.swift in Sources */,
-				52316E14254C78030098514C /* MainContentRepresentable.swift in Sources */,
 				5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */,
+				52865D1E254D15D6006BD243 /* ErrorTracker.swift in Sources */,
 				52316E0B254B5AC20098514C /* ActivityIndicator.swift in Sources */,
 				52316E12254C73B30098514C /* MainContentViewModel.swift in Sources */,
 				526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */,

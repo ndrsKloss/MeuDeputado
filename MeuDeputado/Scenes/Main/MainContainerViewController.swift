@@ -1,27 +1,19 @@
 import UIKit
 import RxSwift
 
-final class MainContainerViewController: UIViewController {
-	
+final class MainContainerViewController:
+	UIViewController,
+	LoaderAndErrorPresentable {
+
 	typealias Input = MainContainerViewModel.Input
 	
 	private let viewModel: MainContainerViewModel
 	
-	private var visualization: Visualization?
+	private var visualization = Visualization()
 	
 	private let disposeBag = DisposeBag()
 	
 	private let switchOptionView = SwitchOptionView()
-	
-	private let mainContentPlaceholderView = UIView()
-	
-	private var guide: UILayoutGuide {
-		view.safeAreaLayoutGuide
-	}
-	
-	private var margins: UILayoutGuide {
-		view.layoutMarginsGuide
-	}
 	
 	init(
 		viewModel: MainContainerViewModel = MainContainerViewModel(finder: Finder())
@@ -41,6 +33,8 @@ final class MainContainerViewController: UIViewController {
 		super.viewDidLoad()
 		configureSelf()
 		configureSwitchOptionView()
+		configureLoaderView()
+		configureErrorView()
 		transform()
 	}
 	
@@ -59,52 +53,72 @@ final class MainContainerViewController: UIViewController {
 		])
 	}
 	
-	private func configureMainContent(_ viewModels: [MainContentViewModel]) {
-		assert(viewModels.count == 2)
-		var viewControllers = [UIViewController]()
+	private func configureMainContent(
+		_ viewModel: MainContentViewModel
+	) {
+		let viewController = MainContentViewController(viewModel: viewModel)
 		
-		func configure(_ viewModel: MainContentViewModel) {
-			let viewController = MainContentViewController(viewModel: viewModel)
-			view.addSubview(viewController.view, withConstraints: true)
-			viewController.didMove(toParent: self)
-			viewControllers.append(viewController)
+		viewController.view.isHidden = true
+		
+		view.addSubview(viewController.view, withConstraints: true)
+		viewController.didMove(toParent: self)
 
-			NSLayoutConstraint.activate([
-				viewController.view.topAnchor.constraint(equalTo: switchOptionView.bottomAnchor),
-				viewController.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-				margins.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
-				guide.bottomAnchor.constraint(equalToSystemSpacingBelow: viewController.view.bottomAnchor, multiplier: 1.0)
-			])
-		}
-		viewModels.forEach(configure)
-		self.visualization = Visualization(left: viewControllers[0], right: viewControllers[1])
+		NSLayoutConstraint.activate([
+			viewController.view.topAnchor.constraint(equalTo: switchOptionView.bottomAnchor),
+			viewController.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+			margins.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
+			guide.bottomAnchor.constraint(equalToSystemSpacingBelow: viewController.view.bottomAnchor, multiplier: 1.0)
+		])
+		
+		visualization.viewControllers.append(viewController)
+	}
+	
+	private func configureSuccess() {
+		
+	}
+	
+	private func configureLoading() {
+		
+	}
+	
+	private func configureError() {
 		
 	}
 	
 	private func transform() {
 		let input = Input(
 			viewWillAppear: rx.viewWillAppear,
+			retryTap: errorView.rx.tap,
 			leftTap: switchOptionView.rx.leftTap,
 			rightTap: switchOptionView.rx.rightTap
 		)
 		
 		let output = viewModel.transform(input: input)
-
-		output.rawContent
+		
+		output.deputyContent
 			.drive(onNext: configureMainContent)
 			.disposed(by: disposeBag)
+		
+		output.partyContent
+			.drive(onNext: configureMainContent)
+			.disposed(by: disposeBag)
+		
+		output.state
+			.filter { $0 == .success }
+		
+		output.state
+			.filter { $0 == .error }
+
+		output.state
+			.filter { $0 == .loading }
 	}
 }
 
 extension MainContainerViewController {
 	private struct Visualization {
-		enum Side { case left; case right }
+		enum Side { case left, right }
 		
 		var viewControllers = [UIViewController]()
-		
-		init (left: UIViewController, right: UIViewController) {
-			viewControllers.append(contentsOf: [left, right])
-		}
 		
 		func contentOf(side: Side) -> UIViewController? {
 			switch side {

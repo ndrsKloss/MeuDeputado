@@ -8,4 +8,8 @@ extension ObservableType {
 			Driver.empty()
 		}
 	}
+	
+	func catchErrorJustReturnEmpty() -> Observable<Void> {
+		.empty()
+	}
 }

@@ -30,7 +30,6 @@ final public class Deputy:
 		ownership: NSNumber
 	) {
 		super.init()
-		
 		self.deputyId = deputyId
 		self.name = name
 		self.realName = realName
