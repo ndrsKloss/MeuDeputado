@@ -24,7 +24,7 @@ extension LoaderAndErrorPresentable where Self: UIViewController {
 	func configureLoaderView() -> LoaderView {
 		let loaderView = LoaderView()
 		
-		view.addSubview(loaderView, withConstraints: true)
+		view.addSubviewWithAutolayout(loaderView)
 		
 		NSLayoutConstraint.activate([
 			loaderView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -43,8 +43,8 @@ extension LoaderAndErrorPresentable where Self: UIViewController {
 extension LoaderAndErrorPresentable where Self: UIViewController {
 	func configureErrorView() -> ErrorView {
 		let errorView = ErrorView()
-		
-		view.addSubview(errorView, withConstraints: true)
+
+		view.addSubviewWithAutolayout(errorView)
 		
 		NSLayoutConstraint.activate([
 			errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

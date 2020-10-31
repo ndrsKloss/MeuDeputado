@@ -39,6 +39,9 @@
 		52865D1A254CF90A006BD243 /* ViewsPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D19254CF90A006BD243 /* ViewsPresentable.swift */; };
 		52865D1C254CFA7F006BD243 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D1B254CFA7F006BD243 /* ErrorView.swift */; };
 		52865D1E254D15D6006BD243 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D1D254D15D6006BD243 /* ErrorTracker.swift */; };
+		52865D21254DA2BE006BD243 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D20254DA2BE006BD243 /* MainContentView.swift */; };
+		52865D23254DB59B006BD243 /* MainContenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D22254DB59B006BD243 /* MainContenTableViewCell.swift */; };
+		52865D25254DB5B0006BD243 /* MainContentTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */; };
 		5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */; };
 		52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */; };
 		52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */; };
@@ -97,6 +100,9 @@
 		52865D19254CF90A006BD243 /* ViewsPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsPresentable.swift; sourceTree = "<group>"; };
 		52865D1B254CFA7F006BD243 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		52865D1D254D15D6006BD243 /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		52865D20254DA2BE006BD243 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		52865D22254DB59B006BD243 /* MainContenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContenTableViewCell.swift; sourceTree = "<group>"; };
+		52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentTableViewCellModel.swift; sourceTree = "<group>"; };
 		5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UILabel.swift"; sourceTree = "<group>"; };
 		52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -162,10 +168,13 @@
 		5257046C25210B9400FF61A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				52865D1B254CFA7F006BD243 /* ErrorView.swift */,
+				52865D11254CACAD006BD243 /* LoaderView.swift */,
+				52865D20254DA2BE006BD243 /* MainContentView.swift */,
+				52865D22254DB59B006BD243 /* MainContenTableViewCell.swift */,
+				52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */,
 				5257046A25210B4E00FF61A1 /* SwitchOptionView.swift */,
 				5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */,
-				52865D11254CACAD006BD243 /* LoaderView.swift */,
-				52865D1B254CFA7F006BD243 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,8 +192,8 @@
 		5266F68F254842D700DE46C1 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				5266F6A4254A0D8F00DE46C1 /* Queries.swift */,
 				5266F690254843CA00DE46C1 /* Finder.swift */,
+				5266F6A4254A0D8F00DE46C1 /* Queries.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -487,6 +496,7 @@
 				5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */,
 				52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */,
 				525704632520F47900FF61A1 /* MainCoordinator.swift in Sources */,
+				52865D25254DB5B0006BD243 /* MainContentTableViewCellModel.swift in Sources */,
 				52316E1B254C9CB70098514C /* MeuDeputado+UIViewController.swift in Sources */,
 				52865D1A254CF90A006BD243 /* ViewsPresentable.swift in Sources */,
 				52865D1C254CFA7F006BD243 /* ErrorView.swift in Sources */,
@@ -502,10 +512,12 @@
 				524EEF342505236C0012CC5E /* main.swift in Sources */,
 				5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */,
 				52865D1E254D15D6006BD243 /* ErrorTracker.swift in Sources */,
+				52865D23254DB59B006BD243 /* MainContenTableViewCell.swift in Sources */,
 				52316E0B254B5AC20098514C /* ActivityIndicator.swift in Sources */,
 				52316E12254C73B30098514C /* MainContentViewModel.swift in Sources */,
 				526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */,
 				525A996825065B59003AA67C /* Deputy.swift in Sources */,
+				52865D21254DA2BE006BD243 /* MainContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

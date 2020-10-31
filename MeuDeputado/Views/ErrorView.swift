@@ -26,7 +26,7 @@ final class ErrorView: UIView {
 	}
 	
 	private func configureErrorView() {
-		addSubview(button, withConstraints: true)
+		addSubviewWithAutolayout(button)
 		
 		NSLayoutConstraint.activate([
 			button.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.small),

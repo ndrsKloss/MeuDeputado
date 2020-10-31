@@ -32,7 +32,7 @@ final class LoaderView: UIView {
 	}
 	
 	private func configureActivitiIndicatorView() {
-		addSubview(activitiIndicatorView, withConstraints: true)
+		addSubviewWithAutolayout(activitiIndicatorView)
 		
 		NSLayoutConstraint.activate([
 			activitiIndicatorView.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.large),

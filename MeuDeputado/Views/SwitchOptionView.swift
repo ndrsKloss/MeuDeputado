@@ -51,7 +51,7 @@ final class SwitchOptionView: UIView {
 		super.init(frame: .zero)
 
 		configureSelf()
-		setupSelectView()
+		configureSelectView()
 		configureStackView()
 		configureLeftButton()
 		configureRightButton()
@@ -70,7 +70,7 @@ final class SwitchOptionView: UIView {
 	}
 	
 	private func configureStackView() {
-		addSubview(stackView, withConstraints: true)
+		addSubviewWithAutolayout(stackView)
 		
 		NSLayoutConstraint.activate([
 			stackView.topAnchor.constraint(equalTo: topAnchor),
@@ -80,8 +80,8 @@ final class SwitchOptionView: UIView {
 		])
 	}
 	
-	private func setupSelectView() {
-		addSubview(selectView, withConstraints: true)
+	private func configureSelectView() {
+		addSubviewWithAutolayout(selectView)
 		
 		NSLayoutConstraint.activate([
 			selectView.topAnchor.constraint(equalTo: topAnchor, constant: 4.0),

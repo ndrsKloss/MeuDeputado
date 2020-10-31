@@ -48,7 +48,7 @@ final class MainContainerViewController:
 	}
 	
 	private func configureSwitchOptionView() {
-		view.addSubview(switchOptionView, withConstraints: true)
+		view.addSubviewWithAutolayout(switchOptionView)
 		
 		NSLayoutConstraint.activate([
 			switchOptionView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
@@ -64,7 +64,7 @@ final class MainContainerViewController:
 		
 		viewController.view.isHidden = true
 		
-		view.addSubview(viewController.view, withConstraints: true)
+		view.addSubviewWithAutolayout(viewController.view)
 		viewController.didMove(toParent: self)
 
 		NSLayoutConstraint.activate([

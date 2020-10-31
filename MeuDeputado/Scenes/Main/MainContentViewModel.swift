@@ -1,19 +1,29 @@
+import RxCocoa
+
 final class MainContentViewModel: ViewModelType {
 	
-	struct Constants { }
+	struct Constants {
+		static let mainContentCellIdentifier = String(describing: MainContenTableViewCell.self)
+	}
 	
 	struct Input { }
 	
-	struct Output { }
+	struct Output {
+		let dataSource: Driver<[MainContentTableViewCellModel]>
+	}
 	
 	private let content: [MainContent]
 	
 	init(content: [MainContent]) {
 		self.content = content
 	}
-	
+		
 	func transform(input: Input) -> Output {
-		Output()
+		
+		let dataSource = Driver.just(content)
+			.map { $0.map(MainContentTableViewCellModel.init) }
+		
+		return Output(dataSource: dataSource)
 	}
 }
 
