@@ -21,7 +21,8 @@ let getAllParties: PFQuery<PFObject>? = {
 ) -> PFQuery<PFObject>? {
 	
 	let query = PFQuery(className: "PartyExpense")
-	query.limit = 500
+	//18 expense types * 12 months
+	query.limit = 216
 	//let query = PartyExpenses.query()
 	query.whereKey(NSExpression(forKeyPath: \PartyExpenses.party).keyPath, equalTo: party)
 	query.whereKey(NSExpression(forKeyPath: \PartyExpenses.year).keyPath, equalTo: year)

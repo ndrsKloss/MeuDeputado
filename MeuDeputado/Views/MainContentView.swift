@@ -47,7 +47,7 @@ final class MainContentView: UIView {
 	}
 	
 	private func configureSelf() {
-		backgroundColor = .neutralLighter
+		backgroundColor = .neutralLighter 
 	}
 	
 	private func configureImageView() {
