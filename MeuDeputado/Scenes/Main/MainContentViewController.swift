@@ -12,7 +12,8 @@ final class MainContentViewController: UIViewController {
 	private let disposeBag = DisposeBag()
 	
 	private let tableView: UITableView = {
-		$0.showsVerticalScrollIndicator = false
+		$0.separatorColor = .neutralBase
+		$0.separatorInset = UIEdgeInsets(top: 0.0, left: -10.0, bottom: 0.0, right: 10.0)
 		$0.backgroundColor = .neutralLighter
 		$0.tableFooterView = UIView()
 		$0.estimatedRowHeight = UITableView.automaticDimension
@@ -55,19 +56,22 @@ final class MainContentViewController: UIViewController {
 		])
 	}
 	
-	private func transform() {
-		let configureCell = { (tableView: UITableView, _: Int, viewModel: MainContentTableViewCellModel) -> UITableViewCell in
-			let cell = tableView.dequeueReusableCell(withIdentifier: Constants.mainContentCellIdentifier) as? MainContenTableViewCell ??
-				
-				MainContenTableViewCell(style: .default, reuseIdentifier: Constants.mainContentCellIdentifier)
-			
-			cell.configure(withViewModel: viewModel)
-			
-			return cell
-		}
+	private func configureCell(
+		tableView: UITableView,
+		row: Int,
+		viewModel: MainContentTableViewCellModel
+	) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.mainContentCellIdentifier) as?
+			MainContenTableViewCell ??
+			MainContenTableViewCell(style: .default, reuseIdentifier: Constants.mainContentCellIdentifier)
 		
+		cell.configure(withViewModel: viewModel)
+		return cell
+	}
+	
+	private func transform() {
 		let input = Input()
-
+		
 		let output = viewModel.transform(input: input)
 		
 		output

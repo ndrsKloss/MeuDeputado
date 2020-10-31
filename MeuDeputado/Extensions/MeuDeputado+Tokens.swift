@@ -32,9 +32,13 @@ struct Radius {
 	static let small: CGFloat = 8.0
 	/// Value of 16.0.
 	static let medium: CGFloat = 16.0
-	/// Value of the lowest value between width and height divided by 2.
+	/// Value of the lowest value between frame's width and height divided by 2.
 	static func circular(_ frame: CGRect) -> CGFloat {
 		min(frame.width, frame.height) / 2
+	}
+	/// Value of the lowest value between width and height divided by 2.
+	static func circular(width: CGFloat, height: CGFloat) -> CGFloat {
+		min(width, height) / 2
 	}
 }
 
@@ -43,6 +47,61 @@ struct Shadow {
 		static let shadowOpacity: Float = 0.25
 		static let shadowOffset = CGSize(width: 0, height: 4)
 		static let shadowRadius: CGFloat = 16.0
+	}
+}
+
+struct FontSize {
+	/// Value of 34.0.
+	static let xxlarge: CGFloat = 34.0
+	/// Value of 28.0.
+	static let xlarge: CGFloat = 28.0
+	/// Value of 22.0.
+	static let large: CGFloat = 22.0
+	/// Value of 18.0.
+	static let medium: CGFloat = 18.0
+	/// Value of 16.0.
+	static let base: CGFloat = 16.0
+	/// Value of 14.0.
+	static let small: CGFloat = 14.0
+	/// Value of 10.0.
+	static let xsmall: CGFloat = 10.0
+}
+
+extension UIFont {
+	static var largeTitle: UIFont {
+		UIFont.preferredFont(for: .largeTitle, weight: .bold)
+	}
+	
+	static var title1: UIFont {
+		UIFont.preferredFont(for: .title1, weight: .bold)
+	}
+	
+	static var title2: UIFont {
+		UIFont.preferredFont(for: .title2, weight: .bold)
+	}
+	
+	static var title3: UIFont {
+		UIFont.preferredFont(for: .title3, weight: .heavy)
+	}
+	
+	static var subhead: UIFont {
+		UIFont.preferredFont(for: .subheadline, weight: .bold)
+	}
+	
+	static var headline: UIFont {
+		UIFont.preferredFont(for: .headline, weight: .medium)
+	}
+	
+	static var body: UIFont {
+		UIFont.preferredFont(for: .body, weight: .light)
+	}
+	
+	static var callout: UIFont {
+		UIFont.preferredFont(for: .callout, weight: .light)
+	}
+	
+	static var callout2: UIFont {
+		UIFont.preferredFont(for: .callout, weight: .bold)
 	}
 }
 
@@ -77,20 +136,5 @@ extension UIColor {
 	
 	static var neutralLighter: UIColor {
 		UIColor(hex: 0xFFFFFF)
-	}
-}
-
-private extension UIColor {
-	convenience init(hex: Int) {
-		let red = (hex >> 16) & 0xff
-		let green = (hex >> 8) & 0xff
-		let blue = hex & 0xff
-	
-		self.init(
-			red: CGFloat(red) / 255.0,
-			green: CGFloat(green) / 255.0,
-			blue: CGFloat(blue) / 255.0,
-			alpha: 1
-		)
 	}
 }

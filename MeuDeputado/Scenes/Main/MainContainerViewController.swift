@@ -1,3 +1,5 @@
+import Parse
+
 import UIKit
 import RxSwift
 
@@ -68,7 +70,7 @@ final class MainContainerViewController:
 		viewController.didMove(toParent: self)
 
 		NSLayoutConstraint.activate([
-			viewController.view.topAnchor.constraint(equalTo: switchOptionView.bottomAnchor),
+			viewController.view.topAnchor.constraint(equalTo: switchOptionView.bottomAnchor, constant: Spacing.large),
 			viewController.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
 			margins.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
 			guide.bottomAnchor.constraint(equalToSystemSpacingBelow: viewController.view.bottomAnchor, multiplier: 1.0)

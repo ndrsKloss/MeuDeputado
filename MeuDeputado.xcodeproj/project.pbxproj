@@ -42,7 +42,10 @@
 		52865D21254DA2BE006BD243 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D20254DA2BE006BD243 /* MainContentView.swift */; };
 		52865D23254DB59B006BD243 /* MainContenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D22254DB59B006BD243 /* MainContenTableViewCell.swift */; };
 		52865D25254DB5B0006BD243 /* MainContentTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */; };
-		5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */; };
+		52865D27254DDD39006BD243 /* PartyExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D26254DDD39006BD243 /* PartyExpenses.swift */; };
+		52865D29254DDDF9006BD243 /* ExpenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D28254DDDF9006BD243 /* ExpenseType.swift */; };
+		52865D2B254DF42A006BD243 /* MeuDeputado+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D2A254DF42A006BD243 /* MeuDeputado+UIFont.swift */; };
+		52865D2D254DF453006BD243 /* MeuDeputado+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D2C254DF453006BD243 /* MeuDeputado+UIColor.swift */; };
 		52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */; };
 		52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */; };
 		52FD7DCE252BF74100056852 /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525704642520F4A900FF61A1 /* MainCoordinatorTests.swift */; };
@@ -103,7 +106,10 @@
 		52865D20254DA2BE006BD243 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		52865D22254DB59B006BD243 /* MainContenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContenTableViewCell.swift; sourceTree = "<group>"; };
 		52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentTableViewCellModel.swift; sourceTree = "<group>"; };
-		5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UILabel.swift"; sourceTree = "<group>"; };
+		52865D26254DDD39006BD243 /* PartyExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyExpenses.swift; sourceTree = "<group>"; };
+		52865D28254DDDF9006BD243 /* ExpenseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseType.swift; sourceTree = "<group>"; };
+		52865D2A254DF42A006BD243 /* MeuDeputado+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIFont.swift"; sourceTree = "<group>"; };
+		52865D2C254DF453006BD243 /* MeuDeputado+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIColor.swift"; sourceTree = "<group>"; };
 		52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		7071503535EDAE58E1E8B6FA /* Pods-MeuDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +191,8 @@
 				525A996725065B59003AA67C /* Deputy.swift */,
 				525A99692506CF71003AA67C /* DeputyTests.swift */,
 				52865D0F254CA830006BD243 /* Party.swift */,
+				52865D26254DDD39006BD243 /* PartyExpenses.swift */,
+				52865D28254DDDF9006BD243 /* ExpenseType.swift */,
 			);
 			path = ParseModels;
 			sourceTree = "<group>";
@@ -248,8 +256,9 @@
 				5269BF46252112A200E5119F /* MeuDeputado+Tokens.swift */,
 				52316E18254C84870098514C /* MeuDeputado+ObservableType.swift */,
 				52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */,
-				5290C32B254104EB0084E706 /* MeuDeputado+UILabel.swift */,
 				52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */,
+				52865D2A254DF42A006BD243 /* MeuDeputado+UIFont.swift */,
+				52865D2C254DF453006BD243 /* MeuDeputado+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,10 +499,10 @@
 			files = (
 				52865D10254CA830006BD243 /* Party.swift in Sources */,
 				5266F6A5254A0D8F00DE46C1 /* Queries.swift in Sources */,
+				52865D29254DDDF9006BD243 /* ExpenseType.swift in Sources */,
 				52865D12254CACAD006BD243 /* LoaderView.swift in Sources */,
 				525704602520F3FD00FF61A1 /* Coordinatable.swift in Sources */,
 				5266F68A2547B2CD00DE46C1 /* Fetchable.swift in Sources */,
-				5290C32C254104EB0084E706 /* MeuDeputado+UILabel.swift in Sources */,
 				52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */,
 				525704632520F47900FF61A1 /* MainCoordinator.swift in Sources */,
 				52865D25254DB5B0006BD243 /* MainContentTableViewCellModel.swift in Sources */,
@@ -504,8 +513,11 @@
 				52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */,
 				5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */,
 				527EE664233668BD00847061 /* Stylable.swift in Sources */,
+				52865D2B254DF42A006BD243 /* MeuDeputado+UIFont.swift in Sources */,
 				52316E19254C84870098514C /* MeuDeputado+ObservableType.swift in Sources */,
 				5257046B25210B4E00FF61A1 /* SwitchOptionView.swift in Sources */,
+				52865D2D254DF453006BD243 /* MeuDeputado+UIColor.swift in Sources */,
+				52865D27254DDD39006BD243 /* PartyExpenses.swift in Sources */,
 				52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */,
 				52316E10254C73A20098514C /* MainContentViewController.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */,

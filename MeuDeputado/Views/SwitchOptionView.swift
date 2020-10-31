@@ -142,25 +142,18 @@ private final class SwitchOptionButton: UIButton { }
 
 extension SwitchOptionButton: Styleable {
 	struct UIButtonStyle {
-		let font: UIFont
 		let color: UIColor
 		
-		static let selected = UIButtonStyle(
-			font: UIFont.preferredFont(forTextStyle: .headline),
-			color: .neutralLighter
-		)
+		static let selected = UIButtonStyle(color: .neutralLighter)
 		
-		static let unselected = UIButtonStyle(
-			font: UIFont.preferredFont(forTextStyle: .headline),
-			color: .neutralDark
-		)
+		static let unselected = UIButtonStyle(color: .neutralDark)
 	}
 	
 	func apply(style: UIButtonStyle) {
 		contentEdgeInsets = UIEdgeInsets(top: Spacing.small, left: 0.0, bottom: Spacing.small, right: 0.0)
 		titleLabel?.lineBreakMode = .byCharWrapping
 		titleLabel?.numberOfLines = 0
-		titleLabel?.font = style.font
+		titleLabel?.font = .headline
 		titleLabel?.adjustsFontForContentSizeCategory = true
 		setTitleColor(style.color, for: .normal)
 	}
