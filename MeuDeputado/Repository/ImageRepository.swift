@@ -14,7 +14,7 @@ final class ImageRepository: ImageFetchable {
 		guard let URL = URL else { return .empty() }
 		if let image = cache[URL] { return .just(image) }
 		
-		return .create { [cache] observer -> Disposable in
+		return .create { [unowned self] observer -> Disposable in
 			let request = URLSession.shared.dataTask(with: URL) { (data: Data?, _: URLResponse?, error: Error?) in
 				if let _ = error {
 					observer.onCompleted()
@@ -22,14 +22,16 @@ final class ImageRepository: ImageFetchable {
 				}
 				
 				if let data = data, let image = UIImage(data: data) {
-					cache[URL] = image
+					self.cache[URL] = image
 					observer.onNext(image)
 					observer.onCompleted()
 				} else {
 					observer.onCompleted()
 				}
 			}
-
+			
+			request.resume()
+			
 			return Disposables.create {
 				request.cancel()
 			}

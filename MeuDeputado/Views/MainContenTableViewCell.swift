@@ -32,6 +32,7 @@ final class MainContenTableViewCell: UITableViewCell {
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		disposeBag = DisposeBag()
+		mainContentView.imageView.image = nil
 	}
 	
 	private func configureSelf() {
@@ -72,7 +73,7 @@ final class MainContenTableViewCell: UITableViewCell {
 			.disposed(by: disposeBag)
 		
 		output.image
-			.drive(mainContentView.imageView.rx.image)
+			.drive(mainContentView.rx.image)
 			.disposed(by: disposeBag)
 	}
 }
