@@ -34,6 +34,10 @@
 		526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */; };
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
 		527EBA2D254E462100423A07 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2C254E462100423A07 /* Endpoints.swift */; };
+		527EBA2F254F77BB00423A07 /* FirstCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */; };
+		527EBA31254F77CC00423A07 /* FirsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA30254F77CC00423A07 /* FirsViewController.swift */; };
+		527EBA33254F77D600423A07 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA32254F77D600423A07 /* FirstViewModel.swift */; };
+		527EBA35254F780400423A07 /* Pilot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA34254F780400423A07 /* Pilot.swift */; };
 		527EE664233668BD00847061 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE663233668BD00847061 /* Stylable.swift */; };
 		52865D10254CA830006BD243 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D0F254CA830006BD243 /* Party.swift */; };
 		52865D12254CACAD006BD243 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D11254CACAD006BD243 /* LoaderView.swift */; };
@@ -105,6 +109,10 @@
 		526A0E4820C340EE002FDC83 /* MeuDeputadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeuDeputadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527EBA2C254E462100423A07 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCoordinator.swift; sourceTree = "<group>"; };
+		527EBA30254F77CC00423A07 /* FirsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirsViewController.swift; sourceTree = "<group>"; };
+		527EBA32254F77D600423A07 /* FirstViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		527EBA34254F780400423A07 /* Pilot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pilot.swift; sourceTree = "<group>"; };
 		527EE663233668BD00847061 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		52865D0F254CA830006BD243 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		52865D11254CACAD006BD243 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 				52865D1D254D15D6006BD243 /* ErrorTracker.swift */,
 				52865D33254E2404006BD243 /* ImageCache.swift */,
 				52865D3F254E3221006BD243 /* RepositoryOperation.swift */,
+				527EBA34254F780400423A07 /* Pilot.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 		52865D2E254E1CD3006BD243 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				527EBA30254F77CC00423A07 /* FirsViewController.swift */,
 				526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */,
 				52316E0F254C73A20098514C /* MainContentViewController.swift */,
 			);
@@ -296,6 +306,7 @@
 		52865D2F254E1CEC006BD243 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */,
 				525704622520F47900FF61A1 /* MainCoordinator.swift */,
 				525704642520F4A900FF61A1 /* MainCoordinatorTests.swift */,
 			);
@@ -316,6 +327,7 @@
 		52D2DC41252BF68300E51A4F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				527EBA32254F77D600423A07 /* FirstViewModel.swift */,
 				52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */,
 				52316E11254C73B30098514C /* MainContentViewModel.swift */,
 				52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */,
@@ -528,6 +540,7 @@
 			files = (
 				52865D39254E2F23006BD243 /* ImageFetchable.swift in Sources */,
 				52865D10254CA830006BD243 /* Party.swift in Sources */,
+				527EBA35254F780400423A07 /* Pilot.swift in Sources */,
 				5266F6A5254A0D8F00DE46C1 /* Queries.swift in Sources */,
 				52865D3D254E31EC006BD243 /* OperationScheduable.swift in Sources */,
 				52865D29254DDDF9006BD243 /* ExpenseType.swift in Sources */,
@@ -542,6 +555,7 @@
 				52865D1A254CF90A006BD243 /* ViewsPresentable.swift in Sources */,
 				527EBA2D254E462100423A07 /* Endpoints.swift in Sources */,
 				52865D1C254CFA7F006BD243 /* ErrorView.swift in Sources */,
+				527EBA33254F77D600423A07 /* FirstViewModel.swift in Sources */,
 				52865D32254E236B006BD243 /* ImageCacheType.swift in Sources */,
 				5266F691254843CA00DE46C1 /* Finder.swift in Sources */,
 				52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */,
@@ -549,10 +563,12 @@
 				527EE664233668BD00847061 /* Stylable.swift in Sources */,
 				52865D40254E3221006BD243 /* RepositoryOperation.swift in Sources */,
 				52865D2B254DF42A006BD243 /* MeuDeputado+UIFont.swift in Sources */,
+				527EBA2F254F77BB00423A07 /* FirstCoordinator.swift in Sources */,
 				52316E19254C84870098514C /* MeuDeputado+ObservableType.swift in Sources */,
 				5257046B25210B4E00FF61A1 /* SwitchOptionView.swift in Sources */,
 				52865D2D254DF453006BD243 /* MeuDeputado+UIColor.swift in Sources */,
 				52865D27254DDD39006BD243 /* PartyExpenses.swift in Sources */,
+				527EBA31254F77CC00423A07 /* FirsViewController.swift in Sources */,
 				52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */,
 				52316E10254C73A20098514C /* MainContentViewController.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */,
