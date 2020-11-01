@@ -70,5 +70,9 @@ final class MainContenTableViewCell: UITableViewCell {
 		output.information
 			.drive(mainContentView.information.rx.text)
 			.disposed(by: disposeBag)
+		
+		output.image
+			.drive(mainContentView.imageView.rx.image)
+			.disposed(by: disposeBag)
 	}
 }

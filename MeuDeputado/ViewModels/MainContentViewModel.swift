@@ -21,7 +21,7 @@ final class MainContentViewModel: ViewModelType {
 	func transform(input: Input) -> Output {
 		
 		let dataSource = Driver.just(content)
-			.map { $0.map(MainContentTableViewCellModel.init) }
+			.map { $0.map { MainContentTableViewCellModel(content: $0) } }
 		
 		return Output(dataSource: dataSource)
 	}

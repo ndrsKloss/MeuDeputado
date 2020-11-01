@@ -4,7 +4,7 @@ import Parse
 
 final class AppDelegate:
 	UIResponder,
-UIApplicationDelegate {
+	UIApplicationDelegate {
 	
 	private var services: [UIApplicationDelegate]
 	

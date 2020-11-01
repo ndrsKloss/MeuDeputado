@@ -112,7 +112,7 @@ final class MainContainerViewModel: ViewModelType {
 	private func deputyToTransitionContent(
 		deputies: [Deputy]
 	) -> [TransitionContent] {
-		deputies.map { TransitionContent(title: $0.name, information: $0.party, imageId: $0.objectId) }
+		deputies.map { TransitionContent(title: $0.name, information: $0.party, imageId: $0.deputyId.description) }
 	}
 	
 	private func partyToTransitionContent(

@@ -43,7 +43,9 @@ extension ImageCache: ImageCacheType {
 		lock.lock(); defer { lock.unlock() }
 		imageCache.removeObject(forKey: url as AnyObject)
 	}
-	
+}
+
+extension ImageCache {
 	func image(for url: URL) -> UIImage? {
 		lock.lock(); defer { lock.unlock() }
 		if let image = imageCache.object(forKey: url as AnyObject) as? UIImage {
@@ -52,6 +54,7 @@ extension ImageCache: ImageCacheType {
 		return nil
 	}
 }
+
 
 extension ImageCache {
 	subscript(_ key: URL) -> UIImage? {

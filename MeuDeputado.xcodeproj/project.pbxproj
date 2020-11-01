@@ -33,6 +33,7 @@
 		526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3720C340EC002FDC83 /* AppDelegate.swift */; };
 		526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */; };
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
+		527EBA2D254E462100423A07 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2C254E462100423A07 /* Endpoints.swift */; };
 		527EE664233668BD00847061 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EE663233668BD00847061 /* Stylable.swift */; };
 		52865D10254CA830006BD243 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D0F254CA830006BD243 /* Party.swift */; };
 		52865D12254CACAD006BD243 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D11254CACAD006BD243 /* LoaderView.swift */; };
@@ -49,6 +50,10 @@
 		52865D32254E236B006BD243 /* ImageCacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D31254E236B006BD243 /* ImageCacheType.swift */; };
 		52865D34254E2404006BD243 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D33254E2404006BD243 /* ImageCache.swift */; };
 		52865D37254E27C9006BD243 /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525704642520F4A900FF61A1 /* MainCoordinatorTests.swift */; };
+		52865D39254E2F23006BD243 /* ImageFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D38254E2F23006BD243 /* ImageFetchable.swift */; };
+		52865D3B254E2F51006BD243 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D3A254E2F51006BD243 /* ImageRepository.swift */; };
+		52865D3D254E31EC006BD243 /* OperationScheduable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D3C254E31EC006BD243 /* OperationScheduable.swift */; };
+		52865D40254E3221006BD243 /* RepositoryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D3F254E3221006BD243 /* RepositoryOperation.swift */; };
 		52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */; };
 		52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */; };
 		639293E0DFB6E97CA1972B98 /* Pods_MeuDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */; };
@@ -99,6 +104,7 @@
 		526A0E4320C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526A0E4820C340EE002FDC83 /* MeuDeputadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeuDeputadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		527EBA2C254E462100423A07 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		527EE663233668BD00847061 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		52865D0F254CA830006BD243 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		52865D11254CACAD006BD243 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
@@ -114,6 +120,10 @@
 		52865D2C254DF453006BD243 /* MeuDeputado+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIColor.swift"; sourceTree = "<group>"; };
 		52865D31254E236B006BD243 /* ImageCacheType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheType.swift; sourceTree = "<group>"; };
 		52865D33254E2404006BD243 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		52865D38254E2F23006BD243 /* ImageFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchable.swift; sourceTree = "<group>"; };
+		52865D3A254E2F51006BD243 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		52865D3C254E31EC006BD243 /* OperationScheduable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationScheduable.swift; sourceTree = "<group>"; };
+		52865D3F254E3221006BD243 /* RepositoryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryOperation.swift; sourceTree = "<group>"; };
 		52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		7071503535EDAE58E1E8B6FA /* Pods-MeuDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,9 +158,11 @@
 				5257045F2520F3FD00FF61A1 /* Coordinatable.swift */,
 				5266F6892547B2CD00DE46C1 /* Fetchable.swift */,
 				52865D31254E236B006BD243 /* ImageCacheType.swift */,
+				52865D38254E2F23006BD243 /* ImageFetchable.swift */,
 				527EE663233668BD00847061 /* Stylable.swift */,
 				52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */,
 				52865D19254CF90A006BD243 /* ViewsPresentable.swift */,
+				52865D3C254E31EC006BD243 /* OperationScheduable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -161,6 +173,7 @@
 				52316E0A254B5AC20098514C /* ActivityIndicator.swift */,
 				52865D1D254D15D6006BD243 /* ErrorTracker.swift */,
 				52865D33254E2404006BD243 /* ImageCache.swift */,
+				52865D3F254E3221006BD243 /* RepositoryOperation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -206,6 +219,8 @@
 			children = (
 				5266F690254843CA00DE46C1 /* Finder.swift */,
 				5266F6A4254A0D8F00DE46C1 /* Queries.swift */,
+				52865D3A254E2F51006BD243 /* ImageRepository.swift */,
+				527EBA2C254E462100423A07 /* Endpoints.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -511,23 +526,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52865D39254E2F23006BD243 /* ImageFetchable.swift in Sources */,
 				52865D10254CA830006BD243 /* Party.swift in Sources */,
 				5266F6A5254A0D8F00DE46C1 /* Queries.swift in Sources */,
+				52865D3D254E31EC006BD243 /* OperationScheduable.swift in Sources */,
 				52865D29254DDDF9006BD243 /* ExpenseType.swift in Sources */,
 				52865D12254CACAD006BD243 /* LoaderView.swift in Sources */,
 				525704602520F3FD00FF61A1 /* Coordinatable.swift in Sources */,
 				5266F68A2547B2CD00DE46C1 /* Fetchable.swift in Sources */,
 				52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */,
+				52865D3B254E2F51006BD243 /* ImageRepository.swift in Sources */,
 				525704632520F47900FF61A1 /* MainCoordinator.swift in Sources */,
 				52865D25254DB5B0006BD243 /* MainContentTableViewCellModel.swift in Sources */,
 				52316E1B254C9CB70098514C /* MeuDeputado+UIViewController.swift in Sources */,
 				52865D1A254CF90A006BD243 /* ViewsPresentable.swift in Sources */,
+				527EBA2D254E462100423A07 /* Endpoints.swift in Sources */,
 				52865D1C254CFA7F006BD243 /* ErrorView.swift in Sources */,
 				52865D32254E236B006BD243 /* ImageCacheType.swift in Sources */,
 				5266F691254843CA00DE46C1 /* Finder.swift in Sources */,
 				52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */,
 				5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */,
 				527EE664233668BD00847061 /* Stylable.swift in Sources */,
+				52865D40254E3221006BD243 /* RepositoryOperation.swift in Sources */,
 				52865D2B254DF42A006BD243 /* MeuDeputado+UIFont.swift in Sources */,
 				52316E19254C84870098514C /* MeuDeputado+ObservableType.swift in Sources */,
 				5257046B25210B4E00FF61A1 /* SwitchOptionView.swift in Sources */,

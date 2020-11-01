@@ -17,19 +17,24 @@ final class MainContentTableViewCellModel: ViewModelType {
 		let style: Driver<Style>
 		let title: Driver<String>
 		let information: Driver<String>
-		let image: Driver<Data>
+		let image: Driver<UIImage>
 	}
 	
 	private let content: MainContent
+	private let imageFetcher: ImageFetchable
 	
-	init(content: MainContent) {
+	init(
+		content: MainContent,
+		imageFetcher: ImageFetchable = ImageRepository()
+	) {
+		self.imageFetcher = imageFetcher
 		self.content = content
 	}
 	
 	func transform(input: Input) -> Output {
 		
 		let imageId = Observable.just(content.imageId)
-		
+
 		let deputyStyle = imageId
 			.unwrap()
 			.map { _ in Style.deputy }
@@ -41,11 +46,18 @@ final class MainContentTableViewCellModel: ViewModelType {
 		let style = Observable.merge(deputyStyle, partyStyle)
 			.asDriverOnErrorJustComplete()
 		
+		let image = imageId
+			.unwrap()
+			.map { Endpoint.image(id: $0).makeURL() }
+			.unwrap()
+			.flatMapLatest(imageFetcher.fetchImage)
+			.asDriverOnErrorJustComplete()
+		
 		return Output(
 			style: style,
 			title: .just(content.title),
 			information: .just(content.information),
-			image: .empty()
+			image: image
 		)
 	}
 }
