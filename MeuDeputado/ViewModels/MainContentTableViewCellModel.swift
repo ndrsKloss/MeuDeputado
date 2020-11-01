@@ -22,13 +22,16 @@ final class MainContentTableViewCellModel: ViewModelType {
 	
 	private let content: MainContent
 	private let imageFetcher: ImageFetchable
+	private let operation: OperationScheduable
 	
 	init(
 		content: MainContent,
-		imageFetcher: ImageFetchable = ImageRepository()
+		imageFetcher: ImageFetchable = ImageRepository(),
+		operation: OperationScheduable = RepositoryOperation()
 	) {
 		self.imageFetcher = imageFetcher
 		self.content = content
+		self.operation = operation
 	}
 	
 	func transform(input: Input) -> Output {
@@ -51,6 +54,7 @@ final class MainContentTableViewCellModel: ViewModelType {
 			.map { Endpoint.image(id: $0).makeURL() }
 			.unwrap()
 			.flatMapLatest(imageFetcher.fetchImage)
+			.subscribeOn(operation.scheduler)
 			.asDriverOnErrorJustComplete()
 		
 		return Output(

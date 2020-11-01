@@ -4,12 +4,6 @@ import RxCocoa
 
 final class MainContentView: UIView {
 	
-	fileprivate lazy var animator = UIViewPropertyAnimator.runningPropertyAnimator(
-		withDuration: 0.3,
-		delay: 0,
-		options: .curveLinear,
-		animations: { self.imageView.alpha = 1.0 })
-	
 	private let imageStackView: UIStackView = {
 		$0.axis = .horizontal
 		$0.distribution = .fillProportionally
@@ -19,12 +13,13 @@ final class MainContentView: UIView {
 	
 	private let informationStackView: UIStackView = {
 		$0.axis = .vertical
+		$0.alignment = .leading
+		$0.distribution = .fillProportionally
 		$0.spacing = Spacing.xsmall
 		return $0
 	}(UIStackView())
 	
 	let imageView: UIImageView = {
-		$0.alpha = 0.0
 		$0.clipsToBounds = true
 		$0.contentMode = .scaleAspectFit
 		return $0
@@ -61,8 +56,7 @@ final class MainContentView: UIView {
 	}
 	
 	private func configureImageView() {
-		//let height = imageView.heightAnchor.constraint(greaterThanOrEqualToConstant: 55.0)
-		let height = imageView.heightAnchor.constraint(equalToConstant: 55.0)
+		let height = imageView.heightAnchor.constraint(greaterThanOrEqualToConstant: 55.0)
 		let width = imageView.widthAnchor.constraint(equalToConstant: 55.0)
 		
 		NSLayoutConstraint.activate([height, width])
@@ -107,15 +101,4 @@ extension MainContentView: Styleable {
 		informationStackView.addArrangedSubview(title)
 		informationStackView.addArrangedSubview(information)
 	}
-}
-
-extension Reactive where Base: MainContentView {
-    
-    /// Bindable sink for `image` property.
-    var image: Binder<UIImage?> {
-        return Binder(base) { view, image in
-			view.imageView.image = image
-			self.base.animator.startAnimation()
-        }
-    }
 }

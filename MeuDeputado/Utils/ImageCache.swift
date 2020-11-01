@@ -4,10 +4,9 @@ import UIKit
 final class ImageCache {
 
 	private lazy var imageCache: NSCache<AnyObject, AnyObject> = {
-		let cache = NSCache<AnyObject, AnyObject>()
-		cache.countLimit = config.countLimit
-		return cache
-	}()
+		$0.countLimit = config.countLimit
+		return $0
+	}(NSCache<AnyObject, AnyObject>())
 	
 	private let lock = NSLock()
 	private let config: Config

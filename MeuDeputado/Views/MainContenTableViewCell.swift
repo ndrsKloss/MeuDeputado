@@ -6,7 +6,7 @@ final class MainContenTableViewCell: UITableViewCell {
 	typealias Style = MainContentTableViewCellModel.Style
 	
 	typealias Input = MainContentTableViewCellModel.Input
-	
+
 	private var disposeBag = DisposeBag()
 	
 	private let mainContentView = MainContentView()
@@ -37,6 +37,7 @@ final class MainContenTableViewCell: UITableViewCell {
 	
 	private func configureSelf() {
 		backgroundColor = .neutralLighter
+		selectionStyle = .none
 	}
 	
 	private func configureMainContentView() {
@@ -73,7 +74,7 @@ final class MainContenTableViewCell: UITableViewCell {
 			.disposed(by: disposeBag)
 		
 		output.image
-			.drive(mainContentView.rx.image)
+			.drive(mainContentView.imageView.rx.image)
 			.disposed(by: disposeBag)
 	}
 }
