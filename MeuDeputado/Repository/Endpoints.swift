@@ -10,7 +10,6 @@ enum Endpoint {
 	}
 	
 	case image(id: String)
-	// https://meudeputados3-dev.s3.amazonaws.com/public/213762.jpg
 	func makeURL() -> URL? {
 		switch self {
 			case .image(let id):
