@@ -9,9 +9,18 @@ final class AppDelegate:
 	private var services: [UIApplicationDelegate]
 	
 	override init() {
+		
+		var coordinator: CoordinatorAppDelegate
+		
+		#if DEBUG
+		coordinator = CoordinatorAppDelegate(coordinator: FirstCoordinator())
+		#else
+		CoordinatorAppDelegate()
+		#endif
+		
 		self.services = [
 			ParseAppDelegate(),
-			CoordinatorAppDelegate()
+			coordinator
 		]
 		super.init()
 	}

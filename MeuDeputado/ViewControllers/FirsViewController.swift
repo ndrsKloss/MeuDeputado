@@ -7,10 +7,11 @@ final class FirstViewController: UIViewController {
 	
 	private let viewModel: FirstViewModel
 	
-	private let button: UIButton = {
+	private let button: FirstViewButton = {
 		$0.setTitle(Constants.buttonTitle, for: .normal)
+		$0.apply(style: .normal)
 		return $0
-	}(UIButton())
+	}(FirstViewButton())
 	
 	init(
 		viewModel: FirstViewModel = FirstViewModel()
@@ -46,7 +47,7 @@ final class FirstViewController: UIViewController {
 	}
 	
 	private func configureButton() {
-		view.addSubview(button)
+		view.addSubviewWithAutolayout(button)
 
 		NSLayoutConstraint.activate([
 			button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -58,3 +59,27 @@ final class FirstViewController: UIViewController {
 		])
 	}
 }
+
+
+private final class FirstViewButton: UIButton { }
+
+
+extension FirstViewButton: Styleable {
+	struct UIButtonStyle {
+		static let normal = UIButtonStyle()
+	}
+	
+	func apply(style: UIButtonStyle) {
+		contentEdgeInsets = UIEdgeInsets(top: Spacing.small, left: Spacing.small, bottom: Spacing.small, right: Spacing.small)
+		layer.borderColor = UIColor.neutralDark.cgColor
+		layer.borderWidth = Thickness.medium
+		layer.cornerRadius = Radius.small
+		titleLabel?.lineBreakMode = .byCharWrapping
+		titleLabel?.numberOfLines = 0
+		titleLabel?.font = .headline
+		titleLabel?.adjustsFontForContentSizeCategory = true
+		setTitleColor(.neutralDark, for: .normal)
+		setTitleColor(.neutralBase, for: .highlighted)
+	}
+}
+

@@ -79,7 +79,6 @@ final class MainContainerViewController:
 		visualization.viewControllers.append(viewController)
 	}
 	
-	
 	private func configureState(_ status: MainContainerViewModel.Status) {
 		switch status {
 			case .success: configureSuccess()
@@ -137,23 +136,32 @@ final class MainContainerViewController:
 		let output = viewModel.transform(input: input)
 		
 		output.deputyContent
-			.drive(onNext: configureMainContent)
+			.drive(onNext: { [unowned self] in
+				self.configureMainContent($0)
+			})
 			.disposed(by: disposeBag)
 		
 		output.partyContent
-			.drive(onNext: configureMainContent)
+			.drive(onNext: { [unowned self] in
+				self.configureMainContent($0)
+			})
 			.disposed(by: disposeBag)
 		
 		output.status
-			.drive(onNext: configureState)
+			.drive(onNext: { [unowned self] in
+				self.configureState($0) })
 			.disposed(by: disposeBag)
 		
 		switchOptionView.rx.leftTap
-			.subscribe(onNext: changeToLeftVisualization)
+			.subscribe(onNext: { [unowned self] in
+				self.changeToLeftVisualization()
+			})
 			.disposed(by: disposeBag)
 		
 		switchOptionView.rx.rightTap
-			.subscribe(onNext: changeToRightVisualization)
+			.subscribe(onNext: { [unowned self] in
+				self.changeToRightVisualization()
+			})
 			.disposed(by: disposeBag)
 	}
 }
