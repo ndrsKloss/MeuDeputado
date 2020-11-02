@@ -138,8 +138,13 @@ final class MainContainerViewModel: ViewModelType {
 		_ transitionContent: [TransitionContent]
 	) -> MainContentViewModel {
 		let viewModel = MainContentViewModel(content: transitionContent)
-		
-		navigation
+
+		viewModel.navigation
+			.map { $0.getLuggage() }
+			.unwrap()
+			.map { (luggage: MainContentViewModel.MainContent) in
+				.init(destination: .analysis, luggage: luggage)
+			}
 			.drive(navigationPublisher)
 			.disposed(by: disposeBag)
 		

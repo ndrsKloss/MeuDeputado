@@ -49,6 +49,7 @@ final class MainContentViewModel: ViewModelType {
 		input.itemSelected
 			.map(getContent)
 			.map(prepareForDeparture)
+			.debug()	
 			.bind(to: navigationPublisher)
 			.disposed(by: disposeBag)
 		

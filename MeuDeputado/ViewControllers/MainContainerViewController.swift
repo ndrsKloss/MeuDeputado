@@ -13,13 +13,13 @@ final class MainContainerViewController:
 	
 	private var visualization = Visualization()
 	
-	private let disposeBag = DisposeBag()
-	
 	private let switchOptionView = SwitchOptionView()
 	
 	private var loaderView: LoaderView?
 	
 	private var errorView: ErrorView?
+	
+	let disposeBag = DisposeBag()
 	
 	init(
 		viewModel: MainContainerViewModel = MainContainerViewModel(finder: Finder())
