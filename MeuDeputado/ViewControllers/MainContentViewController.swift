@@ -70,13 +70,15 @@ final class MainContentViewController: UIViewController {
 	}
 	
 	private func transform() {
-		let input = Input()
+		let input = Input(itemSelected: tableView.rx.itemSelected)
 		
 		let output = viewModel.transform(input: input)
 		
 		output
 			.dataSource
-			.drive(tableView.rx.items)(configureCell)
+			.drive(tableView.rx.items) { [unowned self] tableView, row, viewModel in
+				self.configureCell(tableView: tableView, row: row, viewModel: viewModel)
+			}
 			.disposed(by: disposeBag)
 	}
 }

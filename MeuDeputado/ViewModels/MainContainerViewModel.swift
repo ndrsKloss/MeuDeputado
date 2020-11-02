@@ -7,6 +7,10 @@ final class MainContainerViewModel: ViewModelType {
 	
 	typealias TransitionContent = MainContentViewModel.MainContent
 	
+	enum Destination {
+        case analysis
+    }
+	
 	struct Constants {
 		static let appName = NSLocalizedString("App-Name", comment: "")
 	}
@@ -31,7 +35,12 @@ final class MainContainerViewModel: ViewModelType {
 	private let finder: Fetchable
 
 	private let disposeBag = DisposeBag()
-
+	private let navigationPublisher = PublishSubject<Pilot<Destination>>()
+	
+	var navigation: Driver<Pilot<Destination>> {
+		navigationPublisher.asDriverOnErrorJustComplete()
+    }
+	
 	init(finder: Fetchable) {
 		self.finder = finder
 	}
@@ -45,9 +54,9 @@ final class MainContainerViewModel: ViewModelType {
 		let viewWillAppear = input.viewWillAppear
 			.take(1)
 			.map { _ in () }
-		
-		let impulse = Observable.merge(viewWillAppear, input.retryTap.asObservable())
 
+		let impulse = Observable.merge(viewWillAppear, input.retryTap.asObservable())
+			
 		let deputies = impulse
 			.flatMapLatest(allDeputiesInMandate)
 			.trackError(errorTracker)
@@ -57,21 +66,25 @@ final class MainContainerViewModel: ViewModelType {
 		let parties = impulse
 			.flatMapLatest(allParties)
 			.trackError(errorTracker)
+			.catchErrorJustComplete()
 			.trackActivity(activityIndicator)
 		
 		let deputiesAndParties = Observable.combineLatest(deputies, parties)
 			.map { (deputies: $0.0, parties: $0.1) }
+			.observeOn(MainScheduler.instance)
 			.share()
 		
 		let deputyContent = deputiesAndParties
 			.map { $0.deputies }
 			.map(deputyToTransitionContent)
-			.map(MainContentViewModel.init)
-		
+			.map(makeMainContentViewModel)
+			.share()
+
 		let partyContent = deputiesAndParties
 			.map { $0.parties }
 			.map(partyToTransitionContent)
-			.map(MainContentViewModel.init)
+			.map(makeMainContentViewModel)
+			.share()
 		
 		let success = Observable.combineLatest(deputyContent, partyContent)
 			.map { _ in Status.success }
@@ -112,13 +125,25 @@ final class MainContainerViewModel: ViewModelType {
 	private func deputyToTransitionContent(
 		deputies: [Deputy]
 	) -> [TransitionContent] {
-		deputies.map { TransitionContent(title: $0.name, information: $0.party, imageId: $0.deputyId.description) }
+		deputies.map { TransitionContent(id: $0.objectId, title: $0.name, information: $0.party, imageId: $0.deputyId.description) }
 	}
 	
 	private func partyToTransitionContent(
 		party: [Party]
 	) -> [TransitionContent] {
-		party.map { TransitionContent(title: $0.name, information: $0.deputyCount.description) }
+		party.map { TransitionContent(id: $0.objectId, title: $0.name, information: $0.deputyCount.description) }
+	}
+	
+	private func makeMainContentViewModel(
+		_ transitionContent: [TransitionContent]
+	) -> MainContentViewModel {
+		let viewModel = MainContentViewModel(content: transitionContent)
+		
+		navigation
+			.drive(navigationPublisher)
+			.disposed(by: disposeBag)
+		
+		return viewModel
 	}
 }
 
