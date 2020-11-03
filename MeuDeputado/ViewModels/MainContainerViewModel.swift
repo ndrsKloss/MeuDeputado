@@ -5,10 +5,8 @@ import Parse
 
 final class MainContainerViewModel: ViewModelType {
 	
-	typealias TransitionContent = MainContentViewModel.MainContent
-	
 	enum Destination {
-        case analysis
+        case expenses
     }
 	
 	struct Constants {
@@ -124,26 +122,26 @@ final class MainContainerViewModel: ViewModelType {
 	
 	private func deputyToTransitionContent(
 		deputies: [Deputy]
-	) -> [TransitionContent] {
-		deputies.map { TransitionContent(id: $0.objectId, title: $0.name, information: $0.party, imageId: $0.deputyId.description) }
+	) -> [MainContent] {
+		deputies.map { MainContent(id: $0.objectId, title: $0.name, information: $0.party, imageId: $0.deputyId.description) }
 	}
 	
 	private func partyToTransitionContent(
 		party: [Party]
-	) -> [TransitionContent] {
-		party.map { TransitionContent(id: $0.objectId, title: $0.name, information: $0.deputyCount.description) }
+	) -> [MainContent] {
+		party.map { MainContent(id: $0.objectId, title: $0.name, information: $0.deputyCount.description) }
 	}
 	
 	private func makeMainContentViewModel(
-		_ transitionContent: [TransitionContent]
+		_ transitionContent: [MainContent]
 	) -> MainContentViewModel {
 		let viewModel = MainContentViewModel(content: transitionContent)
 
 		viewModel.navigation
 			.map { $0.getLuggage() }
 			.unwrap()
-			.map { (luggage: MainContentViewModel.MainContent) in
-				.init(destination: .analysis, luggage: luggage)
+			.map { (luggage: MainContent) in
+				.init(destination: .expenses, luggage: luggage)
 			}
 			.drive(navigationPublisher)
 			.disposed(by: disposeBag)

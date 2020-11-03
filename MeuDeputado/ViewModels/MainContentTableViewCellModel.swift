@@ -3,8 +3,6 @@ import RxCocoa
 
 final class MainContentTableViewCellModel: ViewModelType {
 	
-	typealias MainContent = MainContentViewModel.MainContent
-	
 	enum Style {
 		case deputy, party
 	}

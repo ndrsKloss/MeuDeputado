@@ -7,6 +7,10 @@ final class MainCoordinator: Coordinatable {
 	
 	let navigationController: UINavigationController
 	
+	deinit {
+		print("coordinator off")
+	}
+	
 	init(
 		navigationController: UINavigationController = UINavigationController()
 	) {
@@ -23,17 +27,23 @@ final class MainCoordinator: Coordinatable {
 		let viewController = MainContainerViewController(viewModel: viewModel)
 		
 		viewModel.navigation
-			.filter { $0.destination == .analysis }
+			.filter { $0.destination == .expenses }
 			.map { $0.getLuggage() }
 			.unwrap()
-			.drive(onNext: { (luggage: MainContentViewModel.MainContent) in
-				print(luggage)
-			})
+			.drive(onNext: startExpanses)
 			.disposed(by: viewController.disposeBag)
 
 		navigationController.pushViewController(
 			viewController,
 			animated: true
 		)
+	}
+	
+	func startExpanses(content: MainContent) {
+		let coordinator = ExpensesCoordinator(
+			navigationController: navigationController,
+			content: content
+		)
+		coordinator.start()
 	}
 }

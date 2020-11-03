@@ -4,7 +4,7 @@ import RxCocoa
 final class MainContentViewModel: ViewModelType {
 	
 	enum Destination {
-        case analysis
+        case expenses
     }
 	
 	struct Constants {
@@ -41,7 +41,7 @@ final class MainContentViewModel: ViewModelType {
 	private func prepareForDeparture(
 		_ content: MainContent
 	) -> Pilot<Destination>{
-		.init(destination: .analysis, luggage: content)
+		.init(destination: .expenses, luggage: content)
 	}
 	
 	func transform(input: Input) -> Output {
@@ -49,7 +49,6 @@ final class MainContentViewModel: ViewModelType {
 		input.itemSelected
 			.map(getContent)
 			.map(prepareForDeparture)
-			.debug()	
 			.bind(to: navigationPublisher)
 			.disposed(by: disposeBag)
 		
@@ -60,7 +59,7 @@ final class MainContentViewModel: ViewModelType {
 	}
 }
 
-extension MainContentViewModel {
+/*extension MainContentViewModel {
 	struct MainContent {
 		let id: String?
 		let title: String
@@ -79,4 +78,4 @@ extension MainContentViewModel {
 			self.imageId = imageId
 		}
 	}
-}
+}*/
