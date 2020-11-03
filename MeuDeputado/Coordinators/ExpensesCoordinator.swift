@@ -4,16 +4,23 @@ import RxSwift
 final class ExpensesCoordinator: Coordinatable {
 	
 	let navigationController: UINavigationController
-	let mainContent: MainContent
+	let content: MainContent
 	
 	init(
 		navigationController: UINavigationController = UINavigationController(),
 		content: MainContent
 	) {
 		self.navigationController = navigationController
-		mainContent = content
+		self.content = content
 	}
 	
-	func start() { 
+	func start() {
+		let viewModel = ExpensesViewModel(content: content, finder: Finder())
+		let viewController = ExpensesViewController(viewModel: viewModel)
+		
+		navigationController.pushViewController(
+			viewController,
+			animated: true
+		)
 	}
 }

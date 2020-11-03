@@ -123,13 +123,26 @@ final class MainContainerViewModel: ViewModelType {
 	private func deputyToTransitionContent(
 		deputies: [Deputy]
 	) -> [MainContent] {
-		deputies.map { MainContent(id: $0.objectId, title: $0.name, information: $0.party, imageId: $0.deputyId.description) }
+		deputies.map {
+			MainContent(
+				id: $0.objectId,
+				title: $0.name,
+				information: $0.party,
+				represents: .deputy,
+				imageId: $0.deputyId.description)
+		}
 	}
 	
 	private func partyToTransitionContent(
 		party: [Party]
 	) -> [MainContent] {
-		party.map { MainContent(id: $0.objectId, title: $0.name, information: $0.deputyCount.description) }
+		party.map {
+			MainContent(
+				id: $0.objectId,
+				title: $0.name,
+				information: $0.deputyCount.description,
+				represents: .party)
+		}
 	}
 	
 	private func makeMainContentViewModel(

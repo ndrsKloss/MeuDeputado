@@ -7,10 +7,6 @@ final class MainCoordinator: Coordinatable {
 	
 	let navigationController: UINavigationController
 	
-	deinit {
-		print("coordinator off")
-	}
-	
 	init(
 		navigationController: UINavigationController = UINavigationController()
 	) {

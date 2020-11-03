@@ -1,17 +1,17 @@
 import Parse
 
-final public class PartyExpense:
+final public class DeputyExpense:
 	PFObject,
 	PFSubclassing {
 	
 	@NSManaged internal var month: NSNumber
 	@NSManaged internal var year: NSNumber
 	@NSManaged internal var value: NSNumber
-	@NSManaged internal var party: Party
+	@NSManaged internal var deputy: Deputy
 	@NSManaged internal var expenseType: ExpenseType
 	
 	public static func parseClassName() -> String {
-		"PartyExpense"
+		"DeputyExpense"
 	}
 	
 	override init() {
@@ -22,14 +22,14 @@ final public class PartyExpense:
 		month: NSNumber,
 		year: NSNumber,
 		value: NSNumber,
-		party: Party,
+		deputy: Deputy,
 		expenseType: ExpenseType
 	) {
 		super.init()
 		self.month = month
 		self.year = year
 		self.value = value
-		self.party = party
+		self.deputy = deputy
 		self.expenseType = expenseType
 	}
 	

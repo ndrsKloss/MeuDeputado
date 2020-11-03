@@ -15,24 +15,29 @@ let getAllParties: PFQuery<PFObject>? = {
 	return $0
 }(Party.query())
 
-/*func getPartyExpenses(
-	year: NSNumber,
-	party: Party
-) -> PFQuery<PFObject>? {
-	
-	let query = PFQuery(className: "PartyExpense")
-	//18 expense types * 12 months
-	query.limit = 216
-	//let query = PartyExpenses.query()
-	query.whereKey(NSExpression(forKeyPath: \PartyExpenses.party).keyPath, equalTo: party)
-	query.whereKey(NSExpression(forKeyPath: \PartyExpenses.year).keyPath, equalTo: year)
-	return query
-}*/
 
-/*
-getPartyExpenses(year: 2020, party: PFObject(withoutDataWithClassName: "Party", objectId: "RCfsinpuW0") as! Party)?
-	.findObjectsInBackground(block: { (expenses, error) in
-		print(error)
-		print(expenses)
-})
-*/
+func getPartyExpenses(
+	year: NSNumber,
+	objectId id: String?
+) -> PFQuery<PFObject>? {
+	let query = PartyExpense.query()
+	let party = PFObject(withoutDataWithClassName: Party.parseClassName(), objectId: id)
+	//18 expense types * 12 months
+	query?.limit = 216
+	query?.whereKey(NSExpression(forKeyPath: \PartyExpense.party).keyPath, equalTo: party)
+	query?.whereKey(NSExpression(forKeyPath: \PartyExpense.year).keyPath, equalTo: year)
+	return query
+}
+
+func getDeputyExpenses(
+	year: NSNumber,
+	objectId id: String?
+) -> PFQuery<PFObject>? {
+	let query = DeputyExpense.query()
+	let party = PFObject(withoutDataWithClassName: Deputy.parseClassName(), objectId: id)
+	//18 expense types * 12 months
+	query?.limit = 216
+	query?.whereKey(NSExpression(forKeyPath: \DeputyExpense.deputy).keyPath, equalTo: party)
+	query?.whereKey(NSExpression(forKeyPath: \DeputyExpense.year).keyPath, equalTo: year)
+	return query
+}
