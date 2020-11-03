@@ -15,6 +15,7 @@ target 'MeuDeputado' do
   pod 'RxCocoa', '~> 5'
 	pod 'RxSwiftExt'
   pod 'Parse', '~> 1'
+	pod 'Charts'
 
   target 'MeuDeputadoTests' do
     pod 'RxBlocking', '~> 5'
