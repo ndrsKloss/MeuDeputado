@@ -45,8 +45,8 @@ final class MainContenTableViewCell: UITableViewCell {
 		
 		NSLayoutConstraint.activate([
 			mainContentView.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.medium),
-			mainContentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-			trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor),
+			mainContentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.large),
+			trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor, constant: Spacing.large),
 			bottomAnchor.constraint(equalTo: mainContentView.bottomAnchor, constant: Spacing.large)
 		])
 	}

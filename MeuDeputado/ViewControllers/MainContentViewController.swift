@@ -13,8 +13,9 @@ final class MainContentViewController: UIViewController {
 	
 	private let tableView: UITableView = {
 		$0.separatorColor = .neutralBase
-		$0.separatorInset = UIEdgeInsets(top: 0.0, left: -10.0, bottom: 0.0, right: 10.0)
 		$0.backgroundColor = .neutralLighter
+		$0.showsVerticalScrollIndicator = false
+		$0.separatorInset = UIEdgeInsets.zero
 		$0.tableFooterView = UIView()
 		$0.estimatedRowHeight = UITableView.automaticDimension
 		return $0
