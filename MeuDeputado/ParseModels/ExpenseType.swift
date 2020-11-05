@@ -6,6 +6,7 @@ final public class ExpenseType:
 	
 	@NSManaged internal var detail: String
 	@NSManaged internal var name: String
+	@NSManaged internal var code: NSNumber
 	
 	public static func parseClassName() -> String {
 		"ExpenseType"
@@ -17,10 +18,12 @@ final public class ExpenseType:
 	
 	init(
 		detail: String,
-		name: String
+		name: String,
+		code: NSNumber
 	) {
 		super.init()
 		self.detail = detail
 		self.name = name
+		self.code = code
 	}
 }

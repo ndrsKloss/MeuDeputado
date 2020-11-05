@@ -94,7 +94,6 @@ UIApplicationDelegate {
 			$0.applicationId = applicationId
 			$0.clientKey = clientKey
 			$0.server = server
-			$0.isLocalDatastoreEnabled = true
 		}
 		
 		parserInitialize(clientConfiguration)

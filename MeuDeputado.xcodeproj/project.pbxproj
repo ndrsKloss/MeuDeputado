@@ -33,6 +33,7 @@
 		526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3720C340EC002FDC83 /* AppDelegate.swift */; };
 		526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */; };
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
+		527C495B2551FF7700CD6AD2 /* ExpenseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */; };
 		527EBA2D254E462100423A07 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2C254E462100423A07 /* Endpoints.swift */; };
 		527EBA2F254F77BB00423A07 /* FirstCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */; };
 		527EBA31254F77CC00423A07 /* FirsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA30254F77CC00423A07 /* FirsViewController.swift */; };
@@ -113,6 +114,7 @@
 		526A0E4320C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526A0E4820C340EE002FDC83 /* MeuDeputadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeuDeputadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseInformation.swift; sourceTree = "<group>"; };
 		527EBA2C254E462100423A07 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCoordinator.swift; sourceTree = "<group>"; };
 		527EBA30254F77CC00423A07 /* FirsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirsViewController.swift; sourceTree = "<group>"; };
@@ -276,7 +278,7 @@
 				52865D2E254E1CD3006BD243 /* ViewControllers */,
 				52D2DC41252BF68300E51A4F /* ViewModels */,
 				5257046C25210B9400FF61A1 /* Views */,
-				527EBA402550E5D100423A07 /* Model */,
+				527EBA402550E5D100423A07 /* Models */,
 				525A996625065B22003AA67C /* ParseModels */,
 				52316E09254B5A9F0098514C /* Utils */,
 				52A3EB8020C604C100A7F16F /* Resources */,
@@ -292,12 +294,13 @@
 			path = MeuDeputadoTests;
 			sourceTree = "<group>";
 		};
-		527EBA402550E5D100423A07 /* Model */ = {
+		527EBA402550E5D100423A07 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				527EBA412550E87700423A07 /* MainContent.swift */,
+				527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		527EE65E2336646D00847061 /* Extensions */ = {
@@ -599,6 +602,7 @@
 				527EBA31254F77CC00423A07 /* FirsViewController.swift in Sources */,
 				52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */,
 				52316E10254C73A20098514C /* MainContentViewController.swift in Sources */,
+				527C495B2551FF7700CD6AD2 /* ExpenseInformation.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */,
 				524EEF342505236C0012CC5E /* main.swift in Sources */,
 				5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */,

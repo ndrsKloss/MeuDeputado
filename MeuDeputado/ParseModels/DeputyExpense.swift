@@ -8,7 +8,7 @@ final public class DeputyExpense:
 	@NSManaged internal var year: NSNumber
 	@NSManaged internal var value: NSNumber
 	@NSManaged internal var deputy: Deputy
-	@NSManaged internal var expenseType: ExpenseType
+	@NSManaged internal var type: ExpenseType
 	
 	public static func parseClassName() -> String {
 		"DeputyExpense"
@@ -23,14 +23,13 @@ final public class DeputyExpense:
 		year: NSNumber,
 		value: NSNumber,
 		deputy: Deputy,
-		expenseType: ExpenseType
+		type: ExpenseType
 	) {
 		super.init()
 		self.month = month
 		self.year = year
 		self.value = value
 		self.deputy = deputy
-		self.expenseType = expenseType
+		self.type = type
 	}
-	
 }
