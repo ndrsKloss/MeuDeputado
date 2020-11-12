@@ -33,7 +33,10 @@
 		526A0E3820C340EC002FDC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3720C340EC002FDC83 /* AppDelegate.swift */; };
 		526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A0E3920C340EC002FDC83 /* MainContainerViewController.swift */; };
 		526A0E3F20C340EE002FDC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A0E3E20C340EE002FDC83 /* Assets.xcassets */; };
+		52723809255C413500833829 /* TotalExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723808255C413500833829 /* TotalExpensesTableViewCell.swift */; };
+		5272380B255C51C600833829 /* MeuDeputado+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272380A255C51C600833829 /* MeuDeputado+UITableView.swift */; };
 		527C495B2551FF7700CD6AD2 /* ExpenseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */; };
+		527C495E255465EB00CD6AD2 /* ExpenseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495D255465EB00CD6AD2 /* ExpenseChartView.swift */; };
 		527EBA2D254E462100423A07 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2C254E462100423A07 /* Endpoints.swift */; };
 		527EBA2F254F77BB00423A07 /* FirstCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */; };
 		527EBA31254F77CC00423A07 /* FirsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA30254F77CC00423A07 /* FirsViewController.swift */; };
@@ -64,6 +67,8 @@
 		52865D3B254E2F51006BD243 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D3A254E2F51006BD243 /* ImageRepository.swift */; };
 		52865D3D254E31EC006BD243 /* OperationScheduable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D3C254E31EC006BD243 /* OperationScheduable.swift */; };
 		52865D40254E3221006BD243 /* RepositoryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52865D3F254E3221006BD243 /* RepositoryOperation.swift */; };
+		52C24FDF255B6AEC00A875CF /* ExpenseSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C24FDE255B6AEC00A875CF /* ExpenseSectionModel.swift */; };
+		52C24FE1255B6D6B00A875CF /* TotalExpensesTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C24FE0255B6D6B00A875CF /* TotalExpensesTableViewCellModel.swift */; };
 		52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */; };
 		52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */; };
 		639293E0DFB6E97CA1972B98 /* Pods_MeuDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24363270CB2E70C0334A9CF8 /* Pods_MeuDeputado.framework */; };
@@ -90,8 +95,6 @@
 		52316E18254C84870098514C /* MeuDeputado+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+ObservableType.swift"; sourceTree = "<group>"; };
 		52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIViewController.swift"; sourceTree = "<group>"; };
 		52366114253C95A800BAF427 /* MeuDeputado+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UIView.swift"; sourceTree = "<group>"; };
-		5236611D253CABB100BAF427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		52366123253CF7F400BAF427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		524EEF332505236C0012CC5E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		524EEF35250523A00012CC5E /* TestShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShortcut.swift; sourceTree = "<group>"; };
 		524EEF38250582900012CC5E /* ParseAppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAppDelegateTests.swift; sourceTree = "<group>"; };
@@ -114,7 +117,12 @@
 		526A0E4320C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526A0E4820C340EE002FDC83 /* MeuDeputadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeuDeputadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A0E4E20C340EE002FDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52723808255C413500833829 /* TotalExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpensesTableViewCell.swift; sourceTree = "<group>"; };
+		5272380A255C51C600833829 /* MeuDeputado+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeuDeputado+UITableView.swift"; sourceTree = "<group>"; };
+		5272380D255CAC7F00833829 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5272380E255CAC9700833829 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseInformation.swift; sourceTree = "<group>"; };
+		527C495D255465EB00CD6AD2 /* ExpenseChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseChartView.swift; sourceTree = "<group>"; };
 		527EBA2C254E462100423A07 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCoordinator.swift; sourceTree = "<group>"; };
 		527EBA30254F77CC00423A07 /* FirsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirsViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +152,8 @@
 		52865D3A254E2F51006BD243 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		52865D3C254E31EC006BD243 /* OperationScheduable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationScheduable.swift; sourceTree = "<group>"; };
 		52865D3F254E3221006BD243 /* RepositoryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryOperation.swift; sourceTree = "<group>"; };
+		52C24FDE255B6AEC00A875CF /* ExpenseSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSectionModel.swift; sourceTree = "<group>"; };
+		52C24FE0255B6D6B00A875CF /* TotalExpensesTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpensesTableViewCellModel.swift; sourceTree = "<group>"; };
 		52D2DC3D252BF03D00E51A4F /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		52D2DC3F252BF09D00E51A4F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		7071503535EDAE58E1E8B6FA /* Pods-MeuDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuDeputado/Pods-MeuDeputado.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,10 +225,12 @@
 			isa = PBXGroup;
 			children = (
 				52865D1B254CFA7F006BD243 /* ErrorView.swift */,
+				527C495D255465EB00CD6AD2 /* ExpenseChartView.swift */,
 				52865D11254CACAD006BD243 /* LoaderView.swift */,
 				52865D20254DA2BE006BD243 /* MainContentView.swift */,
 				52865D22254DB59B006BD243 /* MainContenTableViewCell.swift */,
 				5257046A25210B4E00FF61A1 /* SwitchOptionView.swift */,
+				52723808255C413500833829 /* TotalExpensesTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +311,7 @@
 			children = (
 				527EBA412550E87700423A07 /* MainContent.swift */,
 				527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */,
+				52C24FDE255B6AEC00A875CF /* ExpenseSectionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +325,7 @@
 				52316E1A254C9CB70098514C /* MeuDeputado+UIViewController.swift */,
 				52865D2A254DF42A006BD243 /* MeuDeputado+UIFont.swift */,
 				52865D2C254DF453006BD243 /* MeuDeputado+UIColor.swift */,
+				5272380A255C51C600833829 /* MeuDeputado+UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +372,7 @@
 				52316E11254C73B30098514C /* MainContentViewModel.swift */,
 				52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */,
 				5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */,
+				52C24FE0255B6D6B00A875CF /* TotalExpensesTableViewCellModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -453,7 +468,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				"pt-BR",
-				Base,
 			);
 			mainGroup = 526A0E2B20C340EC002FDC83;
 			productRefGroup = 526A0E3520C340EC002FDC83 /* Products */;
@@ -572,7 +586,9 @@
 				52865D29254DDDF9006BD243 /* ExpenseType.swift in Sources */,
 				52865D12254CACAD006BD243 /* LoaderView.swift in Sources */,
 				525704602520F3FD00FF61A1 /* Coordinatable.swift in Sources */,
+				52723809255C413500833829 /* TotalExpensesTableViewCell.swift in Sources */,
 				527EBA3825509DE600423A07 /* ExpensesViewController.swift in Sources */,
+				527C495E255465EB00CD6AD2 /* ExpenseChartView.swift in Sources */,
 				5266F68A2547B2CD00DE46C1 /* Fetchable.swift in Sources */,
 				52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */,
 				52865D3B254E2F51006BD243 /* ImageRepository.swift in Sources */,
@@ -587,6 +603,7 @@
 				52865D1C254CFA7F006BD243 /* ErrorView.swift in Sources */,
 				527EBA33254F77D600423A07 /* FirstViewModel.swift in Sources */,
 				52865D32254E236B006BD243 /* ImageCacheType.swift in Sources */,
+				52C24FDF255B6AEC00A875CF /* ExpenseSectionModel.swift in Sources */,
 				5266F691254843CA00DE46C1 /* Finder.swift in Sources */,
 				52366115253C95A800BAF427 /* MeuDeputado+UIView.swift in Sources */,
 				5269BF47252112A200E5119F /* MeuDeputado+Tokens.swift in Sources */,
@@ -594,9 +611,11 @@
 				52865D40254E3221006BD243 /* RepositoryOperation.swift in Sources */,
 				52865D2B254DF42A006BD243 /* MeuDeputado+UIFont.swift in Sources */,
 				527EBA2F254F77BB00423A07 /* FirstCoordinator.swift in Sources */,
+				52C24FE1255B6D6B00A875CF /* TotalExpensesTableViewCellModel.swift in Sources */,
 				52316E19254C84870098514C /* MeuDeputado+ObservableType.swift in Sources */,
 				5257046B25210B4E00FF61A1 /* SwitchOptionView.swift in Sources */,
 				527EBA3A25509E0800423A07 /* ExpensesViewModel.swift in Sources */,
+				5272380B255C51C600833829 /* MeuDeputado+UITableView.swift in Sources */,
 				52865D2D254DF453006BD243 /* MeuDeputado+UIColor.swift in Sources */,
 				52865D27254DDD39006BD243 /* PartyExpenses.swift in Sources */,
 				527EBA31254F77CC00423A07 /* FirsViewController.swift in Sources */,
@@ -643,7 +662,7 @@
 		5236611C253CABB100BAF427 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5236611D253CABB100BAF427 /* Base */,
+				5272380D255CAC7F00833829 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -651,7 +670,7 @@
 		52366122253CF7F400BAF427 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				52366123253CF7F400BAF427 /* Base */,
+				5272380E255CAC9700833829 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

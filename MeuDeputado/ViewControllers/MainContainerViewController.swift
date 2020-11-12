@@ -54,8 +54,8 @@ final class MainContainerViewController:
 		
 		NSLayoutConstraint.activate([
 			switchOptionView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
-			switchOptionView.leadingAnchor.constraint(equalTo: /*margins.leadingAnchor*/self.view.leadingAnchor, constant: Spacing.large),
-			/*margins.trailingAnchor*/self.view.trailingAnchor.constraint(equalTo: switchOptionView.trailingAnchor, constant: Spacing.large),
+			switchOptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Spacing.large),
+			view.trailingAnchor.constraint(equalTo: switchOptionView.trailingAnchor, constant: Spacing.large),
 		])
 	}
 	
@@ -71,8 +71,8 @@ final class MainContainerViewController:
 
 		NSLayoutConstraint.activate([
 			viewController.view.topAnchor.constraint(equalTo: switchOptionView.bottomAnchor, constant: Spacing.large),
-			viewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-			self.view.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
+			viewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			view.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
 			guide.bottomAnchor.constraint(equalToSystemSpacingBelow: viewController.view.bottomAnchor, multiplier: 1.0)
 		])
 		
@@ -147,7 +147,7 @@ final class MainContainerViewController:
 			})
 			.disposed(by: disposeBag)
 		
-		output.status
+        output.status
 			.drive(onNext: { [unowned self] in
 				self.configureState($0) })
 			.disposed(by: disposeBag)

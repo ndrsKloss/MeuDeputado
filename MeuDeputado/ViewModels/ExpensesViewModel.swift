@@ -1,4 +1,5 @@
 import RxSwift
+import RxCocoa
 import Parse
 
 final class ExpensesViewModel: ViewModelType {
@@ -6,8 +7,10 @@ final class ExpensesViewModel: ViewModelType {
 	struct Constants { }
 
 	struct Input { }
-	
-	struct Output { }
+    
+	struct Output {
+        let dataSource: Driver<[ExpensesSectionModel]>
+    }
 	
 	private let content: MainContent
 	private let finder: Fetchable
@@ -40,11 +43,16 @@ final class ExpensesViewModel: ViewModelType {
 			.flatMapLatest(partyExpenses)
 			.map(partyToExpenseContent)
 		
-		let expenses = Observable.merge(_deputyExpenses, _partyExpenses)
-			.map { $0.sorted { $0.key > $1.key } }
-			
-			
-		return Output()
+        let expenses = Observable.merge(_deputyExpenses, _partyExpenses)
+            //.map { $0.sorted { $0.key > $1.key } }
+        
+        let total = expenses
+            .map(totalExpensesCellModel)
+        
+        let dataSource = total
+            .asDriverOnErrorJustComplete()
+        
+        return Output(dataSource: dataSource)
 	}
 }
 
@@ -71,7 +79,9 @@ extension ExpensesViewModel {
 }
 
 extension ExpensesViewModel {
-	private func deputyToExpenseContent(expenses: [DeputyExpense]) -> [Int: [ExpenseInformation]] {
+	private func deputyToExpenseContent(
+        expenses: [DeputyExpense]
+    ) -> [Int: [ExpenseInformation]] {
 		let expensesInformation = expenses.map {
 			ExpenseInformation(
 				code: Int(truncating: $0.type.code),
@@ -81,7 +91,9 @@ extension ExpensesViewModel {
 		return groupExpensesByCode(expensesInformation)
 	}
 	
-	private func partyToExpenseContent(expenses: [PartyExpense]) -> [Int: [ExpenseInformation]] {
+	private func partyToExpenseContent(
+        expenses: [PartyExpense]
+    ) -> [Int: [ExpenseInformation]] {
 		let expensesInformation = expenses.map {
 			ExpenseInformation(
 				code: Int(truncating: $0.expenseType.code),
@@ -91,7 +103,9 @@ extension ExpensesViewModel {
 		return groupExpensesByCode(expensesInformation)
 	}
 	
-	func groupExpensesByCode(_ expenses: [ExpenseInformation]) -> [Int: [ExpenseInformation]] {
+	private func groupExpensesByCode(
+        _ expenses: [ExpenseInformation]
+    ) -> [Int: [ExpenseInformation]] {
 		let empty: [Int: [ExpenseInformation]] = [:]
 		
 		return expenses.reduce(into: empty) { acc, cur in
@@ -99,4 +113,17 @@ extension ExpensesViewModel {
 			acc[cur.code] = existing + [cur]
 		}
 	}
+
+    private func totalExpensesCellModel(
+        _ expenses: [Int: [ExpenseInformation]]
+    ) -> [ExpensesSectionModel] {
+        let viewModel = TotalExpensesTableViewCellModel(
+            title: content.title,
+            information: content.information,
+            expensesInformation: expenses
+        )
+        let item = ExpensesSectionItem.total(viewModel: viewModel)
+        let section = ExpensesSectionModel.total(items: [item])
+        return [section]
+    }
 }

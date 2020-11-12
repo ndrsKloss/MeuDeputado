@@ -13,6 +13,7 @@ target 'MeuDeputado' do
   # Pods for MeuDeputado
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
+  pod 'RxDataSources', '~> 4.0'
 	pod 'RxSwiftExt'
   pod 'Parse', '~> 1'
 	pod 'Charts'

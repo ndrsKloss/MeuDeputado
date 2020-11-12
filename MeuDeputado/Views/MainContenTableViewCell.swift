@@ -11,10 +11,7 @@ final class MainContenTableViewCell: UITableViewCell {
 	
 	private let mainContentView = MainContentView()
 	
-	override init(
-		style: UITableViewCell.CellStyle,
-		reuseIdentifier: String?
-	) {
+	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(
 			style: style,
 			reuseIdentifier: reuseIdentifier
@@ -41,13 +38,13 @@ final class MainContenTableViewCell: UITableViewCell {
 	}
 	
 	private func configureMainContentView() {
-		addSubviewWithAutolayout(mainContentView)
-		
+        contentView.addSubviewWithAutolayout(mainContentView)
+        
 		NSLayoutConstraint.activate([
-			mainContentView.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.medium),
-			mainContentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.large),
-			trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor, constant: Spacing.large),
-			bottomAnchor.constraint(equalTo: mainContentView.bottomAnchor, constant: Spacing.large)
+            mainContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Spacing.medium),
+            mainContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Spacing.large),
+            contentView.trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor, constant: Spacing.large),
+            contentView.bottomAnchor.constraint(equalTo: mainContentView.bottomAnchor, constant: Spacing.large)
 		])
 	}
 	
