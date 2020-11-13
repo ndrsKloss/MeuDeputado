@@ -20,7 +20,10 @@ final class ExpensesViewController: UIViewController {
         $0.tableFooterView = UIView()
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.separatorStyle = .none
-        $0.register(TotalExpensesTableViewCell.self)
+        $0.register(
+            TotalExpensesTableViewCell.self,
+            TypeExpensesTableViewCell.self
+        )
         return $0
     }(UITableView())
 	
@@ -72,31 +75,7 @@ final class ExpensesViewController: UIViewController {
         
         output
             .dataSource
-            .drive(tableView.rx.items(dataSource: dataSource))
+            .drive(tableView.rx.items(dataSource: expensesDataSource()))
             .disposed(by: disposeBag)
 	}
-}
-
-extension ExpensesViewController {
-    var dataSource: RxTableViewSectionedReloadDataSource<ExpensesSectionModel> {
-        RxTableViewSectionedReloadDataSource<ExpensesSectionModel>(
-            configureCell: { dataSource, tableView, indexPath, _ in
-            
-            switch dataSource[indexPath] {
-                
-            case .total(let viewModel):
-                let cell = tableView.dequeueReusableCell(
-                    withIdentifier: String(describing: TotalExpensesTableViewCell.self),
-                    for: indexPath
-                )
-                
-                if let cell = cell as? TotalExpensesTableViewCell {
-                    cell.configure(withViewModel: viewModel)
-                    return cell
-                }
-                
-                return cell
-            }
-        })
-    }
 }

@@ -7,7 +7,6 @@ class ExpensesLineChartDataSet: LineChartDataSet {
         drawCirclesEnabled: Bool = true
     ) {
         super.init(entries: entries, label: label)
-        
         lineWidth = Thickness.medium
         setColor(.primary)
         setCircleColor(.primary)

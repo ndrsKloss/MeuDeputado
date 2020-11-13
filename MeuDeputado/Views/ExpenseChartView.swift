@@ -28,8 +28,6 @@ final class ExpenseChartView: UIView {
     
     let chartView: LineChartView = {
         $0.noDataText = ""
-        $0.leftAxis.axisMinimum = 0.0
-        $0.rightAxis.axisMinimum = 0.0
         $0.legend.enabled = false
         $0.xAxis.enabled = false
         $0.leftAxis.enabled = false
@@ -115,7 +113,7 @@ final class ExpenseChartView: UIView {
             chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: chartView.trailingAnchor),
             
-            chartView.heightAnchor.constraint(equalToConstant: 70.0)
+            chartView.heightAnchor.constraint(equalToConstant: 100.0)
         ])
     }
     

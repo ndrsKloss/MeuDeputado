@@ -53,6 +53,10 @@ final class ExpensesViewModel: ViewModelType {
         let total = expenses
             .map(totalExpensesCellModel)
         
+        /*let types = expenses
+            .map { $0.sorted { $0.key > $1.key } }.map(<#T##transform: ([Dictionary<Int, [ExpenseInformation]>.Element]) throws -> Result##([Dictionary<Int, [ExpenseInformation]>.Element]) throws -> Result#>)*/
+        
+        // TODO: Merge with expenses type
         let dataSource = total
             .asDriverOnErrorJustComplete()
         

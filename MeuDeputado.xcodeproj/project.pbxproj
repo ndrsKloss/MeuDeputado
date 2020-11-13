@@ -36,6 +36,9 @@
 		52723809255C413500833829 /* TotalExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723808255C413500833829 /* TotalExpensesTableViewCell.swift */; };
 		5272380B255C51C600833829 /* MeuDeputado+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272380A255C51C600833829 /* MeuDeputado+UITableView.swift */; };
 		52723810255CCDD300833829 /* ExpensesLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272380F255CCDD300833829 /* ExpensesLineChartData.swift */; };
+		52723813255EF33D00833829 /* TypeExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723812255EF33D00833829 /* TypeExpensesTableViewCell.swift */; };
+		52723815255EF39F00833829 /* TypeExpensesTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723814255EF39F00833829 /* TypeExpensesTableViewCellModel.swift */; };
+		52723819255F151200833829 /* ExpensesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723818255F151200833829 /* ExpensesDataSource.swift */; };
 		527C495B2551FF7700CD6AD2 /* ExpenseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */; };
 		527C495E255465EB00CD6AD2 /* ExpenseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495D255465EB00CD6AD2 /* ExpenseChartView.swift */; };
 		527EBA2D254E462100423A07 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2C254E462100423A07 /* Endpoints.swift */; };
@@ -123,6 +126,9 @@
 		5272380D255CAC7F00833829 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5272380E255CAC9700833829 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		5272380F255CCDD300833829 /* ExpensesLineChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesLineChartData.swift; sourceTree = "<group>"; };
+		52723812255EF33D00833829 /* TypeExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeExpensesTableViewCell.swift; sourceTree = "<group>"; };
+		52723814255EF39F00833829 /* TypeExpensesTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeExpensesTableViewCellModel.swift; sourceTree = "<group>"; };
+		52723818255F151200833829 /* ExpensesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDataSource.swift; sourceTree = "<group>"; };
 		527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseInformation.swift; sourceTree = "<group>"; };
 		527C495D255465EB00CD6AD2 /* ExpenseChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseChartView.swift; sourceTree = "<group>"; };
 		527EBA2C254E462100423A07 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
@@ -234,6 +240,7 @@
 				52865D22254DB59B006BD243 /* MainContenTableViewCell.swift */,
 				5257046A25210B4E00FF61A1 /* SwitchOptionView.swift */,
 				52723808255C413500833829 /* TotalExpensesTableViewCell.swift */,
+				52723812255EF33D00833829 /* TypeExpensesTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +297,7 @@
 				5266F68F254842D700DE46C1 /* Repository */,
 				520C5642251AC56400AE37DB /* Protocols */,
 				52865D2F254E1CEC006BD243 /* Coordinators */,
+				5272381A255F158100833829 /* DataSources */,
 				52865D2E254E1CD3006BD243 /* ViewControllers */,
 				52D2DC41252BF68300E51A4F /* ViewModels */,
 				5257046C25210B9400FF61A1 /* Views */,
@@ -307,6 +315,14 @@
 				526A0E4E20C340EE002FDC83 /* Info.plist */,
 			);
 			path = MeuDeputadoTests;
+			sourceTree = "<group>";
+		};
+		5272381A255F158100833829 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				52723818255F151200833829 /* ExpensesDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		527EBA402550E5D100423A07 /* Models */ = {
@@ -376,6 +392,7 @@
 				52865D24254DB5B0006BD243 /* MainContentTableViewCellModel.swift */,
 				5266F687254737CD00DE46C1 /* SwitchOptionViewModel.swift */,
 				52C24FE0255B6D6B00A875CF /* TotalExpensesTableViewCellModel.swift */,
+				52723814255EF39F00833829 /* TypeExpensesTableViewCellModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -587,11 +604,14 @@
 				5266F6A5254A0D8F00DE46C1 /* Queries.swift in Sources */,
 				52865D3D254E31EC006BD243 /* OperationScheduable.swift in Sources */,
 				52865D29254DDDF9006BD243 /* ExpenseType.swift in Sources */,
+				52723815255EF39F00833829 /* TypeExpensesTableViewCellModel.swift in Sources */,
 				52865D12254CACAD006BD243 /* LoaderView.swift in Sources */,
 				525704602520F3FD00FF61A1 /* Coordinatable.swift in Sources */,
 				52723809255C413500833829 /* TotalExpensesTableViewCell.swift in Sources */,
 				527EBA3825509DE600423A07 /* ExpensesViewController.swift in Sources */,
 				527C495E255465EB00CD6AD2 /* ExpenseChartView.swift in Sources */,
+				52723819255F151200833829 /* ExpensesDataSource.swift in Sources */,
+				52723813255EF33D00833829 /* TypeExpensesTableViewCell.swift in Sources */,
 				5266F68A2547B2CD00DE46C1 /* Fetchable.swift in Sources */,
 				52D2DC3E252BF03D00E51A4F /* MainContainerViewModel.swift in Sources */,
 				52865D3B254E2F51006BD243 /* ImageRepository.swift in Sources */,

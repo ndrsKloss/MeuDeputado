@@ -1,5 +1,10 @@
 import Foundation
 
+/*
+ expensesInformation
+ ExpenseInformation
+ */
+
 struct ExpenseInformation {
 	let code: Int
 	let detail: String
