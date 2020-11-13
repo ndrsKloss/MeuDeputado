@@ -1,28 +1,36 @@
+import RxSwift
 import RxCocoa
 import Charts
 
 final class TotalExpensesTableViewCellModel: ViewModelType {
 
-    struct Constants { }
-    
-    struct Input { }
-    
-    struct Output {
-        let title: Driver<String>
-        let information: Driver<String>
-        let chartEntries: Driver<[ChartDataEntry]>
+    struct Constants {
+        static let expenseType = NSLocalizedString("Total-Expenses", comment: "")
     }
     
-    private let title: String
+    struct Input {
+        let index: Observable<Double>
+    }
+    
+    struct Output {
+        let year: Driver<String>
+        let information: Driver<String>
+        let chartData: Driver<ExpensesLineChartData>
+        let value: Driver<String?>
+    }
+    
+    private let year: BehaviorSubject<Int>
     private let information: String
     private let expensesInformation: [Int: [ExpenseInformation]]
     
+    private let values = [Decimal]()
+    
     init(
-        title: String,
+        year: BehaviorSubject<Int>,
         information: String,
         expensesInformation: [Int: [ExpenseInformation]]
     ) {
-        self.title = title
+        self.year = year
         self.information = information
         self.expensesInformation = expensesInformation
     }
@@ -72,17 +80,51 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
 
     }
     
+    private func formatCurrency(
+        _ valuesWithIndex: (values: [Decimal], index: Int)
+    ) -> String? {
+        let value = valuesWithIndex.values[valuesWithIndex.index]
+        
+        // FIXME: Use cache
+        let formatter = NumberFormatter()
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.numberStyle = .currency
+        return formatter.string(from: value as NSNumber)
+    }
+    
     func transform(input: Input) -> Output {
-
+        // TODO: Update date from input
+        
         let expensesGroupedByMonth = groupExpensesByMonth(expensesInformation)
         let totalGroupedExpesesesByMonth = totalExpesesByMonth(expensesGroupedByMonth)
         let expensesWithMonthsMapped = mapMonths(totalGroupedExpesesesByMonth)
         let chartEntries = mapEntries(expensesWithMonthsMapped)
+        let chartData = ExpensesLineChartData(entries: chartEntries)
+        
+        let index = input.index
+            .map(Int.init)
+            .startWith(0)
+        
+        let values = Observable.just(expensesWithMonthsMapped)
+            .map { $0.map { $0.1 } }
 
+        
+        
+        let value = Observable.combineLatest(values, index)
+            .map(formatCurrency)
+            .asDriverOnErrorJustComplete()
+
+        
+        let year = self.year
+            .map { String($0) }
+            .take(1)
+            .asDriverOnErrorJustComplete()
+        
         return Output (
-            title: .just(title),
+            year: year,
             information: .just(information),
-            chartEntries: .just(chartEntries)
+            chartData: .just(chartData),
+            value: value
         )
     }
 }

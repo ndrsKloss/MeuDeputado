@@ -9,17 +9,14 @@ final class ExpensesViewModel: ViewModelType {
 	struct Input { }
     
 	struct Output {
+        let title: Driver<String>
         let dataSource: Driver<[ExpensesSectionModel]>
     }
 	
 	private let content: MainContent
 	private let finder: Fetchable
-	
-	private var currentYear: Int {
-		let date = Date()
-		let calendar = Calendar(identifier: .gregorian)
-		return calendar.component(.year, from: date)
-	}
+
+    private let year: BehaviorSubject<Int>
 	
 	init(
 		content: MainContent,
@@ -27,12 +24,19 @@ final class ExpensesViewModel: ViewModelType {
 	) {
 		self.content = content
 		self.finder = finder
+        
+        let date = Date()
+        let calendar = Calendar(identifier: .gregorian)
+        let year = calendar.component(.year, from: date)
+        
+        self.year = BehaviorSubject<Int>(value: year)
 	}
 	
 	func transform(input: Input) -> Output {
+
 		let kind = Observable.just(content.model)
-		let queryParameters = Observable.combineLatest(Observable.just(currentYear), Observable.just(content.id))
-		
+		let queryParameters = Observable.combineLatest(year, Observable.just(content.id))
+
 		let _deputyExpenses = kind.filter { $0 == .deputy }
 			.withLatestFrom(queryParameters)
 			.flatMapLatest(deputyExpenses)
@@ -52,7 +56,10 @@ final class ExpensesViewModel: ViewModelType {
         let dataSource = total
             .asDriverOnErrorJustComplete()
         
-        return Output(dataSource: dataSource)
+        return Output(
+            title: .just(content.title),
+            dataSource: dataSource
+        )
 	}
 }
 
@@ -118,7 +125,7 @@ extension ExpensesViewModel {
         _ expenses: [Int: [ExpenseInformation]]
     ) -> [ExpensesSectionModel] {
         let viewModel = TotalExpensesTableViewCellModel(
-            title: content.title,
+            year: year,
             information: content.information,
             expensesInformation: expenses
         )

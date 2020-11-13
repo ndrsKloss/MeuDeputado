@@ -2,6 +2,8 @@ import UIKit
 import CoreGraphics
 
 struct Thickness {
+    /// Value of 0.0.
+    static let none: CGFloat = 0.0
 	/// Value of 4.0.
 	static let larger: CGFloat = 4.0
 	/// Value of 2.0.
@@ -106,7 +108,7 @@ extension UIFont {
 }
 
 extension UIColor {
-	static var primary: UIColor? {
+	static var primary: UIColor {
 		UIColor(hex: 0xDD4C40)
 	}
 	

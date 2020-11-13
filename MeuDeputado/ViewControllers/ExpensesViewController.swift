@@ -40,7 +40,7 @@ final class ExpensesViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+        
 		configureSelf()
         configureTableView()
 		transform()
@@ -63,6 +63,12 @@ final class ExpensesViewController: UIViewController {
     
 	private func transform() {
 		let output = viewModel.transform(input: Input())
+        
+        output.title
+            .drive(onNext: { [unowned self] in
+                self.title = $0
+            })
+            .disposed(by: disposeBag)
         
         output
             .dataSource
