@@ -11,14 +11,14 @@ final class TypeExpensesTableViewCellModel: ViewModelType {
     struct Output { }
     
     private let year: BehaviorSubject<Int>
-    private let expensesInformation: [ExpenseInformation]
+    private let expense: [Expense]
     
     init(
         year: BehaviorSubject<Int>,
-        expensesInformation: [ExpenseInformation]
+        expense: [Expense]
     ) {
         self.year = year
-        self.expensesInformation = expensesInformation
+        self.expense = expense
     }
 
     func transform(input: Input) -> Output {

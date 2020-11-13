@@ -1,11 +1,6 @@
 import Foundation
 
-/*
- expensesInformation
- ExpenseInformation
- */
-
-struct ExpenseInformation {
+struct Expense {
 	let code: Int
 	let detail: String
 	let value: Decimal

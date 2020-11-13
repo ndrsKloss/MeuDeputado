@@ -39,7 +39,7 @@
 		52723813255EF33D00833829 /* TypeExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723812255EF33D00833829 /* TypeExpensesTableViewCell.swift */; };
 		52723815255EF39F00833829 /* TypeExpensesTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723814255EF39F00833829 /* TypeExpensesTableViewCellModel.swift */; };
 		52723819255F151200833829 /* ExpensesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52723818255F151200833829 /* ExpensesDataSource.swift */; };
-		527C495B2551FF7700CD6AD2 /* ExpenseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */; };
+		527C495B2551FF7700CD6AD2 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495A2551FF7700CD6AD2 /* Expense.swift */; };
 		527C495E255465EB00CD6AD2 /* ExpenseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C495D255465EB00CD6AD2 /* ExpenseChartView.swift */; };
 		527EBA2D254E462100423A07 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2C254E462100423A07 /* Endpoints.swift */; };
 		527EBA2F254F77BB00423A07 /* FirstCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */; };
@@ -129,7 +129,7 @@
 		52723812255EF33D00833829 /* TypeExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeExpensesTableViewCell.swift; sourceTree = "<group>"; };
 		52723814255EF39F00833829 /* TypeExpensesTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeExpensesTableViewCellModel.swift; sourceTree = "<group>"; };
 		52723818255F151200833829 /* ExpensesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDataSource.swift; sourceTree = "<group>"; };
-		527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseInformation.swift; sourceTree = "<group>"; };
+		527C495A2551FF7700CD6AD2 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		527C495D255465EB00CD6AD2 /* ExpenseChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseChartView.swift; sourceTree = "<group>"; };
 		527EBA2C254E462100423A07 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		527EBA2E254F77BB00423A07 /* FirstCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCoordinator.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				527EBA412550E87700423A07 /* MainContent.swift */,
-				527C495A2551FF7700CD6AD2 /* ExpenseInformation.swift */,
+				527C495A2551FF7700CD6AD2 /* Expense.swift */,
 				52C24FDE255B6AEC00A875CF /* ExpenseSectionModel.swift */,
 			);
 			path = Models;
@@ -645,7 +645,7 @@
 				527EBA31254F77CC00423A07 /* FirsViewController.swift in Sources */,
 				52D2DC40252BF09D00E51A4F /* ViewModelType.swift in Sources */,
 				52316E10254C73A20098514C /* MainContentViewController.swift in Sources */,
-				527C495B2551FF7700CD6AD2 /* ExpenseInformation.swift in Sources */,
+				527C495B2551FF7700CD6AD2 /* Expense.swift in Sources */,
 				526A0E3A20C340EC002FDC83 /* MainContainerViewController.swift in Sources */,
 				524EEF342505236C0012CC5E /* main.swift in Sources */,
 				5266F688254737CD00DE46C1 /* SwitchOptionViewModel.swift in Sources */,

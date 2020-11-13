@@ -24,24 +24,24 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     
     private let year: BehaviorSubject<Int>
     private let information: String
-    private let expensesInformation: [Int: [ExpenseInformation]]
+    private let expense: [Int: [Expense]]
     
     private let values = [Decimal]()
     
     init(
         year: BehaviorSubject<Int>,
         information: String,
-        expensesInformation: [Int: [ExpenseInformation]]
+        expense: [Int: [Expense]]
     ) {
         self.year = year
         self.information = information
-        self.expensesInformation = expensesInformation
+        self.expense = expense
     }
 
     private func groupExpensesByMonth(
-        _ expensesInformation: [Int: [ExpenseInformation]]
+        _ expense: [Int: [Expense]]
     ) -> [Int: [Decimal]] {
-        expensesInformation
+        expense
             .flatMap { $0.value }
             .reduce(into: [Int: [Decimal]]()) { acc, cur in
                 let existing = acc[cur.month] ?? []
@@ -98,7 +98,7 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     func transform(input: Input) -> Output {
         // TODO: Update date from input and make request
         
-        let expensesGroupedByMonth = groupExpensesByMonth(expensesInformation)
+        let expensesGroupedByMonth = groupExpensesByMonth(expense)
         let totalGroupedExpesesesByMonth = totalExpesesByMonth(expensesGroupedByMonth)
         let expensesWithMonthsMapped = mapMonths(totalGroupedExpesesesByMonth)
         let chartEntries = mapEntries(expensesWithMonthsMapped)
