@@ -15,8 +15,11 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     struct Output {
         let year: Driver<String>
         let information: Driver<String>
-        let chartData: Driver<ExpensesLineChartData>
+        let dataSet: Driver<ExpensesLineChartDataSet>
         let value: Driver<String?>
+        let months: Driver<[String]>
+        let index: Driver<Int>
+        let entry: Driver<ExpensesLineChartDataSet>
     }
     
     private let year: BehaviorSubject<Int>
@@ -93,27 +96,37 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        // TODO: Update date from input
+        // TODO: Update date from input and make request
         
         let expensesGroupedByMonth = groupExpensesByMonth(expensesInformation)
         let totalGroupedExpesesesByMonth = totalExpesesByMonth(expensesGroupedByMonth)
         let expensesWithMonthsMapped = mapMonths(totalGroupedExpesesesByMonth)
         let chartEntries = mapEntries(expensesWithMonthsMapped)
-        let chartData = ExpensesLineChartData(entries: chartEntries)
-        
+        let dataSet = ExpensesLineChartDataSet(entries: chartEntries, drawCirclesEnabled: false)
+
         let index = input.index
             .map(Int.init)
             .startWith(0)
         
-        let values = Observable.just(expensesWithMonthsMapped)
-            .map { $0.map { $0.1 } }
-
+        let entries = Observable.just(chartEntries)
         
+        let expenses = Observable.just(expensesWithMonthsMapped)
+        
+        let months = expenses
+            .map { $0.map { $0.0 } }
+            .asDriverOnErrorJustComplete()
+        
+        let values = expenses
+            .map { $0.map { $0.1 } }
         
         let value = Observable.combineLatest(values, index)
             .map(formatCurrency)
             .asDriverOnErrorJustComplete()
-
+        
+        let entry = Observable.combineLatest(entries, index)
+            .map { [$0.0[$0.1]] }
+            .map { ExpensesLineChartDataSet(entries: $0, drawCirclesEnabled: true) } 
+            .asDriverOnErrorJustComplete()
         
         let year = self.year
             .map { String($0) }
@@ -123,8 +136,11 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
         return Output (
             year: year,
             information: .just(information),
-            chartData: .just(chartData),
-            value: value
+            dataSet: .just(dataSet),
+            value: value,
+            months: months,
+            index: index.asDriverOnErrorJustComplete(),
+            entry: entry
         )
     }
 }

@@ -71,7 +71,7 @@ struct FontSize {
 
 extension UIFont {
 	static var largeTitle: UIFont {
-		UIFont.preferredFont(for: .largeTitle, weight: .bold)
+        UIFont.preferredFont(for: .largeTitle, weight: .bold)
 	}
 	
 	static var title1: UIFont {
@@ -83,7 +83,7 @@ extension UIFont {
 	}
 	
 	static var title3: UIFont {
-		UIFont.preferredFont(for: .title3, weight: .heavy)
+        UIFont.preferredFont(for: .title3, weight: .heavy)
 	}
 	
 	static var subhead: UIFont {

@@ -9,16 +9,16 @@ final class TotalExpensesTableViewCell: UITableViewCell {
     
     typealias Input = TotalExpensesTableViewCellModel.Input
     
-    private var disposeBag = DisposeBag()
-    
     private let information: UILabel = {
         $0.numberOfLines = 0
-        $0.font = .body
+        $0.font = UIFont.body.withSize(FontSize.large)
         $0.adjustsFontForContentSizeCategory = true
         return $0
     }(UILabel())
     
     private let expenseChartView = ExpenseChartView()
+    
+    private var disposeBag = DisposeBag()
     
     override init(
         style: UITableViewCell.CellStyle,
@@ -86,15 +86,35 @@ final class TotalExpensesTableViewCell: UITableViewCell {
             .drive(information.rx.text)
             .disposed(by: disposeBag)
         
-        output.chartData
+        output.dataSet
             .drive(onNext: { [unowned self] in
-                self.expenseChartView.chartView.data = $0
+                let data = LineChartData(dataSet: $0)
+                self.expenseChartView.chartView.data = data
+            })
+            .disposed(by: disposeBag)
+        
+        output.entry
+            .drive(onNext: { [unowned self] in
+                self.expenseChartView.chartView.lineData?.removeDataSetByIndex(1)
+                self.expenseChartView.chartView.lineData?.addDataSet($0)
             })
             .disposed(by: disposeBag)
         
         output.value
             .drive(onNext: { [unowned self] in
                 self.expenseChartView.valueLabel.text = $0
+            })
+            .disposed(by: disposeBag)
+        
+        output.months
+            .drive(onNext: { [unowned self] in
+                self.expenseChartView.configureBaseStackView($0)
+            })
+            .disposed(by: disposeBag)
+        
+        output.index
+            .drive(onNext: { [unowned self] in
+                self.expenseChartView.selectMonth(at: $0)
             })
             .disposed(by: disposeBag)
     }

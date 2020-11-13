@@ -30,9 +30,7 @@ final class ExpenseChartView: UIView {
         $0.noDataText = ""
         $0.leftAxis.axisMinimum = 0.0
         $0.rightAxis.axisMinimum = 0.0
-        //$0.setViewPortOffsets(left: 0.0, top: 0.0, right: 0.0, bottom: 8.0)
         $0.legend.enabled = false
-        //$0.delegate = self
         $0.xAxis.enabled = false
         $0.leftAxis.enabled = false
         $0.rightAxis.enabled = false
@@ -41,8 +39,15 @@ final class ExpenseChartView: UIView {
         $0.pinchZoomEnabled = false
         return $0
     }(LineChartView())
+    
+    let baseStackView: UIStackView = {
+        $0.alignment = .center
+        $0.distribution = .equalCentering
+        return $0
+    }(UIStackView())
 	
     private let _index = PublishSubject<Double>()
+    private var months = [ExpenseChartLabel]()
     
     var index: Observable<Double> {
         _index.asObservable()
@@ -57,6 +62,11 @@ final class ExpenseChartView: UIView {
         configureExpenseYearLabel()
         configureValueLabel()
         configureChartView()
+        configureBaseStackView()
+        
+        
+        
+        chartView.lineData?.addDataSet(LineChartDataSet(entries: []))
 	}
 	
 	@available(*, unavailable)
@@ -104,10 +114,47 @@ final class ExpenseChartView: UIView {
             chartView.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: Spacing.small),
             chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: chartView.trailingAnchor),
-            bottomAnchor.constraint(equalTo: chartView.bottomAnchor),
             
             chartView.heightAnchor.constraint(equalToConstant: 70.0)
         ])
+    }
+    
+    private func configureBaseStackView() {
+        addSubviewWithAutolayout(baseStackView)
+        
+        NSLayoutConstraint.activate([
+            baseStackView.topAnchor.constraint(equalTo: chartView.bottomAnchor),
+            baseStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            trailingAnchor.constraint(equalTo: baseStackView.trailingAnchor),
+            bottomAnchor.constraint(equalTo: baseStackView.bottomAnchor),
+            
+            baseStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0)
+        ])
+    }
+    
+    func selectMonth(at index: Int) {
+        let label = months[index]
+        let indexOf = months.firstIndex(of: label)
+        
+        months.enumerated().forEach { index, element in
+            if indexOf != index {
+                element.apply(style: .chartBaseUnselected)
+            }
+        }
+        
+        label.apply(style: .chartBaseSelected)
+    }
+    
+    func configureBaseStackView(_ months: [String]) {
+        months.forEach {
+            let label = ExpenseChartLabel()
+            label.apply(style: .chartBaseUnselected)
+            label.minimumScaleFactor = 0.5
+            label.text = $0
+            
+            self.months.append(label)
+            baseStackView.addArrangedSubview(label)
+        }
     }
 }
 
@@ -145,7 +192,7 @@ extension ExpenseChartLabel: Styleable {
             borderWidth: Thickness.small,
             backgroundColor: .neutralLighter,
             textColor: .neutralDarker,
-            font: .callout2,
+            font: UIFont.callout2.withSize(FontSize.xsmall),
             textAlignment: .center,
             contentEdgeInsets: UIEdgeInsets(top: Spacing.xsmall, left: Spacing.small, bottom: Spacing.xsmall, right: Spacing.small)
         )
@@ -155,7 +202,8 @@ extension ExpenseChartLabel: Styleable {
             borderWidth: Thickness.none,
             backgroundColor: .primary,
             textColor: .neutralLighter,
-            font: .callout2, textAlignment: .center,
+            font: UIFont.callout2.withSize(FontSize.xsmall),
+            textAlignment: .center,
             contentEdgeInsets: UIEdgeInsets(top: Spacing.xsmall, left: Spacing.small, bottom: Spacing.xsmall, right: Spacing.small)
         )
         
@@ -164,7 +212,7 @@ extension ExpenseChartLabel: Styleable {
             borderWidth: Thickness.none,
             backgroundColor: .neutralLighter,
             textColor: .neutralDarker,
-            font: .title3,
+            font: UIFont.title3.withSize(FontSize.medium),
             textAlignment: .left,
             contentEdgeInsets: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         )
@@ -174,7 +222,7 @@ extension ExpenseChartLabel: Styleable {
             borderWidth: Thickness.none,
             backgroundColor: .neutralLighter,
             textColor: .primary,
-            font: .title3,
+            font: UIFont.title3.withSize(FontSize.xsmall),
             textAlignment: .center,
             contentEdgeInsets: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         )
@@ -184,7 +232,7 @@ extension ExpenseChartLabel: Styleable {
             borderWidth: Thickness.none,
             backgroundColor: .neutralLighter,
             textColor: .neutralDarker,
-            font: .headline,
+            font: UIFont.headline.withSize(FontSize.xsmall),
             textAlignment: .center,
             contentEdgeInsets: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         )
