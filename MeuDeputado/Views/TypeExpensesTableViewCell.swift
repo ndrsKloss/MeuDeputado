@@ -29,13 +29,8 @@ final class TypeExpensesTableViewCell: UITableViewCell {
         return nil
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        disposeBag = DisposeBag()
-    }
-    
     private func configureSelf() {
-        backgroundColor = .primary
+        contentView.backgroundColor = .primary
         selectionStyle = .none
     }
     

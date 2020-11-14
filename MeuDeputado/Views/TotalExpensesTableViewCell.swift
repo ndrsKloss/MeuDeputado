@@ -9,6 +9,13 @@ final class TotalExpensesTableViewCell: UITableViewCell {
     
     typealias Input = TotalExpensesTableViewCellModel.Input
     
+    private let roundedView: UIView = {
+        $0.backgroundColor = .neutralLighter
+        $0.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        $0.layer.cornerRadius = Radius.medium
+        return $0
+    }(UIView())
+    
     private let information: UILabel = {
         $0.numberOfLines = 0
         $0.font = UIFont.body.withSize(FontSize.large)
@@ -27,6 +34,7 @@ final class TotalExpensesTableViewCell: UITableViewCell {
         super.init(style: style,reuseIdentifier: reuseIdentifier)
         
         configureSelf()
+        configureBackgroundView()
         configureInformation()
         condigureExpenseChartView()
     }
@@ -36,35 +44,42 @@ final class TotalExpensesTableViewCell: UITableViewCell {
         return nil
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     private func configureSelf() {
-        backgroundColor = .neutralLighter
+        contentView.backgroundColor = .primary
         selectionStyle = .none
     }
     
+    private func configureBackgroundView() {
+        contentView.addSubviewWithAutolayout(roundedView)
+        
+        NSLayoutConstraint.activate([
+            roundedView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            roundedView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: roundedView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: roundedView.bottomAnchor)
+        ])
+    }
+    
     private func configureInformation() {
-        contentView.addSubviewWithAutolayout(information)
+        roundedView.addSubviewWithAutolayout(information)
         
         NSLayoutConstraint.activate([
             information.topAnchor.constraint(equalTo: contentView.topAnchor),
-            information.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Spacing.medium),
-            contentView.trailingAnchor.constraint(equalTo: information.trailingAnchor, constant: Spacing.medium),
+            information.leadingAnchor.constraint(equalTo: roundedView.leadingAnchor, constant: Spacing.medium),
+            roundedView.trailingAnchor.constraint(equalTo: information.trailingAnchor, constant: Spacing.medium),
         ])
     }
     
     private func condigureExpenseChartView() {
         expenseChartView.expenseTypeLabel.text = Constants.expenseType
         
-        contentView.addSubviewWithAutolayout(expenseChartView)
+        roundedView.addSubviewWithAutolayout(expenseChartView)
         
         NSLayoutConstraint.activate([
             expenseChartView.topAnchor.constraint(equalTo: information.bottomAnchor, constant: Spacing.large),
-            expenseChartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Spacing.medium),
-            contentView.trailingAnchor.constraint(equalTo: expenseChartView.trailingAnchor, constant: Spacing.medium),
-            contentView.bottomAnchor.constraint(equalTo: expenseChartView.bottomAnchor)
+            expenseChartView.leadingAnchor.constraint(equalTo: roundedView.leadingAnchor, constant: Spacing.medium),
+            roundedView.trailingAnchor.constraint(equalTo: expenseChartView.trailingAnchor, constant: Spacing.medium),
+            roundedView.bottomAnchor.constraint(equalTo: expenseChartView.bottomAnchor)
         ])
     }
     
