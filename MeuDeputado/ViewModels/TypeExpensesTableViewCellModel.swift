@@ -24,8 +24,6 @@ final class TypeExpensesTableViewCellModel: ViewModelType {
     private let year: BehaviorSubject<Int>
     private let expenses: [Expense]
     
-    var alreadyConfigured = false
-    
     init(
         year: BehaviorSubject<Int>,
         expenses: [Expense]
@@ -101,7 +99,7 @@ final class TypeExpensesTableViewCellModel: ViewModelType {
             .asDriverOnErrorJustComplete()
         
         let type = Observable.just(self.expenses)
-            .map { $0.first?.detail.lowercased() }
+            .map { $0.first?.detail }
             .unwrap()
             .asDriverOnErrorJustComplete()
         

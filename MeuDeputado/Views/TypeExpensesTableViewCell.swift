@@ -29,6 +29,11 @@ final class TypeExpensesTableViewCell: UITableViewCell {
         return nil
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
     private func configureSelf() {
         contentView.backgroundColor = .primary
         selectionStyle = .none
@@ -46,9 +51,6 @@ final class TypeExpensesTableViewCell: UITableViewCell {
     }
     
     func configure(withViewModel viewModel: TypeExpensesTableViewCellModel) {
-        guard !viewModel.alreadyConfigured else { return }
-        viewModel.alreadyConfigured = true
-        
         let input = Input(
             index: expenseChartView.index
         )

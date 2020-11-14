@@ -84,9 +84,6 @@ final class TotalExpensesTableViewCell: UITableViewCell {
     }
     
     func configure(withViewModel viewModel: TotalExpensesTableViewCellModel) {
-        guard !viewModel.alreadyConfigured else { return }
-        viewModel.alreadyConfigured = true
-        
         let input = Input(
             index: expenseChartView.index
         )

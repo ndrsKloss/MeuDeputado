@@ -26,8 +26,6 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     private let information: String
     private let expense: [Int: [Expense]]
     
-    var alreadyConfigured = false
-    
     init(
         year: BehaviorSubject<Int>,
         information: String,
