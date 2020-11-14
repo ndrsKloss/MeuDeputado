@@ -24,7 +24,15 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     
     private let year: BehaviorSubject<Int>
     private let information: String
-    private let expense: [Int: [Expense]]
+    private var months = [String]()
+    private var values = [Decimal]()
+    private var entries = [ChartDataEntry]()
+    private var dataSet: ExpensesLineChartDataSet?
+    
+    private var _initialIndex = 0
+    private var initialIndex: Observable<Int> {
+        .just(_initialIndex)
+    }
     
     init(
         year: BehaviorSubject<Int>,
@@ -33,7 +41,15 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     ) {
         self.year = year
         self.information = information
-        self.expense = expense
+        
+        let expensesGroupedByMonth = groupExpensesByMonth(expense)
+        let totalGroupedExpesesesByMonth = totalExpensesByMonth(expensesGroupedByMonth)
+        let expensesWithMonthsMapped: [(month: String, value: Decimal)] = mapMonths(totalGroupedExpesesesByMonth)
+        months = expensesWithMonthsMapped.map { $0.month }
+        values = expensesWithMonthsMapped.map { $0.value }
+        let entries = mapEntries(expensesWithMonthsMapped)
+        self.entries = entries
+        dataSet = ExpensesLineChartDataSet(entries: entries, drawCirclesEnabled: false)
     }
 
     private func groupExpensesByMonth(
@@ -59,6 +75,7 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     private func mapMonths(
         _ expenses: [Int: Decimal]
     ) -> [(String, Decimal)] {
+        let expenses = fillMissingMonths(expenses)
         
         // FIXME: Use cache
         let formatter = DateFormatter()
@@ -70,6 +87,23 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
                 let month = formatter.monthSymbols[key - 1].prefix(3).uppercased()
                 return (month, value)
             }
+    }
+    
+    private func fillMissingMonths(
+        _ expenses: [Int: Decimal]
+    ) -> [Int: Decimal] {
+        var expenses = expenses
+                
+        // FIXME: Not safe
+        let currentMonth = Calendar.current.component(.month, from: Date())
+
+        let allMonthsSoFar = Set(Array(1...currentMonth))
+        let expensesMonths = Set(expenses.map { $0.key })
+        let difference = Array(expensesMonths.symmetricDifference(allMonthsSoFar))
+        
+        difference.forEach { expenses[$0] = Decimal(0.0) }
+        
+        return expenses
     }
     
     private func mapEntries(
@@ -96,32 +130,17 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     func transform(input: Input) -> Output {
         // TODO: Update date from input and make request
         
-        let expensesGroupedByMonth = groupExpensesByMonth(expense)
-        let totalGroupedExpesesesByMonth = totalExpensesByMonth(expensesGroupedByMonth)
-        let expensesWithMonthsMapped = mapMonths(totalGroupedExpesesesByMonth)
-        let chartEntries = mapEntries(expensesWithMonthsMapped)
-        let dataSet = ExpensesLineChartDataSet(entries: chartEntries, drawCirclesEnabled: false)
-
-        let index = input.index
+        let _index = input.index
             .map(Int.init)
-            .startWith(0)
+            .do(onNext: { [unowned self] in self._initialIndex = $0 })
         
-        let entries = Observable.just(chartEntries)
+        let index = Observable.merge(initialIndex, _index)
         
-        let expenses = Observable.just(expensesWithMonthsMapped)
-        
-        let months = expenses
-            .map { $0.map { $0.0 } }
-            .asDriverOnErrorJustComplete()
-        
-        let values = expenses
-            .map { $0.map { $0.1 } }
-        
-        let value = Observable.combineLatest(values, index)
+        let value = Observable.combineLatest(Observable.just(values), index)
             .map(formatCurrency)
             .asDriverOnErrorJustComplete()
         
-        let entry = Observable.combineLatest(entries, index)
+        let entry = Observable.combineLatest(Observable.just(entries), index)
             .map { [$0.0[$0.1]] }
             .map { ExpensesLineChartDataSet(entries: $0, drawCirclesEnabled: true) }
             .asDriverOnErrorJustComplete()
@@ -131,12 +150,16 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
             .take(1)
             .asDriverOnErrorJustComplete()
         
+        let dataSet = Observable.just(self.dataSet)
+            .unwrap()
+            .asDriverOnErrorJustComplete()
+
         return Output (
             year: year,
             information: .just(information),
-            dataSet: .just(dataSet),
+            dataSet: dataSet,
             value: value,
-            months: months,
+            months: .just(months),
             index: index.asDriverOnErrorJustComplete(),
             entry: entry
         )

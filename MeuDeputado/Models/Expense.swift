@@ -1,6 +1,6 @@
 import Foundation
 
-struct Expense {
+struct Expense: Hashable {
 	let code: Int
 	let detail: String
 	let value: Decimal
