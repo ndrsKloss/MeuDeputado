@@ -38,7 +38,6 @@ final class TotalExpensesTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = DisposeBag()
     }
     
     private func configureSelf() {
@@ -63,13 +62,16 @@ final class TotalExpensesTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             expenseChartView.topAnchor.constraint(equalTo: information.bottomAnchor, constant: Spacing.large),
-            expenseChartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Spacing.xlarge),
-            contentView.trailingAnchor.constraint(equalTo: expenseChartView.trailingAnchor, constant: Spacing.xlarge),
+            expenseChartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Spacing.medium),
+            contentView.trailingAnchor.constraint(equalTo: expenseChartView.trailingAnchor, constant: Spacing.medium),
             contentView.bottomAnchor.constraint(equalTo: expenseChartView.bottomAnchor)
         ])
     }
     
     func configure(withViewModel viewModel: TotalExpensesTableViewCellModel) {
+        guard !viewModel.alreadyConfigured else { return }
+        viewModel.alreadyConfigured = true
+        
         let input = Input(
             index: expenseChartView.index
         )
@@ -77,9 +79,7 @@ final class TotalExpensesTableViewCell: UITableViewCell {
         let output = viewModel.transform(input: input)
         
         output.year
-            .drive(onNext: { [unowned self] in
-                self.expenseChartView.expenseYearLabel.text = $0
-            })
+            .drive(expenseChartView.expenseYearLabel.rx.text)
             .disposed(by: disposeBag)
         
         output.information
@@ -101,9 +101,7 @@ final class TotalExpensesTableViewCell: UITableViewCell {
             .disposed(by: disposeBag)
         
         output.value
-            .drive(onNext: { [unowned self] in
-                self.expenseChartView.valueLabel.text = $0
-            })
+            .drive(expenseChartView.valueLabel.rx.text)
             .disposed(by: disposeBag)
         
         output.months

@@ -26,7 +26,7 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     private let information: String
     private let expense: [Int: [Expense]]
     
-    private let values = [Decimal]()
+    var alreadyConfigured = false
     
     init(
         year: BehaviorSubject<Int>,
@@ -49,7 +49,7 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
             }
     }
     
-    private func totalExpesesByMonth(
+    private func totalExpensesByMonth(
         _ expesesGrouped: [Int: [Decimal]]
     ) -> [Int: Decimal] {
         expesesGrouped
@@ -80,7 +80,6 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
         expenses.enumerated().map { (offset, element) -> ChartDataEntry in
             ChartDataEntry(x: Double(offset), y: Double(truncating: element.value as NSNumber))
         }
-
     }
     
     private func formatCurrency(
@@ -92,14 +91,15 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "pt_BR")
         formatter.numberStyle = .currency
-        return formatter.string(from: value as NSNumber)
+        let valueFormatted = formatter.string(from: value as NSNumber)
+        return valueFormatted
     }
     
     func transform(input: Input) -> Output {
         // TODO: Update date from input and make request
         
         let expensesGroupedByMonth = groupExpensesByMonth(expense)
-        let totalGroupedExpesesesByMonth = totalExpesesByMonth(expensesGroupedByMonth)
+        let totalGroupedExpesesesByMonth = totalExpensesByMonth(expensesGroupedByMonth)
         let expensesWithMonthsMapped = mapMonths(totalGroupedExpesesesByMonth)
         let chartEntries = mapEntries(expensesWithMonthsMapped)
         let dataSet = ExpensesLineChartDataSet(entries: chartEntries, drawCirclesEnabled: false)
@@ -125,7 +125,7 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
         
         let entry = Observable.combineLatest(entries, index)
             .map { [$0.0[$0.1]] }
-            .map { ExpensesLineChartDataSet(entries: $0, drawCirclesEnabled: true) } 
+            .map { ExpensesLineChartDataSet(entries: $0, drawCirclesEnabled: true) }
             .asDriverOnErrorJustComplete()
         
         let year = self.year

@@ -22,8 +22,8 @@ private func configureCell(
                 cell.configure(withViewModel: viewModel)
                 return cell
             }
-            
             return cell
+        
         case .type(viewModel: let viewModel):
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: String(describing: TypeExpensesTableViewCell.self),

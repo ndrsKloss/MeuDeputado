@@ -17,7 +17,7 @@ final class ExpensesViewModel: ViewModelType {
 	private let finder: Fetchable
 
     private let year: BehaviorSubject<Int>
-	
+    
 	init(
 		content: MainContent,
 		finder: Fetchable
@@ -48,16 +48,14 @@ final class ExpensesViewModel: ViewModelType {
 			.map(partyToExpenseContent)
 		
         let expenses = Observable.merge(_deputyExpenses, _partyExpenses)
-            //.map { $0.sorted { $0.key > $1.key } }
         
         let total = expenses
             .map(totalExpensesCellModel)
         
-        /*let types = expenses
-            .map { $0.sorted { $0.key > $1.key } }.map(<#T##transform: ([Dictionary<Int, [Expense]>.Element]) throws -> Result##([Dictionary<Int, [Expense]>.Element]) throws -> Result#>)*/
-        
-        // TODO: Merge with expenses type
-        let dataSource = total
+        let types = expenses
+            .map(typeExpensesCellModel)
+
+        let dataSource = Observable.combineLatest(total, types) { $0 + $1 }
             .asDriverOnErrorJustComplete()
         
         return Output(
@@ -117,9 +115,7 @@ extension ExpensesViewModel {
 	private func groupExpensesByCode(
         _ expenses: [Expense]
     ) -> [Int: [Expense]] {
-		let empty: [Int: [Expense]] = [:]
-		
-		return expenses.reduce(into: empty) { acc, cur in
+		expenses.reduce(into: [Int: [Expense]]()) { acc, cur in
 			let existing = acc[cur.code] ?? []
 			acc[cur.code] = existing + [cur]
 		}
@@ -135,6 +131,18 @@ extension ExpensesViewModel {
         )
         let item = ExpensesSectionItem.total(viewModel: viewModel)
         let section = ExpensesSectionModel.total(items: [item])
+        return [section]
+    }
+    
+    private func typeExpensesCellModel(
+        _ expenses: [Int: [Expense]]
+    ) -> [ExpensesSectionModel] {
+        let expenses = Array(expenses.values)
+        let items = expenses
+            .map { TypeExpensesTableViewCellModel(year: year, expenses: $0) }
+            .map { ExpensesSectionItem.type(viewModel: $0) }
+        
+        let section = ExpensesSectionModel.type(items: items)
         return [section]
     }
 }

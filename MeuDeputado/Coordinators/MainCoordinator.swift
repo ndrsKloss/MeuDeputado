@@ -26,7 +26,7 @@ final class MainCoordinator: Coordinatable {
 			.filter { $0.destination == .expenses }
 			.map { $0.getLuggage() }
 			.unwrap()
-			.drive(onNext: startExpanses)
+			.drive(onNext: startExpenses)
 			.disposed(by: viewController.disposeBag)
 
 		navigationController.pushViewController(
@@ -35,7 +35,7 @@ final class MainCoordinator: Coordinatable {
 		)
 	}
 	
-	func startExpanses(content: MainContent) {
+	func startExpenses(content: MainContent) {
 		let coordinator = ExpensesCoordinator(
 			navigationController: navigationController,
 			content: content

@@ -61,9 +61,7 @@ final class ExpenseChartView: UIView {
         configureValueLabel()
         configureChartView()
         configureBaseStackView()
-        
-        
-        
+
         chartView.lineData?.addDataSet(LineChartDataSet(entries: []))
 	}
 	
@@ -80,9 +78,9 @@ final class ExpenseChartView: UIView {
         addSubviewWithAutolayout(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            trailingAnchor.constraint(greaterThanOrEqualTo: stackView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.medium),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.medium),
+            trailingAnchor.constraint(greaterThanOrEqualTo: stackView.trailingAnchor, constant: Spacing.medium),
         ])
     }
     
@@ -99,8 +97,8 @@ final class ExpenseChartView: UIView {
         
         NSLayoutConstraint.activate([
             valueLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: Spacing.medium),
-            valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            trailingAnchor.constraint(equalTo: valueLabel.trailingAnchor),
+            valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.medium),
+            trailingAnchor.constraint(equalTo: valueLabel.trailingAnchor, constant: Spacing.medium),
         ])
     }
     
@@ -110,8 +108,8 @@ final class ExpenseChartView: UIView {
         
         NSLayoutConstraint.activate([
             chartView.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: Spacing.small),
-            chartView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            trailingAnchor.constraint(equalTo: chartView.trailingAnchor),
+            chartView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.medium),
+            trailingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: Spacing.medium),
             
             chartView.heightAnchor.constraint(equalToConstant: 100.0)
         ])
@@ -122,8 +120,8 @@ final class ExpenseChartView: UIView {
         
         NSLayoutConstraint.activate([
             baseStackView.topAnchor.constraint(equalTo: chartView.bottomAnchor),
-            baseStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            trailingAnchor.constraint(equalTo: baseStackView.trailingAnchor),
+            baseStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.medium),
+            trailingAnchor.constraint(equalTo: baseStackView.trailingAnchor, constant: Spacing.medium),
             bottomAnchor.constraint(equalTo: baseStackView.bottomAnchor),
             
             baseStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0)
@@ -144,10 +142,16 @@ final class ExpenseChartView: UIView {
     }
     
     func configureBaseStackView(_ months: [String]) {
+        self.months.forEach {
+            $0.removeFromSuperview()
+            NSLayoutConstraint.deactivate($0.constraints)
+        }
+        
+        self.months = []
+        
         months.forEach {
             let label = ExpenseChartLabel()
             label.apply(style: .chartBaseUnselected)
-            label.minimumScaleFactor = 0.5
             label.text = $0
             
             self.months.append(label)
@@ -260,5 +264,28 @@ extension ExpenseChartView: ChartViewDelegate {
         highlight: Highlight
     ) {
         _index.onNext(entry.x)
+    }
+}
+
+extension ExpenseChartView: Styleable {
+    struct ExpenseChartViewStyle {
+        let cornerRadious: CGFloat
+        let shadowOpacity: Float
+        let shadowOffset: CGSize
+        let shadowRadius: CGFloat
+        
+        static let type = ExpenseChartViewStyle(
+            cornerRadious: Radius.small,
+            shadowOpacity: Shadow.Large.shadowOpacity,
+            shadowOffset: Shadow.Large.shadowOffset,
+            shadowRadius: Shadow.Large.shadowRadius
+        )
+    }
+    
+    func apply(style: ExpenseChartViewStyle) {
+        layer.cornerRadius = style.cornerRadious
+        layer.shadowOpacity = style.shadowOpacity
+        layer.shadowOffset = style.shadowOffset
+        layer.shadowRadius = style.shadowRadius
     }
 }
