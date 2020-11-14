@@ -57,10 +57,10 @@ final class ExpensesViewController: UIViewController {
         view.addSubviewWithAutolayout(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+            tableView.topAnchor.constraint(equalTo: guide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
-            guide.bottomAnchor.constraint(equalToSystemSpacingBelow: tableView.bottomAnchor, multiplier: 1.0)
+            view.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)
         ])
     }
     

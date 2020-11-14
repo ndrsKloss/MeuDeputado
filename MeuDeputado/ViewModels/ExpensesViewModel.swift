@@ -137,9 +137,9 @@ extension ExpensesViewModel {
     private func typeExpensesCellModel(
         _ expenses: [Int: [Expense]]
     ) -> [ExpensesSectionModel] {
-        let expenses = Array(expenses.values)
         let items = expenses
-            .map { TypeExpensesTableViewCellModel(year: year, expenses: $0) }
+            .sorted { $0.key < $1.key }
+            .map { TypeExpensesTableViewCellModel(year: year, expenses: $0.value) }
             .map { ExpensesSectionItem.type(viewModel: $0) }
         
         let section = ExpensesSectionModel.type(items: items)
