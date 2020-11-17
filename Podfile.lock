@@ -5,9 +5,9 @@ PODS:
   - Charts/Core (3.6.0)
   - Differentiator (4.0.1)
   - Keys (1.0.1)
-  - Parse (1.18.0):
-    - Parse/Core (= 1.18.0)
-  - Parse/Core (1.18.0):
+  - Parse (1.19.1):
+    - Parse/Core (= 1.19.1)
+  - Parse/Core (1.19.1):
     - Bolts/Tasks (= 1.9.1)
   - RxBlocking (5.1.1):
     - RxSwift (~> 5)
@@ -44,17 +44,16 @@ DEPENDENCIES:
   - RxTest (~> 5)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - RxCocoa
-    - RxRelay
-    - RxSwift
   trunk:
     - Bolts
     - Charts
     - Differentiator
     - Parse
     - RxBlocking
+    - RxCocoa
     - RxDataSources
+    - RxRelay
+    - RxSwift
     - RxSwiftExt
     - RxTest
 
@@ -67,7 +66,7 @@ SPEC CHECKSUMS:
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
-  Parse: 79bdda34fdb7eb2a707a43a951c8aae236cb3e34
+  Parse: e40fdb9c7d665823b7fe9865949cac9a53eb2ce7
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
@@ -78,4 +77,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 279806404cee55fb2e8e9009842612788fc564c8
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
