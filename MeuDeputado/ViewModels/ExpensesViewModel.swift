@@ -4,6 +4,10 @@ import Parse
 
 final class ExpensesViewModel: ViewModelType {
 	
+    enum Destination {
+        case toComparation
+    }
+    
 	struct Constants { }
 
 	struct Input { }
@@ -15,15 +19,25 @@ final class ExpensesViewModel: ViewModelType {
 	
 	private let content: MainContent
 	private let finder: Fetchable
+    private let contentTocompare: PublishSubject<MainContent>
 
     private let year: BehaviorSubject<Int>
     
+    private var totalExpenses = [[Int: [Expense]]]()
+    private let navigationPublisher = PublishSubject<Pilot<Destination>>()
+    
+    var navigation: Driver<Pilot<Destination>> {
+        navigationPublisher.asDriverOnErrorJustComplete()
+    }
+
 	init(
 		content: MainContent,
-		finder: Fetchable
+		finder: Fetchable,
+        contentTocompare: PublishSubject<MainContent>
 	) {
 		self.content = content
 		self.finder = finder
+        self.contentTocompare = contentTocompare
         
         let date = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -33,21 +47,31 @@ final class ExpensesViewModel: ViewModelType {
 	}
 	
 	func transform(input: Input) -> Output {
-
-		let kind = Observable.just(content.model)
+        
+        //let contentModel = Observable.just(content.model)
+        
+        let contentModelFromCompare = contentTocompare.map { $0.model }
+        let contentModelFromInit = Observable.just(content.model)
+        
+        let contentModel = Observable.merge(contentModelFromCompare, contentModelFromInit)
+            .share()
+        
 		let queryParameters = Observable.combineLatest(year, Observable.just(content.id))
 
-		let _deputyExpenses = kind.filter { $0 == .deputy }
+		let _deputyExpenses = contentModel
+            .filter { $0 == .deputy }
 			.withLatestFrom(queryParameters)
-			.flatMapLatest(deputyExpenses)
+            .flatMapLatest(deputyExpenses)
 			.map(deputyToExpenseContent)
 		
-		let _partyExpenses = kind.filter { $0 == .party }
+		let _partyExpenses = contentModel
+            .filter { $0 == .party }
 			.withLatestFrom(queryParameters)
 			.flatMapLatest(partyExpenses)
 			.map(partyToExpenseContent)
 		
         let expenses = Observable.merge(_deputyExpenses, _partyExpenses)
+            .share()
         
         let total = expenses
             .map(totalExpensesCellModel)
@@ -57,7 +81,7 @@ final class ExpensesViewModel: ViewModelType {
 
         let dataSource = Observable.combineLatest(total, types) { $0 + $1 }
             .asDriverOnErrorJustComplete()
-        
+
         return Output(
             title: .just(content.title),
             dataSource: dataSource
@@ -124,10 +148,14 @@ extension ExpensesViewModel {
     private func totalExpensesCellModel(
         _ expenses: [Int: [Expense]]
     ) -> [ExpensesSectionModel] {
+        
+        totalExpenses.append(expenses)
+        
         let viewModel = TotalExpensesTableViewCellModel(
             year: year,
             information: content.information,
-            expense: expenses
+            expense: /*expenses*/ totalExpenses[0],
+            navigation: navigationPublisher
         )
         let item = ExpensesSectionItem.total(viewModel: viewModel)
         let section = ExpensesSectionModel.total(items: [item])
@@ -137,9 +165,14 @@ extension ExpensesViewModel {
     private func typeExpensesCellModel(
         _ expenses: [Int: [Expense]]
     ) -> [ExpensesSectionModel] {
+        
+        
+        
         let items = expenses
             .sorted { $0.key < $1.key }
-            .map { TypeExpensesTableViewCellModel(year: year, expenses: $0.value) }
+            .map {
+                TypeExpensesTableViewCellModel(year: year, expenses: $0.value)
+                }
             .map { ExpensesSectionItem.type(viewModel: $0) }
         
         let section = ExpensesSectionModel.type(items: items)

@@ -12,7 +12,7 @@ final class FirstViewModel: ViewModelType {
     }
 	
 	struct Constants {
-		static let buttonTitle = "Start"
+		static let buttonTitle = "Começar"
 	}
 	
 	struct Input {
@@ -21,12 +21,12 @@ final class FirstViewModel: ViewModelType {
 	
 	struct Output { }
 	
-	var navigation: Driver<Pilot<Destination>> {
-		navigationPublisher.asDriverOnErrorJustComplete()
-    }
-	
 	private let navigationPublisher = PublishSubject<Pilot<Destination>>()
 	private let disposeBag = DisposeBag()
+    
+    var navigation: Driver<Pilot<Destination>> {
+        navigationPublisher.asDriverOnErrorJustComplete()
+    }
 
 	func transform(input: Input) -> Output {
 		

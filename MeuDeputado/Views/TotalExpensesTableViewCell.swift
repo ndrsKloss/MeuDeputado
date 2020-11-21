@@ -23,6 +23,12 @@ final class TotalExpensesTableViewCell: UITableViewCell {
         return $0
     }(UILabel())
     
+    private let compareButton: UIButton = {
+        $0.backgroundColor = .blue
+        $0.setTitle("Compare", for: .normal)
+        return $0
+    } (UIButton())
+    
     private let expenseChartView = ExpenseChartView()
     
     private var disposeBag = DisposeBag()
@@ -36,6 +42,7 @@ final class TotalExpensesTableViewCell: UITableViewCell {
         configureSelf()
         configureBackgroundView()
         configureInformation()
+        configureCompareButton()
         condigureExpenseChartView()
     }
     
@@ -70,13 +77,23 @@ final class TotalExpensesTableViewCell: UITableViewCell {
         ])
     }
     
+    private func configureCompareButton() {
+        roundedView.addSubviewWithAutolayout(compareButton)
+        
+        NSLayoutConstraint.activate([
+            compareButton.topAnchor.constraint(equalTo: information.bottomAnchor, constant: Spacing.small),
+            compareButton.leadingAnchor.constraint(equalTo: roundedView.leadingAnchor, constant: Spacing.medium),
+            roundedView.trailingAnchor.constraint(greaterThanOrEqualTo: compareButton.trailingAnchor, constant: Spacing.medium)
+        ])
+    }
+    
     private func condigureExpenseChartView() {
         expenseChartView.expenseTypeLabel.text = Constants.expenseType
         
         roundedView.addSubviewWithAutolayout(expenseChartView)
         
         NSLayoutConstraint.activate([
-            expenseChartView.topAnchor.constraint(equalTo: information.bottomAnchor, constant: Spacing.large),
+            expenseChartView.topAnchor.constraint(equalTo: compareButton.bottomAnchor, constant: Spacing.large),
             expenseChartView.leadingAnchor.constraint(equalTo: roundedView.leadingAnchor, constant: Spacing.medium),
             roundedView.trailingAnchor.constraint(equalTo: expenseChartView.trailingAnchor, constant: Spacing.medium),
             roundedView.bottomAnchor.constraint(equalTo: expenseChartView.bottomAnchor)
@@ -85,7 +102,8 @@ final class TotalExpensesTableViewCell: UITableViewCell {
     
     func configure(withViewModel viewModel: TotalExpensesTableViewCellModel) {
         let input = Input(
-            index: expenseChartView.index
+            index: expenseChartView.index,
+            compareButtonTap: compareButton.rx.tap
         )
         
         let output = viewModel.transform(input: input)

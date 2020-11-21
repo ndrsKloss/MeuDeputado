@@ -15,6 +15,11 @@ final class MainContainerViewController:
 	
 	private let switchOptionView = SwitchOptionView()
 	
+    private lazy var topConstraint = switchOptionView.topAnchor.constraint(
+        equalToSystemSpacingBelow: guide.topAnchor,
+        multiplier: 1.0
+    )
+    
 	private var loaderView: LoaderView?
 	
 	private var errorView: ErrorView?
@@ -51,9 +56,9 @@ final class MainContainerViewController:
 	
 	private func configureSwitchOptionView() {
 		view.addSubviewWithAutolayout(switchOptionView)
-		
+        
 		NSLayoutConstraint.activate([
-			switchOptionView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+            topConstraint,
 			switchOptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Spacing.large),
 			view.trailingAnchor.constraint(equalTo: switchOptionView.trailingAnchor, constant: Spacing.large),
 		])
@@ -182,4 +187,21 @@ extension MainContainerViewController {
 			viewControllers.last?.view
 		}
 	}
+}
+
+extension MainContainerViewController: Styleable {
+    struct MainContainerStyle {
+        let topConstraintConstant: CGFloat
+        
+        static let presented = MainContainerStyle(
+            topConstraintConstant: Spacing.xlarge
+        )
+    }
+    
+    func apply(style: MainContainerStyle) {
+        self.view.layoutIfNeeded()
+        topConstraint.constant = style.topConstraintConstant
+        
+        
+    }
 }

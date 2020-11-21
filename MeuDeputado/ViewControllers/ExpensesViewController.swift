@@ -9,9 +9,7 @@ final class ExpensesViewController: UIViewController {
 	typealias Input = ExpensesViewModel.Input
 	
 	private let viewModel: ExpensesViewModel
-    
-    private let disposeBag = DisposeBag()
-    
+
     private let tableView: UITableView = {
         $0.separatorColor = .neutralBase
         $0.backgroundColor = .neutralLighter
@@ -27,6 +25,8 @@ final class ExpensesViewController: UIViewController {
         return $0
     }(UITableView())
 	
+    let disposeBag = DisposeBag()
+    
 	init(
 		viewModel: ExpensesViewModel
 	) {

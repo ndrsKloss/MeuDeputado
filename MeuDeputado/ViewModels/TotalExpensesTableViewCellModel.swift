@@ -4,12 +4,15 @@ import Charts
 
 final class TotalExpensesTableViewCellModel: ViewModelType {
 
+    typealias Destination = ExpensesViewModel.Destination
+    
     struct Constants {
         static let expenseType = NSLocalizedString("Total-Expenses", comment: "")
     }
     
     struct Input {
         let index: Observable<Double>
+        let compareButtonTap: ControlEvent<Void>
     }
     
     struct Output {
@@ -22,12 +25,14 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
         let entry: Driver<ExpensesLineChartDataSet>
     }
     
+    private let disposeBag = DisposeBag()
     private let year: BehaviorSubject<Int>
     private let information: String
     private var months = [String]()
     private var values = [Decimal]()
     private var entries = [ChartDataEntry]()
     private var dataSet: ExpensesLineChartDataSet?
+    private let navigation: PublishSubject<Pilot<Destination>>
     
     private var _initialIndex = 0
     private var initialIndex: Observable<Int> {
@@ -37,10 +42,12 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     init(
         year: BehaviorSubject<Int>,
         information: String,
-        expense: [Int: [Expense]]
+        expense: [Int: [Expense]],
+        navigation: PublishSubject<Pilot<Destination>>
     ) {
         self.year = year
         self.information = information
+        self.navigation = navigation
         
         let expensesGroupedByMonth = groupExpensesByMonth(expense)
         let totalGroupedExpesesesByMonth = totalExpensesByMonth(expensesGroupedByMonth)
@@ -153,6 +160,11 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
         let dataSet = Observable.just(self.dataSet)
             .unwrap()
             .asDriverOnErrorJustComplete()
+        
+        input.compareButtonTap
+            .map { _ in .init(destination: .toComparation) }
+            .bind(to: navigation)
+            .disposed(by: disposeBag)
 
         return Output (
             year: year,
