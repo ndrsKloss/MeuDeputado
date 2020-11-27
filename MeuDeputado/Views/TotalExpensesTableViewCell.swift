@@ -116,10 +116,9 @@ final class TotalExpensesTableViewCell: UITableViewCell {
             .drive(information.rx.text)
             .disposed(by: disposeBag)
         
-        output.dataSet
+        output.lineChartData
             .drive(onNext: { [unowned self] in
-                let data = LineChartData(dataSet: $0)
-                self.expenseChartView.chartView.data = data
+                self.expenseChartView.chartView.data = $0
             })
             .disposed(by: disposeBag)
         

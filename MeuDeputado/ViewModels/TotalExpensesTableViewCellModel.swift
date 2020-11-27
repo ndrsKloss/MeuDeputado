@@ -18,7 +18,7 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     struct Output {
         let year: Driver<String>
         let information: Driver<String>
-        let dataSet: Driver<ExpensesLineChartDataSet>
+        let lineChartData: Driver<LineChartData>
         let value: Driver<String?>
         let months: Driver<[String]>
         let index: Driver<Int>
@@ -30,8 +30,12 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     private let information: String
     private var months = [String]()
     private var values = [Decimal]()
-    private var entries = [ChartDataEntry]()
-    private var dataSet: ExpensesLineChartDataSet?
+    
+    //private var entries = [ChartDataEntry]()
+    //private var dataSets = [ExpensesLineChartDataSet]()
+    
+    private var lineChartData: LineChartData?
+    
     private let navigation: PublishSubject<Pilot<Destination>>
     
     private var _initialIndex = 0
@@ -42,23 +46,40 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
     init(
         year: BehaviorSubject<Int>,
         information: String,
-        expense: [Int: [Expense]],
+        expense: [[Int: [Expense]]],
         navigation: PublishSubject<Pilot<Destination>>
     ) {
         self.year = year
         self.information = information
         self.navigation = navigation
+
+        lineChartData = LineChartData(dataSets: expense.map(dataSetsFromExpenses))
         
-        let expensesGroupedByMonth = groupExpensesByMonth(expense)
+        /*let expensesGroupedByMonth = groupExpensesByMonth(expense)
         let totalGroupedExpesesesByMonth = totalExpensesByMonth(expensesGroupedByMonth)
         let expensesWithMonthsMapped: [(month: String, value: Decimal)] = mapMonths(totalGroupedExpesesesByMonth)
         months = expensesWithMonthsMapped.map { $0.month }
         values = expensesWithMonthsMapped.map { $0.value }
         let entries = mapEntries(expensesWithMonthsMapped)
         self.entries = entries
-        dataSet = ExpensesLineChartDataSet(entries: entries, drawCirclesEnabled: false)
+        dataSet = ExpensesLineChartDataSet(entries: entries, drawCirclesEnabled: false)*/
     }
 
+    func dataSetsFromExpenses(
+        _ expense: [Int: [Expense]]
+    ) -> ExpensesLineChartDataSet {
+        let expensesGroupedByMonth = groupExpensesByMonth(expense)
+        let totalGroupedExpesesesByMonth = totalExpensesByMonth(expensesGroupedByMonth)
+        let expensesWithMonthsMapped: [(month: String, value: Decimal)] = mapMonths(totalGroupedExpesesesByMonth)
+        months = expensesWithMonthsMapped.map { $0.month }
+        values = expensesWithMonthsMapped.map { $0.value }
+        let entries = mapEntries(expensesWithMonthsMapped)
+        
+        //self.entries.append(contentsOf: entries)
+        
+        return  ExpensesLineChartDataSet(entries: entries, drawCirclesEnabled: false)
+    }
+    
     private func groupExpensesByMonth(
         _ expense: [Int: [Expense]]
     ) -> [Int: [Decimal]] {
@@ -147,17 +168,17 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
             .map(formatCurrency)
             .asDriverOnErrorJustComplete()
         
-        let entry = Observable.combineLatest(Observable.just(entries), index)
+        /*let entry = Observable.combineLatest(Observable.just(entries), index)
             .map { [$0.0[$0.1]] }
             .map { ExpensesLineChartDataSet(entries: $0, drawCirclesEnabled: true) }
-            .asDriverOnErrorJustComplete()
+            .asDriverOnErrorJustComplete()*/
         
         let year = self.year
             .map { String($0) }
             .take(1)
             .asDriverOnErrorJustComplete()
         
-        let dataSet = Observable.just(self.dataSet)
+        let lineChartData = Observable.just(self.lineChartData)
             .unwrap()
             .asDriverOnErrorJustComplete()
         
@@ -169,11 +190,11 @@ final class TotalExpensesTableViewCellModel: ViewModelType {
         return Output (
             year: year,
             information: .just(information),
-            dataSet: dataSet,
+            lineChartData: lineChartData,
             value: value,
             months: .just(months),
             index: index.asDriverOnErrorJustComplete(),
-            entry: entry
+            entry: .never()//entry
         )
     }
 }

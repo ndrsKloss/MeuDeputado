@@ -154,7 +154,7 @@ extension ExpensesViewModel {
         let viewModel = TotalExpensesTableViewCellModel(
             year: year,
             information: content.information,
-            expense: /*expenses*/ totalExpenses[0],
+            expense: /*expenses*/ totalExpenses,
             navigation: navigationPublisher
         )
         let item = ExpensesSectionItem.total(viewModel: viewModel)
