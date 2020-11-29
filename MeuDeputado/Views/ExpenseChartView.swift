@@ -61,8 +61,6 @@ final class ExpenseChartView: UIView {
         configureValueLabel()
         configureChartView()
         configureBaseStackView()
-
-        chartView.lineData?.addDataSet(LineChartDataSet(entries: []))
 	}
 	
 	@available(*, unavailable)
@@ -111,7 +109,7 @@ final class ExpenseChartView: UIView {
             chartView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.medium),
             trailingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: Spacing.medium),
             
-            chartView.heightAnchor.constraint(equalToConstant: 100.0)
+            chartView.heightAnchor.constraint(equalToConstant: 150.0)
         ])
     }
     
