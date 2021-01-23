@@ -1,6 +1,5 @@
 import RxSwift
 
 protocol OperationScheduable {
-	var scheduler: OperationQueueScheduler { get }
+  var scheduler: OperationQueueScheduler { get }
 }
-

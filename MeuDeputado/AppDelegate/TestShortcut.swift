@@ -1,5 +1,5 @@
-import UIKit
 import Parse
+import UIKit
 
 @objc(TestShortcut)
-class TestShortcut: UIResponder, UIApplicationDelegate { }
+class TestShortcut: UIResponder, UIApplicationDelegate {}
